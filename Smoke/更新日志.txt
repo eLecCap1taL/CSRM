@@ -1,0 +1,5 @@
+v1.2
+修复mirage Other 中 RadioInfo1CMD 未重置 sm 的问题 (感谢 hastl.)
+
+[未实现] 左下角消息提示的开关
+[未实现] 双键投掷支持

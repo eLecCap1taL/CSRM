@@ -1,0 +1,73 @@
+"Tokens"
+{
+    // PWA Vote
+	"SFUI_Vote_TeamDamage_PWA"                    "是否启用队友伤害？"
+	"SFUI_Vote_TeamDamage_Passed_PWA"             "投票通过！<font color='#FF0000'>开启队友伤害</font>"
+	
+	"SFUI_Vote_KnifeRound_PWA"                    "是否启用拼刀选边？1"
+	"SFUI_OP"                    "玩原神玩的"
+	"SFUI_Vote_KnifeRound_Passed_PWA"             "投票通过！<font color='#00FF00'>开启拼刀选边</font>"
+	
+	"SFUI_Vote_SwapCamp_PWA"                    "是否与对手交换阵营？"
+	"SFUI_Vote_SwapCamp_Passed_PWA"             "投票通过！<font color='#00FF00'>进行阵营交换</font>"
+	
+	"SFUI_Vote_OverTime_PWA"                    "是否进行加时赛？"
+	"SFUI_Vote_OverTime_Passed_PWA"             "投票通过！<font color='#00FF00'>开启加时赛</font>"
+	
+	"SFUI_Vote_Unpause_PWA"                    "是否解除暂停？"
+	"SFUI_Vote_Unpause_Passed_PWA"             "投票通过！<font color='#00FF00'>解除暂停</font>"
+	
+	"SFUI_Vote_Surrender_PWA"                    "是否投降？<br>（<font color='#00FF00'>需要全队玩家同意</font>）"
+	"SFUI_Vote_Surrender_Passed_PWA"             "投票通过！<font color='#00FF00'>你方已投降</font>"
+
+	"CFG_MAP_Dust2"                    "炙热沙城Ⅱ"
+	"CFG_MAP_Mirage"                    "荒漠迷城"
+	"CFG_MAP_Inferno"                    "炼狱小镇"
+	"CFG_MAP_Ancient"                    "远古遗迹"
+	"CFG_MAP_Vertigo"                    "殒命大厦"
+	"CFG_MAP_Nuke"                    "核子危机"
+	"CFG_MAP_Anubis"                    "阿努比斯"
+
+	"CFG_Function_LstMenu"                    "返回上层菜单"
+	"CFG_Function_PrePage"                    "上一页"
+	"CFG_Function_NxtPage"                    "下一页"
+	"CFG_Function_IsLstMenu"                    "已是第一级菜单"
+	"CFG_Function_IsPrePage"                    "已是第一页"
+	"CFG_Function_IsNxtPage"                    "已是最后一页"
+	
+	"CFG_Noun_SPos1"                    "出生位1"
+	"CFG_Noun_SPos2"                    "出生位2"
+	"CFG_Noun_SPos3"                    "出生位3"
+	"CFG_Noun_SPos4"                    "出生位4"
+	"CFG_Noun_SPos5"                    "出生位5"
+	"CFG_Noun_SPos6"                    "出生位6"
+	"CFG_Noun_SPos7"                    "出生位7"
+	"CFG_Noun_SPos8"                    "出生位8"
+	"CFG_Noun_SPos9"                    "出生位9"
+	"CFG_Noun_SPos10"                    "出生位10"
+	"CFG_Noun_SPos11"                    "出生位11"
+	"CFG_Noun_SPos12"                    "出生位12"
+	"CFG_Noun_SPos13"                    "出生位13"
+	"CFG_Noun_SPos14"                    "出生位14"
+	"CFG_Noun_SPos15"                    "出生位15"
+
+	"CFG_Inferno_Faze"                    "CT出生位FAZE烟"
+
+	"CFG_Dust2_AShortTotal"                    "A小道具"
+	"CFG_Dust2_AShort1"                    "A小烟1"
+	"CFG_Dust2_AShort2"                    "A小烟2"
+	"CFG_Dust2_BBombTotal"                    "B包道具"
+	"CFG_Dust2_BBomb1"                    "B门烟"
+	"CFG_Dust2_BBomb2"                    "狗洞烟"
+	"CFG_Dust2_BBomb3"                    "狙位隔断烟"
+	"CFG_Dust2_OutMidTotal"                    "中路道具"
+	"CFG_Dust2_OutMid1"                    "警家烟"
+	"CFG_Dust2_OutMid2"                    "出中门闪"
+	"CFG_Dust2_FastMidTotal"                    "快速中门烟"
+
+	"CFG_Mirage_Tramp"                    "CT出生位匪口烟"
+	"CFG_Mirage_Other"                    "其他道具"
+	"CFG_Mirage_B2Window"                    "B2窗口挂壁烟"
+	"CFG_Mirage_VIPTotal"                    "T出生位快速VIP烟"
+
+}
