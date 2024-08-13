@@ -7,10 +7,15 @@
 
 ### English
 
-// Your English content here
+:(
 
 ---
 
 ### 中文
 
-// Your Chinese content here
+什么是 CSRM ？
+· CSRM 是一个使用 CS2 CFG(Config) 的无线电轮盘指令制作的 CFG 开源框架模板。
+CSRM 包含什么？
+· CSRM 包含了一套简洁的轮盘功能实现，支持嵌套、翻页等功能，以及一些内置的强大功能，例如道具轮盘、空格大跳、自动急停、快速静步……等等大量功能，并且拥有一套统一的事件注册逻辑，以及首选项CFG！
+CSRM 有什么用处？
+依照规范使用并自定义 CSRM，您可以将单个或多个CFG用轮盘这种直观的方式统一管理，便于使用。这相当于在 CS 内拥有自定义 GUI！
