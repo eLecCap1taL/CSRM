@@ -4,7 +4,7 @@
 	"SFUI_Vote_TeamDamage_PWA"                    "是否启用队友伤害？"
 	"SFUI_Vote_TeamDamage_Passed_PWA"             "投票通过！<font color='#FF0000'>开启队友伤害</font>"
 	
-	"SFUI_Vote_KnifeRound_PWA"                    "是否启用拼刀选边？1"
+	"SFUI_Vote_KnifeRound_PWA"                    "是否启用拼刀选边？"
 	"SFUI_OP"                    "玩原神玩的"
 	"SFUI_Vote_KnifeRound_Passed_PWA"             "投票通过！<font color='#00FF00'>开启拼刀选边</font>"
 	
