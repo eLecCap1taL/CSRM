@@ -25,6 +25,11 @@ CFG官匹完美5e或其他平台都可用
 
 3. 修改CFG设置  (全平台玩家必做)
 回到刚才复制后的 CSRM 文件夹，打开Preference.cfg (如果没有打开方式，右键选择记事本打开即可)
+一定要完整看一遍Preference.cfg！！
+一定要完整看一遍Preference.cfg！！
+一定要完整看一遍Preference.cfg！！
+一定要完整看一遍Preference.cfg！！
+一定要完整看一遍Preference.cfg！！
 注意！！你只能修改《不是//开头的》的行！！
 注意！！你只能修改《不是//开头的》的行！！
 注意！！你只能修改《不是//开头的》的行！！

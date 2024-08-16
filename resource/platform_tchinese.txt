@@ -4,7 +4,7 @@
 	"SFUI_Vote_TeamDamage_PWA"                    "是否启用队友伤害？"
 	"SFUI_Vote_TeamDamage_Passed_PWA"             "投票通过！<font color='#FF0000'>开启队友伤害</font>"
 	
-	"SFUI_Vote_KnifeRound_PWA"                    "是否启用拼刀选边？1"
+	"SFUI_Vote_KnifeRound_PWA"                    "是否启用拼刀选边？"
 	"SFUI_OP"                    "玩原神玩的"
 	"SFUI_Vote_KnifeRound_Passed_PWA"             "投票通过！<font color='#00FF00'>开启拼刀选边</font>"
 	
@@ -63,16 +63,18 @@
 	"CFG_Settings_ChangeOutput_All"                    "令文字输出至全局聊天"
 	"CFG_Settings_CFGGuide"                    "查看CFG教程"
 
-	"CFG_Addon_DuckJump_On"                    "开启空格大跳"
-	"CFG_Addon_DuckJump_Off"                    "关闭空格大跳"
+	"CFG_Addon_DuckJump_On"                    "开启跳跃键大跳"
+	"CFG_Addon_DuckJump_Off"                    "关闭跳跃键大跳"
 	
 	"CFG_Addon_WheelJump_On"                    "开启滚轮连跳增强"
-	"CFG_Addon_WheelJump_Only"                    "仅空格时开启滚轮连跳增强"
+	"CFG_Addon_WheelJump_Only"                    "仅跳跃键时开启滚轮连跳增强"
 	"CFG_Addon_WheelJump_Off"                    "关闭滚轮连跳增强"
 
 
 	"CFG_Addon_IMStop_Full"                    "开启全向急停CFG"
 	"CFG_Addon_IMStop_WC"                    "开启无冲急停CFG"
+	"CFG_Addon_IMStop_SnapTap"                    "开启SnapTap急停CFG"
+	"CFG_Addon_IMStop_DB"                    "开启仅双键急停CFG"
 	"CFG_Addon_IMStop_Old"                    "开启旧式急停CFG"
 	"CFG_Addon_IMStop_OnlyWS"                    "开启仅WS急停CFG"
 	"CFG_Addon_IMStop_None"                    "关闭急停CFG"
@@ -83,8 +85,8 @@
 	"CFG_Addon_FastShift_M4"                    "启用警方步枪快速静步"
 	"CFG_Addon_FastShift_AK"                    "启用匪方步枪快速静步"
 
-	"CFG_Addon_Attack_When_Defusing_On"                    "启用拆包时快速开火"
-	"CFG_Addon_Attack_When_Defusing_Off"                    "关闭拆包时快速开火"
+	"CFG_Addon_AttackDeDefuse_On"                    "启用拆包时开火自动取消拆包"
+	"CFG_Addon_AttackDeDefuse_Off"                    "关闭拆包时开火自动取消拆包"
 
 	"CFG_Addon_Gyroscope_On"                    "开启大陀螺(官匹有封号风险)"
 	"CFG_Addon_Gyroscope_Off"                    "关闭大陀螺(官匹有封号风险)"
@@ -96,6 +98,8 @@
 	"CFG_Addon_Fast_Switch_Off"                    "关闭投掷后快速切换"
 
 	"CFG_Inferno_Faze"                    "CT出生位FAZE烟"
+	"CFG_Inferno_ReABombTotal"                    "A区回防道具"
+	"CFG_Inferno_ReABombFullMolo"                    "多点满烧火"
 
 	"CFG_Dust2_AShortTotal"                    "A小道具"
 	"CFG_Dust2_AShort1"                    "A小烟1"
