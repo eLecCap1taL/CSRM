@@ -73,7 +73,8 @@
 
 	"CFG_Addon_IMStop_Full"                    "开启全向急停CFG"
 	"CFG_Addon_IMStop_WC"                    "开启无冲急停CFG"
-	"CFG_Addon_IMStop_WC"                    "开启SnapTap急停CFG"
+	"CFG_Addon_IMStop_SnapTap"                    "开启SnapTap急停CFG"
+	"CFG_Addon_IMStop_DB"                    "开启仅双键急停CFG"
 	"CFG_Addon_IMStop_Old"                    "开启旧式急停CFG"
 	"CFG_Addon_IMStop_OnlyWS"                    "开启仅WS急停CFG"
 	"CFG_Addon_IMStop_None"                    "关闭急停CFG"
