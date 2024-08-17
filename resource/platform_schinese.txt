@@ -94,15 +94,18 @@
 	"CFG_Addon_Fast_Shoot_On"                    "开启手枪速射"
 	"CFG_Addon_Fast_Shoot_Off"                    "关闭手枪速射"
 
-	"CFG_Addon_RecoilFastRev_On"                    "开启准心快速回正"
-	"CFG_Addon_RecoilFastRev_Off"                    "关闭准心快速回正"
-
 	"CFG_Addon_Recoil_On"                    "开启准心跟随"
 	"CFG_Addon_Recoil_Only"                    "仅跑打开启准心跟随"
 	"CFG_Addon_Recoil_Off"                    "关闭准心跟随"
+
+	"CFG_Addon_RecoilFastRev_On"                    "开启准心快速回正"
+	"CFG_Addon_RecoilFastRev_Off"                    "关闭准心快速回正"
+
+	"CFG_Addon_DoubleCrossHair_On"                    "开启双准心"
+	"CFG_Addon_DoubleCrossHair_Off"                    "关闭双准心"
 	
-	"CFG_Addon_Fast_Switch_On"                    "开启投掷后快速切换"
-	"CFG_Addon_Fast_Switch_Off"                    "关闭投掷后快速切换"
+	"CFG_Addon_FadeRecoil_On"                    "开启跟随准心逐渐显示"
+	"CFG_Addon_FadeRecoil_Off"                    "关闭跟随准心逐渐显示"
 
 	"CFG_Inferno_Faze"                    "CT出生位FAZE烟"
 	"CFG_Inferno_ReABombTotal"                    "A区回防道具"
