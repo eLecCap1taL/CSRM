@@ -93,6 +93,13 @@
 
 	"CFG_Addon_Fast_Shoot_On"                    "开启手枪速射"
 	"CFG_Addon_Fast_Shoot_Off"                    "关闭手枪速射"
+
+	"CFG_Addon_RecoilFastRev_On"                    "开启准心快速回正"
+	"CFG_Addon_RecoilFastRev_Off"                    "关闭准心快速回正"
+
+	"CFG_Addon_Recoil_On"                    "开启准心跟随"
+	"CFG_Addon_Recoil_Only"                    "仅跑打开启准心跟随"
+	"CFG_Addon_Recoil_Off"                    "关闭准心跟随"
 	
 	"CFG_Addon_Fast_Switch_On"                    "开启投掷后快速切换"
 	"CFG_Addon_Fast_Switch_Off"                    "关闭投掷后快速切换"
