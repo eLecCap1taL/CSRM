@@ -1,0 +1,114 @@
+﻿{
+    "bindings":  [
+                     {
+                         "label":  "轮盘触发",
+                         "ban_key":  "",
+                         "key":  "SEMICOLON",
+                         "nd":  "bind SEMICOLON +Radio"
+                     },
+                     {
+                         "label":  "CFG返回主页面键",
+                         "ban_key":  "",
+                         "key":  ".",
+                         "nd":  "bind . ResetRadioPage"
+                     },
+                     {
+                         "label":  "急停临时关闭键",
+                         "ban_key":  [
+                                         "SHIFT",
+                                         "RSHIFT"
+                                     ],
+                         "key":  "SHIFT",
+                         "nd":  "bind SHIFT +DisableIMStop"
+                     },
+                     {
+                         "label":  "投掷键",
+                         "ban_key":  "Q",
+                         "key":  "]",
+                         "nd":  [
+                                    "alias ClearThrow bind ] NoneAimedUse",
+                                    "alias SetT bind ] +ST",
+                                    "alias SetDBT bind ] +DBT",
+                                    "alias SetJP bind ] +JPT",
+                                    "alias SetFJP bind ] +FJPT"
+                                ]
+                     },
+                     {
+                         "label":  "爆弹键",
+                         "ban_key":  "",
+                         "key":  "\u0027",
+                         "nd":  "bind \u0027 +RevS"
+                     },
+                     {
+                         "label":  "CFG重置键",
+                         "ban_key":  "",
+                         "key":  "/",
+                         "nd":  "bind / ResetCFG"
+                     },
+                     {
+                         "label":  "瞄准键",
+                         "ban_key":  "",
+                         "key":  "[",
+                         "nd":  "bind [ +GrenadeTask"
+                     }
+                 ],
+    "sensitivity":  {
+                        "pitch":  "0.022000",
+                        "yaw":  "0.022000",
+                        "sensitivity":  "5.000000"
+                    },
+    "settings":  [
+                     {
+                         "selectedOption":  "0",
+                         "name":  "test0",
+                         "options":  [
+                                         "0",
+                                         "1"
+                                     ],
+                         "cfg_options":  [
+                                             "0",
+                                             "1"
+                                         ]
+                     },
+                     {
+                         "selectedOption":  "1",
+                         "name":  "test1",
+                         "options":  [
+                                         "0",
+                                         "1"
+                                     ],
+                         "cfg_options":  [
+                                             "0",
+                                             "1"
+                                         ]
+                     },
+                     {
+                         "selectedOption":  "CFG主页面",
+                         "name":  "你CFG的默认主页面",
+                         "options":  [
+                                         "道具轮盘页面",
+                                         "CFG主页面"
+                                     ],
+                         "cfg_options":  [
+                                             "RadioPrefer_Grenade",
+                                             "RadioPrefer_CFGMain"
+                                         ]
+                     },
+                     {
+                         "selectedOption":  "队内聊天",
+                         "name":  "默认消息输出模式",
+                         "options":  [
+                                         "不输出",
+                                         "队内聊天",
+                                         "控制台",
+                                         "所有人"
+                                     ],
+                         "cfg_options":  [
+                                             "OutputSwitcherNone",
+                                             "OutputSwitcherTeam",
+                                             "OutputSwitcherEcho",
+                                             "OutputSwitcherAll"
+                                         ]
+                     }
+                 ]
+}
