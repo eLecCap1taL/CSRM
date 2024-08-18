@@ -521,7 +521,7 @@ $okButton.Margin = New-Object System.Windows.Forms.Padding(10)
 $tableLayoutPanel.Controls.Add($okButton, 0, 4)
 $tableLayoutPanel.SetColumnSpan($okButton, 2)
 
-重新写
+
 # 创建自动添加启动项的复选框
 $autoexecCheckBox = New-Object System.Windows.Forms.CheckBox
 $autoexecCheckBox.Text = "帮我在autoexec中添加启动项(建议勾选)"
@@ -611,17 +611,7 @@ $okButton.Add_Click({
         # 更新灵敏度
         $sensitivityPattern = '(alias StopGrenade "sensitivity )[\d.]+;(m_yaw )[\d.]+;(m_pitch )[\d.]+"'
         $sensitivityReplacement = "`${1}$sensitivity;`${2}$yaw;`${3}$pitch`""
-        Write-Verbose "Attempting to update sensitivity settings"
-        Write-Verbose "Original content: $($content -match $sensitivityPattern)"
-        $newContent = $content -replace $sensitivityPattern, $sensitivityReplacement
-        if ($newContent -ne $content) {
-            Write-Verbose "Sensitivity settings updated successfully"
-            Write-Verbose "New content: $($newContent -match $sensitivityReplacement)"
-            $content = $newContent
-        }
-        else {
-            Write-Verbose "Failed to update sensitivity settings. Pattern not found or no changes made."
-        }
+        $content = $content -replace $sensitivityPattern, $sensitivityReplacement
 
         # 处理按键绑定
         $inputValues = @{
@@ -711,7 +701,7 @@ $okButton.Add_Click({
                     Write-Verbose "Processing setting: $settingName"
                     Write-Verbose "Old option: $oldOption"
                     Write-Verbose "New option: $newOption"
-                    
+
                     $pattern = "(?m)^(?!//)\s*" + [regex]::Escape($oldOption) + "\s*$"
                     $newContent = $content -replace $pattern, $newOption
                     if ($newContent -ne $content) {
@@ -734,6 +724,9 @@ $okButton.Add_Click({
             }
         }
 
+        Write-Verbose "Content before writing to file:"
+        Write-Verbose $content
+
         # debug 输出写入内容
         Write-Verbose "Content before writing to file:"
         Write-Verbose ($content | Out-String)
@@ -755,45 +748,108 @@ $okButton.Add_Click({
         if ($autoexecCheckBox.Checked) {
             $csgoConfigPath = Split-Path $PSScriptRoot -Parent
             $autoexecPath = Join-Path -Path $csgoConfigPath -ChildPath "autoexec.cfg"
+            Write-Verbose "Autoexec path: $autoexecPath"
 
-            # 如果没有autoexec.cfg，创建一个
-            if (-not (Test-Path $autoexecPath)) {
-
+            # 检查文件，如果没有autoexec.cfg，创建一个
+            if (Test-Path $autoexecPath) {
+                if ((Get-Item $autoexecPath).IsReadOnly) {
+                    Write-Verbose "autoexec.cfg is read-only"
+                    $feedbackMessage += "autoexec.cfg 是只读文件，无法修改。`n"
+                    return
+                }
+            }
+            else {
                 try {
                     New-Item -Path $autoexecPath -ItemType File -Force | Out-Null
                     Write-Verbose "Created new autoexec.cfg file"
-                    $feedbackMessage += "已创建新的autoexec.cfg文件。`n"
+                    $feedbackMessage += "已创建新的 autoexec.cfg 文件。`n"
                 }
                 catch {
-                    $feedbackMessage += "无法创建autoexec.cfg文件。错误: $_`n"
                     Write-Verbose "Error creating autoexec.cfg: $_"
+                    $feedbackMessage += "无法创建 autoexec.cfg 文件。错误: $_`n"
+                    return
                 }
             }
 
-            # 读取autoexec.cfg
-            $content = if (Test-Path $autoexecPath) { Get-Content $autoexecPath -Raw } else { "" }
+            # 读取
+            try {
+                $content = [System.IO.File]::ReadAllText($autoexecPath)
+                Write-Verbose "Current content of autoexec.cfg:"
+                Write-Verbose $content
+            }
+            catch {
+                Write-Verbose "Error reading autoexec.cfg: $_"
+                $feedbackMessage += "无法读取 autoexec.cfg 文件。错误: $_`n"
+                return
+            }
 
-            # 检查exec CSRM/Main
+            # 检查有无exec CSRM/Main
             if ($content -notmatch "exec CSRM/Main") {
                 try {
-                    # 尝试添加exec CSRM/Main到文件末尾
-                    Add-Content $autoexecPath "`nexec CSRM/Main" -Encoding UTF8
+                    # 尝试添加
+                    $newContent = if ($content) {
+                        if ($content.TrimEnd().EndsWith("`n")) {
+                            $content.TrimEnd() + "exec CSRM/Main`n"
+                        }
+                        else {
+                            $content.TrimEnd() + "`nexec CSRM/Main`n"
+                        }
+                    }
+                    else {
+                        "exec CSRM/Main`n"
+                    }
+
+                    # 写入添加
+                    [System.IO.File]::WriteAllText($autoexecPath, $newContent)
+                    # 莫名的bug，刷新一下
+                    [System.IO.File]::SetLastWriteTime($autoexecPath, 
+                        [DateTime]::Now) 
                     Write-Verbose "Added 'exec CSRM/Main' to autoexec.cfg"
-                    $feedbackMessage += "已成功将'exec CSRM/Main'添加到autoexec.cfg中。`n"
+                    $feedbackMessage += "已尝试将 'exec CSRM/Main' 添加到 autoexec.cfg 中。`n"
                 }
                 catch {
-                    $feedbackMessage += "无法更新autoexec.cfg文件。错误: $_`n"
                     Write-Verbose "Error updating autoexec.cfg: $_"
+                    $feedbackMessage += "无法更新 autoexec.cfg 文件。错误: $_`n"
+                    return
                 }
             }
             else {
                 Write-Verbose "'exec CSRM/Main' already exists in autoexec.cfg"
-                $feedbackMessage += "autoexec.cfg中已存在'exec CSRM/Main'，无需添加。`n"
+                $feedbackMessage += "autoexec.cfg 中已存在 'exec CSRM/Main'，无需添加。`n"
+            }
+
+        
+            # 验证
+            <# try {
+                Start-Sleep -Seconds 1
+                $verificationContent = [System.IO.File]::ReadAllText($autoexecPath)
+                Write-Verbose "Verification content:"
+                Write-Verbose $verificationContent
+                if ($verificationContent -match "exec CSRM/Main") {
+                    Write-Verbose "Verification successful: 'exec CSRM/Main' found in autoexec.cfg"
+                    $feedbackMessage += "验证成功：'exec CSRM/Main' 已在 autoexec.cfg 中找到。`n"
+                }
+                else {
+                    Write-Verbose "Verification failed: 'exec CSRM/Main' not found in autoexec.cfg"
+                    $feedbackMessage += "验证失败：未能在 autoexec.cfg 中找到 'exec CSRM/Main'。`n"
+                }
+            }
+            catch {
+                Write-Verbose "Error verifying autoexec.cfg: $_"
+                $feedbackMessage += "无法验证 autoexec.cfg 文件。错误: $_`n"
+            } #>
+
+            # 最终检查
+            try {
+                $finalContent = [System.IO.File]::ReadAllText($autoexecPath)
+                Write-Verbose "Final content of autoexec.cfg:"
+                Write-Verbose $finalContent
+            }
+            catch {
+                Write-Verbose "Error reading final content of autoexec.cfg: $_"
+                $feedbackMessage += "无法读取 autoexec.cfg 的最终内容。错误: $_`n"
             }
         }
-
-        # 写入
-        Set-Content $configFile -Value $content -Encoding UTF8
 
         Write-Verbose "Saving config file"
         $inputValues | ConvertTo-Json -Depth 3 | Set-Content "config" -Encoding UTF8
@@ -890,3 +946,10 @@ $consolePtr = [Win32]::GetConsoleWindow()
 # 显示窗体
 Write-Verbose "Displaying form"
 $form.ShowDialog()
+
+# 关不掉？我不信
+<# $form.Add_FormClosed({
+     [System.Windows.Forms.Application]::Exit()
+     [System.Environment]::Exit(0)
+})
+信了 #>
