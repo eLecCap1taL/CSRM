@@ -54,6 +54,7 @@
 	"CFG_Noun_CustomGreMenu"                    "自定义道具菜单"
 	"CFG_Noun_Settings"                    "CFG设置"
 	"CFG_Noun_FastShiftMenu"                    "快速静步菜单"
+	"CFG_Noun_BugFlashTotal"                    "BUG闪列表"
 	
 	"CFG_Settings_View"                    "输出当前CFG设置至控制台"
 	"CFG_Settings_ClearEcho"                    "清空控制台"
@@ -127,5 +128,8 @@
 	"CFG_Mirage_Other"                    "其他道具"
 	"CFG_Mirage_B2Window"                    "B2窗口挂壁烟"
 	"CFG_Mirage_VIPTotal"                    "T出生位快速VIP烟"
+
+	"CFG_BugFlash_MirageBShort"                    "迷城B小BUG闪"
+	"CFG_BugFlash_InfernoMid"                    "小镇中路BUG闪"
 
 }
