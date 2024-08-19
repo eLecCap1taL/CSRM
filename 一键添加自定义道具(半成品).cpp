@@ -69,6 +69,6 @@ signed main(){
 	string ch="1";
 	ch[0]='"';
 	HH;
-	cout<<("alias "+reg+" "+ch+"yaw ")<<x<<" 1 1;pitch "<<y<<" 1 1;"<<(a==1?"SetT":(a==2?"SetJP":"SetFJP"))<<";"<<(b==1?"SetNone":"SetDuck")<<";"<<ls<<ch;
+	cout<<("alias "+reg+" "+ch+"yaw ")<<x<<" 1 1;pitch "<<y<<" 1 1;"<<(a==1?"SetT":(a==2?"SetJP":"SetFJP"))<<";"<<(b==1?"SetNone":"SetDuck ")<<";"<<ls<<";SetPreAimOff"<<ch;
 	return 0;
 }

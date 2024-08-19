@@ -1,10 +1,10 @@
-# è®¾ç½®æ§åˆ¶å°ç¼–ç ä¸ºUTF-8
+# ÉèÖÃ¿ØÖÆÌ¨±àÂëÎªUTF-8
 [Console]::OutputEncoding = [System.Text.Encoding]::UTF8
 
-# å¯ç”¨æ—¥å¿—
-# $VerbosePreference = "Continue"
+# ÆôÓÃÈÕÖ¾
+$VerbosePreference = "Continue"
 
-# å¯¼å…¥å¿…è¦çš„ç¨‹åºå¹¶åˆå§‹åŒ–çª—å£
+# µ¼Èë±ØÒªµÄ³ÌĞò²¢³õÊ¼»¯´°¿Ú
 Add-Type -AssemblyName System.Windows.Forms
 [System.Windows.Forms.Application]::EnableVisualStyles()
 Add-Type @"
@@ -29,20 +29,20 @@ public class Win32 {
 }
 "@
 
-# è°ƒç”¨æŒ‰é”®åº“
+# µ÷ÓÃ°´¼ü¿â
 . .\key.ps1
 
-# å…¨å±€å˜é‡
+# È«¾Ö±äÁ¿
 $script:isBinding = $false
 $script:currentBindingButton = $null
 
-# æŒ‰é”®ç»‘å®šæ§ä»¶UIå‚æ•°
+# °´¼ü°ó¶¨¿Ø¼şUI²ÎÊı
 $script:bindingControlHeight = 28
 $script:bindingControlWidth = 110
 $script:bindingControlHorizontalSpacing = 5
 $script:bindingControlVerticalSpacing = 5
 
-# åˆå§‹è®¾ç½®æ§ä»¶UIå‚æ•°
+# ³õÊ¼ÉèÖÃ¿Ø¼şUI²ÎÊı
 $script:settingControlHeight = 50
 $script:settingControlWidth = 150
 $script:settingControlHorizontalSpacing = 5
@@ -107,7 +107,7 @@ function Get-DisplayNameFromKeyCode {
     }
 }
 
-# è‡ªåŠ¨è·å–çµæ•åº¦
+# ×Ô¶¯»ñÈ¡ÁéÃô¶È
 function Extract-Parameters {
     param (
         [string]$fileContent,
@@ -182,12 +182,12 @@ if ($vcfgFiles) {
 }
 
 if (-not $userData) {
-    Write-Verbose "æ— æ³•è·å–cfg æ–‡ä»¶å¤¹è·¯å¾„ï¼Œè¯·ç¡®ä¿ Steam æ­£åœ¨è¿è¡Œã€‚"
-    Read-Host "æŒ‰å›è½¦é”®ç»§ç»­"
+    Write-Verbose "ÎŞ·¨»ñÈ¡cfg ÎÄ¼ş¼ĞÂ·¾¶£¬ÇëÈ·±£ Steam ÕıÔÚÔËĞĞ¡£"
+    Read-Host "°´»Ø³µ¼ü¼ÌĞø"
     exit
 }
 
-# è¯»å–ä¿å­˜çš„è¾“å…¥å€¼å’ŒæŒ‰é”®ç»‘å®š
+# ¶ÁÈ¡±£´æµÄÊäÈëÖµºÍ°´¼ü°ó¶¨
 $savedData = $null
 if (Test-Path 'config') {
     Write-Verbose "Attempting to read config file"
@@ -227,21 +227,21 @@ else {
     Write-Verbose "Config file not found"
 }
 
-# åˆå§‹åŒ–çµæ•åº¦
+# ³õÊ¼»¯ÁéÃô¶È
 $sensitivity = $savedData.sensitivity.sensitivity
 $yaw = $savedData.sensitivity.yaw
 $pitch = $savedData.sensitivity.pitch
 
-# åˆ›å»ºä¸»çª—å£
+# ´´½¨Ö÷´°¿Ú
 $form = New-Object System.Windows.Forms.Form
-$form.Text = 'CFGå®‰è£…'
+$form.Text = 'CFG°²×°'
 $form.MinimumSize = New-Object System.Drawing.Size(1000, 800)
 $form.StartPosition = 'CenterScreen'
 $form.KeyPreview = $true
 $form.AutoSize = $true
 $form.AutoSizeMode = [System.Windows.Forms.AutoSizeMode]::GrowAndShrink
 
-# å¸ƒå±€
+# ²¼¾Ö
 $tableLayoutPanel = New-Object System.Windows.Forms.TableLayoutPanel
 $tableLayoutPanel.Dock = [System.Windows.Forms.DockStyle]::Fill
 $tableLayoutPanel.ColumnCount = 2
@@ -251,13 +251,13 @@ $tableLayoutPanel.ColumnStyles.Add((New-Object System.Windows.Forms.ColumnStyle(
 $tableLayoutPanel.ColumnStyles.Add((New-Object System.Windows.Forms.ColumnStyle([System.Windows.Forms.SizeType]::Percent, 50)))
 
 $tableLayoutPanel.RowStyles.Clear()
-$tableLayoutPanel.RowStyles.Add((New-Object System.Windows.Forms.RowStyle([System.Windows.Forms.SizeType]::Absolute, 0))) # æ ‡é¢˜è¡Œ
-$tableLayoutPanel.RowStyles.Add((New-Object System.Windows.Forms.RowStyle([System.Windows.Forms.SizeType]::Percent, 30))) # ç”¨æˆ·æ•°æ®ç½‘æ ¼
-$tableLayoutPanel.RowStyles.Add((New-Object System.Windows.Forms.RowStyle([System.Windows.Forms.SizeType]::Absolute, 80))) # è¾“å…¥æ§ä»¶ç»„
-$tableLayoutPanel.RowStyles.Add((New-Object System.Windows.Forms.RowStyle([System.Windows.Forms.SizeType]::Percent, 70))) # æŒ‰é”®ç»‘å®šå’Œè®¾ç½®
-$tableLayoutPanel.RowStyles.Add((New-Object System.Windows.Forms.RowStyle([System.Windows.Forms.SizeType]::Absolute, 50))) # ç¡®è®¤æŒ‰é’®
+$tableLayoutPanel.RowStyles.Add((New-Object System.Windows.Forms.RowStyle([System.Windows.Forms.SizeType]::Absolute, 0))) # ±êÌâĞĞ
+$tableLayoutPanel.RowStyles.Add((New-Object System.Windows.Forms.RowStyle([System.Windows.Forms.SizeType]::Percent, 30))) # ÓÃ»§Êı¾İÍø¸ñ
+$tableLayoutPanel.RowStyles.Add((New-Object System.Windows.Forms.RowStyle([System.Windows.Forms.SizeType]::Absolute, 80))) # ÊäÈë¿Ø¼ş×é
+$tableLayoutPanel.RowStyles.Add((New-Object System.Windows.Forms.RowStyle([System.Windows.Forms.SizeType]::Percent, 70))) # °´¼ü°ó¶¨ºÍÉèÖÃ
+$tableLayoutPanel.RowStyles.Add((New-Object System.Windows.Forms.RowStyle([System.Windows.Forms.SizeType]::Absolute, 50))) # È·ÈÏ°´Å¥
 
-# åˆ›å»ºé€‰æ‹©èœå•
+# ´´½¨Ñ¡Ôñ²Ëµ¥
 $form.Controls.Add($tableLayoutPanel)
 $userDataGrid = New-Object System.Windows.Forms.DataGridView
 $userDataGrid.Dock = [System.Windows.Forms.DockStyle]::Fill
@@ -272,13 +272,13 @@ $userDataGrid.ScrollBars = [System.Windows.Forms.ScrollBars]::Vertical
 $tableLayoutPanel.Controls.Add($userDataGrid, 0, 1)
 $tableLayoutPanel.SetColumnSpan($userDataGrid, 2)
 
-# è°ƒæ•´æ ·å¼
+# µ÷ÕûÑùÊ½
 $userDataGrid.RowHeadersVisible = $false
 $userDataGrid.AlternatingRowsDefaultCellStyle.BackColor = [System.Drawing.Color]::LightGray
 $userDataGrid.DefaultCellStyle.SelectionBackColor = [System.Drawing.Color]::LightBlue
 $userDataGrid.DefaultCellStyle.SelectionForeColor = [System.Drawing.Color]::Black
 
-# æ·»åŠ åˆ—ï¼Œè®¾ç½®å®½åº¦æ¯”ä¾‹
+# Ìí¼ÓÁĞ£¬ÉèÖÃ¿í¶È±ÈÀı
 $userDataGrid.Columns.Add("name", "Name")
 $userDataGrid.Columns.Add("sensitivity", "Sensitivity")
 $userDataGrid.Columns.Add("m_yaw", "Yaw")
@@ -288,14 +288,14 @@ $userDataGrid.Columns["sensitivity"].FillWeight = 20
 $userDataGrid.Columns["m_yaw"].FillWeight = 20
 $userDataGrid.Columns["m_pitch"].FillWeight = 20
 
-# å¡«å……æ•°æ®
+# Ìî³äÊı¾İ
 foreach ($user in $userData) {
     $userDataGrid.Rows.Add($user.name, $user.sensitivity, $user.m_yaw, $user.m_pitch)
 }
 
-# åˆ›å»ºè¾“å…¥æ§ä»¶
+# ´´½¨ÊäÈë¿Ø¼ş
 $inputGroup = New-Object System.Windows.Forms.GroupBox
-$inputGroup.Text = "æ•°å€¼"
+$inputGroup.Text = "ÊıÖµ"
 $inputGroup.Dock = [System.Windows.Forms.DockStyle]::Fill
 $inputGroup.FlatStyle = [System.Windows.Forms.FlatStyle]::Flat
 $inputGroup.Font = New-Object System.Drawing.Font("Arial", 10)
@@ -335,9 +335,9 @@ for ($i = 0; $i -lt 3; $i++) {
     $textBoxes[$controls[$i].Name] = $textBox
 }
 
-# åˆ›å»ºæŒ‰é”®ç»‘å®šæ§ä»¶
+# ´´½¨°´¼ü°ó¶¨¿Ø¼ş
 $bindingGroup = New-Object System.Windows.Forms.GroupBox
-$bindingGroup.Text = "æŒ‰é”®ç»‘å®š"
+$bindingGroup.Text = "°´¼ü°ó¶¨"
 $bindingGroup.Dock = [System.Windows.Forms.DockStyle]::Fill
 $tableLayoutPanel.Controls.Add($bindingGroup, 0, 3)
 
@@ -353,7 +353,7 @@ $bindingGroup.Controls.Add($bindingLayout)
 Write-Verbose "Binding layout created and added to form"
 $script:bindingButtons = [ordered]@{}
 
-# åŠ¨æ€æŒ‰é”®ç»‘å®šæ§ä»¶
+# ¶¯Ì¬°´¼ü°ó¶¨¿Ø¼ş
 function Add-BindingControl {
     param (
         [string]$label,
@@ -390,7 +390,7 @@ function Add-BindingControl {
     $bindingButton.Add_Click({
             $script:isBinding = $true
             $script:currentBindingButton = $this
-            $this.Text = "æŒ‰ä¸‹æŒ‰é”®..."
+            $this.Text = "°´ÏÂ°´¼ü..."
         })
 
     $script:bindingButtons[$command] = @{
@@ -405,7 +405,7 @@ function Add-BindingControl {
     Write-Verbose "Added binding control: Label=$label, Command=$command, DefaultCfgKey=$defaultCfgKey"
 }
 
-# ä» config æ–‡ä»¶ä¸­è¯»å–å¹¶æ·»åŠ æŒ‰é”®ç»‘å®š
+# ´Ó config ÎÄ¼şÖĞ¶ÁÈ¡²¢Ìí¼Ó°´¼ü°ó¶¨
 if ($savedData -and $savedData.bindings) {
     Write-Verbose "Adding binding controls from saved data"
     foreach ($binding in $savedData.bindings) {
@@ -425,9 +425,9 @@ else {
     Write-Verbose "No saved bindings found or bindings data is invalid, no controls added"
 }
 
-# åˆ›å»ºåˆå§‹è®¾ç½®æ§ä»¶
+# ´´½¨³õÊ¼ÉèÖÃ¿Ø¼ş
 $settingsGroup = New-Object System.Windows.Forms.GroupBox
-$settingsGroup.Text = "åˆå§‹è®¾ç½®"
+$settingsGroup.Text = "³õÊ¼ÉèÖÃ"
 $settingsGroup.Dock = [System.Windows.Forms.DockStyle]::Fill
 $tableLayoutPanel.Controls.Add($settingsGroup, 1, 3)
 
@@ -447,10 +447,10 @@ $settingsGroup.Anchor = [System.Windows.Forms.AnchorStyles]::Top -bor [System.Wi
 $bindingLayout.Padding = New-Object System.Windows.Forms.Padding(10)
 $settingsLayout.Padding = New-Object System.Windows.Forms.Padding(10)
 
-# åˆå§‹åŒ–åˆå§‹è®¾ç½®æ§ä»¶å­—å…¸
+# ³õÊ¼»¯³õÊ¼ÉèÖÃ¿Ø¼ş×Öµä
 $script:settingsControls = @{}
 
-# åŠ¨æ€åˆå§‹è®¾ç½®æ§ä»¶
+# ¶¯Ì¬³õÊ¼ÉèÖÃ¿Ø¼ş
 function Add-SettingControl {
     param (
         [string]$name,
@@ -497,7 +497,7 @@ function Add-SettingControl {
     $script:settingsControls[$name] = $settingComboBox
 }
 
-# ä» config æ–‡ä»¶ä¸­è¯»å–å¹¶æ·»åŠ åˆå§‹è®¾ç½®
+# ´Ó config ÎÄ¼şÖĞ¶ÁÈ¡²¢Ìí¼Ó³õÊ¼ÉèÖÃ
 if ($savedData -and $savedData.settings) {
     Write-Verbose "Adding setting controls from saved data"
     foreach ($setting in $savedData.settings) {
@@ -513,57 +513,57 @@ else {
     Write-Verbose "No saved settings found or settings data is invalid, no controls added"
 }
 
-# ç¡®è®¤æŒ‰é’®
+# È·ÈÏ°´Å¥
 $okButton = New-Object System.Windows.Forms.Button
-$okButton.Text = 'OK'
+$okButton.Text = 'Ñ¡Íê¹¦ÄÜºóµã´Ë°´Å¥°²×° (Èç¹û²»ÖªµÀ°´¼ü»ò¹¦ÄÜ´ú±íÊ²Ã´ ¿ÉÒÔÈ¥Preference.cfgÖĞÔÄ¶Á ÔÙÀ´ÕâÀïĞŞ¸Ä)'
 $okButton.Dock = [System.Windows.Forms.DockStyle]::Fill
 $okButton.Margin = New-Object System.Windows.Forms.Padding(10)
 $tableLayoutPanel.Controls.Add($okButton, 0, 4)
 $tableLayoutPanel.SetColumnSpan($okButton, 2)
 
 
-# åˆ›å»ºè‡ªåŠ¨æ·»åŠ å¯åŠ¨é¡¹çš„å¤é€‰æ¡†
+# ´´½¨×Ô¶¯Ìí¼ÓÆô¶¯ÏîµÄ¸´Ñ¡¿ò
 $autoexecCheckBox = New-Object System.Windows.Forms.CheckBox
-$autoexecCheckBox.Text = "å¸®æˆ‘åœ¨autoexecä¸­æ·»åŠ å¯åŠ¨é¡¹(å»ºè®®å‹¾é€‰)"
+$autoexecCheckBox.Text = "°ïÎÒÔÚautoexecÖĞÌí¼ÓÆô¶¯Ïî(½¨Òé¹´Ñ¡)"
 $autoexecCheckBox.Checked = $true
 $autoexecCheckBox.Anchor = [System.Windows.Forms.AnchorStyles]::Right
 $autoexecCheckBox.AutoSize = $true
 $autoexecCheckBox.Margin = New-Object System.Windows.Forms.Padding(0, 0, 10, 5)
 $tableLayoutPanel.Controls.Add($autoexecCheckBox, 1, 5)
 
-# åˆ›å»ºæ•™ç¨‹é“¾æ¥
+# ´´½¨½Ì³ÌÁ´½Ó
 $tutorialLink = New-Object System.Windows.Forms.LinkLabel
-$tutorialLink.Text = "æˆ‘æ˜¯èŒæ–°ï¼Œç‚¹å‡»æŸ¥çœ‹æ•™ç¨‹"
+$tutorialLink.Text = "ÎÒÊÇÃÈĞÂ£¬µã»÷²é¿´½Ì³Ì"
 $tutorialLink.LinkColor = [System.Drawing.Color]::Blue
 $tutorialLink.AutoSize = $true
 $tutorialLink.Anchor = [System.Windows.Forms.AnchorStyles]::Left -bor [System.Windows.Forms.AnchorStyles]::Bottom
 $tutorialLink.Margin = New-Object System.Windows.Forms.Padding(10, 0, 0, 5)
 $tableLayoutPanel.Controls.Add($tutorialLink, 0, 5)
 
-# è°ƒæ•´TableLayoutPanelçš„è¡Œæ•°å’Œåˆ—æ ·å¼
+# µ÷ÕûTableLayoutPanelµÄĞĞÊıºÍÁĞÑùÊ½
 $tableLayoutPanel.RowCount = 6
 $tableLayoutPanel.RowStyles.Add((New-Object System.Windows.Forms.RowStyle([System.Windows.Forms.SizeType]::AutoSize)))
 $tableLayoutPanel.ColumnStyles[1] = New-Object System.Windows.Forms.ColumnStyle([System.Windows.Forms.SizeType]::Percent, 50)
 
-# æ•™ç¨‹é“¾æ¥ç‚¹å‡»è§¦å‘
+# ½Ì³ÌÁ´½Óµã»÷´¥·¢
 $tutorialLink.Add_Click({
-        $tutorialPath = Join-Path -Path $PSScriptRoot -ChildPath "è½¯ä»¶æ•™ç¨‹.txt"
+        $tutorialPath = Join-Path -Path $PSScriptRoot -ChildPath "Èí¼ş½Ì³Ì.txt"
         if (Test-Path $tutorialPath) {
             Start-Process notepad.exe -ArgumentList $tutorialPath
         }
         else {
-            [System.Windows.Forms.MessageBox]::Show("æœªæ‰¾åˆ°æ•™ç¨‹æ–‡ä»¶ã€‚", "é”™è¯¯", [System.Windows.Forms.MessageBoxButtons]::OK, [System.Windows.Forms.MessageBoxIcon]::Error)
+            [System.Windows.Forms.MessageBox]::Show("Î´ÕÒµ½½Ì³ÌÎÄ¼ş¡£", "´íÎó", [System.Windows.Forms.MessageBoxButtons]::OK, [System.Windows.Forms.MessageBoxIcon]::Error)
         }
     })
 
 
-# æ·»åŠ æç¤º
+# Ìí¼ÓÌáÊ¾
 $toolTip = New-Object System.Windows.Forms.ToolTip
 $toolTip.SetToolTip($textBoxes["sensitivity"], "Enter your in-game sensitivity")
 $toolTip.SetToolTip($textBoxes["yaw"], "Enter your m_yaw value")
 $toolTip.SetToolTip($textBoxes["pitch"], "Enter your m_pitch value")
 
-# äº‹ä»¶å¤„ç†
+# ÊÂ¼ş´¦Àí
 $userDataGrid.Add_SelectionChanged({
         if ($userDataGrid.SelectedRows.Count -gt 0) {
             $selectedRow = $userDataGrid.SelectedRows[0]
@@ -587,11 +587,11 @@ $textBoxes["sensitivity"].Add_KeyPress($restrictInput)
 $textBoxes["yaw"].Add_KeyPress($restrictInput)
 $textBoxes["pitch"].Add_KeyPress($restrictInput)
 
-# æŒ‰é’®è§¦å‘
+# °´Å¥´¥·¢
 $okButton.Add_Click({
         Write-Verbose "OK button clicked"
         if ($textBoxes["sensitivity"].Text -eq "" -or $textBoxes["yaw"].Text -eq "" -or $textBoxes["pitch"].Text -eq "") {
-            [System.Windows.Forms.MessageBox]::Show("è¯·å¡«å†™æ‰€æœ‰æ•°å€¼", "é”™è¯¯", [System.Windows.Forms.MessageBoxButtons]::OK, [System.Windows.Forms.MessageBoxIcon]::Error)
+            [System.Windows.Forms.MessageBox]::Show("ÇëÌîĞ´ËùÓĞÊıÖµ", "´íÎó", [System.Windows.Forms.MessageBoxButtons]::OK, [System.Windows.Forms.MessageBoxIcon]::Error)
             return
         }
 
@@ -602,18 +602,18 @@ $okButton.Add_Click({
         $configFile = "Preference.cfg"
         Write-Verbose "Updating Preference.cfg"
         if (-not (Test-Path $configFile)) {
-            [System.Windows.Forms.MessageBox]::Show("é…ç½®æ–‡ä»¶ä¸å­˜åœ¨ï¼", "é”™è¯¯", [System.Windows.Forms.MessageBoxButtons]::OK, [System.Windows.Forms.MessageBoxIcon]::Error)
+            [System.Windows.Forms.MessageBox]::Show("ÅäÖÃÎÄ¼ş²»´æÔÚ£¡", "´íÎó", [System.Windows.Forms.MessageBoxButtons]::OK, [System.Windows.Forms.MessageBoxIcon]::Error)
             return
         }
 
         $content = Get-Content $configFile -Encoding UTF8 -Raw
     
-        # æ›´æ–°çµæ•åº¦
+        # ¸üĞÂÁéÃô¶È
         $sensitivityPattern = '(alias StopGrenade "sensitivity )[\d.]+;(m_yaw )[\d.]+;(m_pitch )[\d.]+"'
         $sensitivityReplacement = "`${1}$sensitivity;`${2}$yaw;`${3}$pitch`""
         $content = $content -replace $sensitivityPattern, $sensitivityReplacement
 
-        # å¤„ç†æŒ‰é”®ç»‘å®š
+        # ´¦Àí°´¼ü°ó¶¨
         $inputValues = @{
             sensitivity = @{
                 sensitivity = $sensitivity
@@ -658,7 +658,7 @@ $okButton.Add_Click({
                     $inputValues.bindings += $newBinding
 
             
-                    # æ›´æ–°å†…å®¹
+                    # ¸üĞÂÄÚÈİ
                     $oldCommands = $originalBinding.nd -split '\r?\n'
                     $newCommands = $newBinding.nd -split '\r?\n'
 
@@ -685,7 +685,7 @@ $okButton.Add_Click({
         }
 
 
-        # å¤„ç†è®¾ç½®
+        # ´¦ÀíÉèÖÃ
         Write-Verbose "Processing settings"
         foreach ($settingName in $script:settingsControls.Keys) {
             $comboBox = $script:settingsControls[$settingName]
@@ -727,11 +727,11 @@ $okButton.Add_Click({
         Write-Verbose "Content before writing to file:"
         Write-Verbose $content
 
-        # debug è¾“å‡ºå†™å…¥å†…å®¹
+        # debug Êä³öĞ´ÈëÄÚÈİ
         Write-Verbose "Content before writing to file:"
         Write-Verbose ($content | Out-String)
 
-        # å†™å…¥
+        # Ğ´Èë
         Set-Content $configFile -Value $content -Encoding UTF8 -ErrorAction Stop
         Write-Verbose "Config file updated successfully"
 
@@ -744,17 +744,17 @@ $okButton.Add_Click({
 
         $feedbackMessage = ""
 
-        # è‡ªåŠ¨æ·»åŠ å¯åŠ¨é¡¹
+        # ×Ô¶¯Ìí¼ÓÆô¶¯Ïî
         if ($autoexecCheckBox.Checked) {
             $csgoConfigPath = Split-Path $PSScriptRoot -Parent
             $autoexecPath = Join-Path -Path $csgoConfigPath -ChildPath "autoexec.cfg"
             Write-Verbose "Autoexec path: $autoexecPath"
 
-            # æ£€æŸ¥æ–‡ä»¶ï¼Œå¦‚æœæ²¡æœ‰autoexec.cfgï¼Œåˆ›å»ºä¸€ä¸ª
+            # ¼ì²éÎÄ¼ş£¬Èç¹ûÃ»ÓĞautoexec.cfg£¬´´½¨Ò»¸ö
             if (Test-Path $autoexecPath) {
                 if ((Get-Item $autoexecPath).IsReadOnly) {
                     Write-Verbose "autoexec.cfg is read-only"
-                    $feedbackMessage += "autoexec.cfg æ˜¯åªè¯»æ–‡ä»¶ï¼Œæ— æ³•ä¿®æ”¹ã€‚`n"
+                    $feedbackMessage += "autoexec.cfg ÊÇÖ»¶ÁÎÄ¼ş£¬ÎŞ·¨ĞŞ¸Ä¡£`n"
                     return
                 }
             }
@@ -762,16 +762,16 @@ $okButton.Add_Click({
                 try {
                     New-Item -Path $autoexecPath -ItemType File -Force | Out-Null
                     Write-Verbose "Created new autoexec.cfg file"
-                    $feedbackMessage += "å·²åˆ›å»ºæ–°çš„ autoexec.cfg æ–‡ä»¶ã€‚`n"
+                    $feedbackMessage += "ÒÑ´´½¨ĞÂµÄ autoexec.cfg ÎÄ¼ş¡£`n"
                 }
                 catch {
                     Write-Verbose "Error creating autoexec.cfg: $_"
-                    $feedbackMessage += "æ— æ³•åˆ›å»º autoexec.cfg æ–‡ä»¶ã€‚é”™è¯¯: $_`n"
+                    $feedbackMessage += "ÎŞ·¨´´½¨ autoexec.cfg ÎÄ¼ş¡£´íÎó: $_`n"
                     return
                 }
             }
 
-            # è¯»å–
+            # ¶ÁÈ¡
             try {
                 $content = [System.IO.File]::ReadAllText($autoexecPath)
                 Write-Verbose "Current content of autoexec.cfg:"
@@ -779,14 +779,14 @@ $okButton.Add_Click({
             }
             catch {
                 Write-Verbose "Error reading autoexec.cfg: $_"
-                $feedbackMessage += "æ— æ³•è¯»å– autoexec.cfg æ–‡ä»¶ã€‚é”™è¯¯: $_`n"
+                $feedbackMessage += "ÎŞ·¨¶ÁÈ¡ autoexec.cfg ÎÄ¼ş¡£´íÎó: $_`n"
                 return
             }
 
-            # æ£€æŸ¥æœ‰æ— exec CSRM/Main
+            # ¼ì²éÓĞÎŞexec CSRM/Main
             if ($content -notmatch "exec CSRM/Main") {
                 try {
-                    # å°è¯•æ·»åŠ 
+                    # ³¢ÊÔÌí¼Ó
                     $newContent = if ($content) {
                         if ($content.TrimEnd().EndsWith("`n")) {
                             $content.TrimEnd() + "exec CSRM/Main`n"
@@ -799,27 +799,27 @@ $okButton.Add_Click({
                         "exec CSRM/Main`n"
                     }
 
-                    # å†™å…¥æ·»åŠ 
+                    # Ğ´ÈëÌí¼Ó
                     [System.IO.File]::WriteAllText($autoexecPath, $newContent)
-                    # è«åçš„bugï¼Œåˆ·æ–°ä¸€ä¸‹
+                    # ÄªÃûµÄbug£¬Ë¢ĞÂÒ»ÏÂ
                     [System.IO.File]::SetLastWriteTime($autoexecPath, 
                         [DateTime]::Now) 
                     Write-Verbose "Added 'exec CSRM/Main' to autoexec.cfg"
-                    $feedbackMessage += "å·²å°è¯•å°† 'exec CSRM/Main' æ·»åŠ åˆ° autoexec.cfg ä¸­ã€‚`n"
+                    $feedbackMessage += "ÒÑ³¢ÊÔ½« 'exec CSRM/Main' Ìí¼Óµ½ autoexec.cfg ÖĞ¡£`n"
                 }
                 catch {
                     Write-Verbose "Error updating autoexec.cfg: $_"
-                    $feedbackMessage += "æ— æ³•æ›´æ–° autoexec.cfg æ–‡ä»¶ã€‚é”™è¯¯: $_`n"
+                    $feedbackMessage += "ÎŞ·¨¸üĞÂ autoexec.cfg ÎÄ¼ş¡£´íÎó: $_`n"
                     return
                 }
             }
             else {
                 Write-Verbose "'exec CSRM/Main' already exists in autoexec.cfg"
-                $feedbackMessage += "autoexec.cfg ä¸­å·²å­˜åœ¨ 'exec CSRM/Main'ï¼Œæ— éœ€æ·»åŠ ã€‚`n"
+                $feedbackMessage += "autoexec.cfg ÖĞÒÑ´æÔÚ 'exec CSRM/Main'£¬ÎŞĞèÌí¼Ó¡£`n"
             }
 
         
-            # éªŒè¯
+            # ÑéÖ¤
             <# try {
                 Start-Sleep -Seconds 1
                 $verificationContent = [System.IO.File]::ReadAllText($autoexecPath)
@@ -827,19 +827,19 @@ $okButton.Add_Click({
                 Write-Verbose $verificationContent
                 if ($verificationContent -match "exec CSRM/Main") {
                     Write-Verbose "Verification successful: 'exec CSRM/Main' found in autoexec.cfg"
-                    $feedbackMessage += "éªŒè¯æˆåŠŸï¼š'exec CSRM/Main' å·²åœ¨ autoexec.cfg ä¸­æ‰¾åˆ°ã€‚`n"
+                    $feedbackMessage += "ÑéÖ¤³É¹¦£º'exec CSRM/Main' ÒÑÔÚ autoexec.cfg ÖĞÕÒµ½¡£`n"
                 }
                 else {
                     Write-Verbose "Verification failed: 'exec CSRM/Main' not found in autoexec.cfg"
-                    $feedbackMessage += "éªŒè¯å¤±è´¥ï¼šæœªèƒ½åœ¨ autoexec.cfg ä¸­æ‰¾åˆ° 'exec CSRM/Main'ã€‚`n"
+                    $feedbackMessage += "ÑéÖ¤Ê§°Ü£ºÎ´ÄÜÔÚ autoexec.cfg ÖĞÕÒµ½ 'exec CSRM/Main'¡£`n"
                 }
             }
             catch {
                 Write-Verbose "Error verifying autoexec.cfg: $_"
-                $feedbackMessage += "æ— æ³•éªŒè¯ autoexec.cfg æ–‡ä»¶ã€‚é”™è¯¯: $_`n"
+                $feedbackMessage += "ÎŞ·¨ÑéÖ¤ autoexec.cfg ÎÄ¼ş¡£´íÎó: $_`n"
             } #>
 
-            # æœ€ç»ˆæ£€æŸ¥
+            # ×îÖÕ¼ì²é
             try {
                 $finalContent = [System.IO.File]::ReadAllText($autoexecPath)
                 Write-Verbose "Final content of autoexec.cfg:"
@@ -847,7 +847,7 @@ $okButton.Add_Click({
             }
             catch {
                 Write-Verbose "Error reading final content of autoexec.cfg: $_"
-                $feedbackMessage += "æ— æ³•è¯»å– autoexec.cfg çš„æœ€ç»ˆå†…å®¹ã€‚é”™è¯¯: $_`n"
+                $feedbackMessage += "ÎŞ·¨¶ÁÈ¡ autoexec.cfg µÄ×îÖÕÄÚÈİ¡£´íÎó: $_`n"
             }
         }
 
@@ -859,10 +859,10 @@ $okButton.Add_Click({
             $currentDirectory = Get-Location
             $sourceFile = Join-Path -Path $currentDirectory -ChildPath "resource.zip"
             if (-Not (Test-Path -Path $sourceFile)) {
-                throw "å½“å‰ç›®å½•ä¸‹æœªæ‰¾åˆ° resource.zip æ–‡ä»¶"
+                throw "µ±Ç°Ä¿Â¼ÏÂÎ´ÕÒµ½ resource.zip ÎÄ¼ş"
             }
 
-            $process = Get-Process -Name "å®Œç¾ä¸–ç•Œç«æŠ€å¹³å°" -ErrorAction Stop
+            $process = Get-Process -Name "ÍêÃÀÊÀ½ç¾º¼¼Æ½Ì¨" -ErrorAction Stop
             $processPath = ($process | Select-Object -First 1).Path
             $directory = Split-Path $processPath -Parent
 
@@ -874,7 +874,7 @@ $okButton.Add_Click({
 
             Copy-Item -Path $sourceFile -Destination $targetFile -Force
             if (-Not (Test-Path -Path $targetFile)) {
-                throw "æ–‡ä»¶å¤åˆ¶å¤±è´¥: $targetFile"
+                throw "ÎÄ¼ş¸´ÖÆÊ§°Ü: $targetFile"
             }
 
             $zipFilePath2 = ".\resource.zip"
@@ -886,24 +886,24 @@ $okButton.Add_Click({
             Expand-Archive -Path $zipFilePath2 -DestinationPath $destinationFolder2 -Force
 
             Write-Verbose "Installation completed"
-            # æœ€ç»ˆæç¤º
-            $finalMessage = "å®‰è£…å®Œæˆï¼Œè¯·è‡ªè¡Œå‰å¾€æ¸¸æˆæµ‹è¯•ã€‚`n`n"
+            # ×îÖÕÌáÊ¾
+            $finalMessage = "°²×°Íê³É£¬Çë×ÔĞĞÇ°ÍùÓÎÏ·²âÊÔ¡£`n`n"
             if ($feedbackMessage) {
-                $finalMessage += "é™„å±ï¼š`n$feedbackMessage"
+                $finalMessage += "¸½Êô£º`n$feedbackMessage"
             }
 
-            $result = [System.Windows.Forms.MessageBox]::Show($finalMessage, "å®‰è£…å®Œæˆ", [System.Windows.Forms.MessageBoxButtons]::OK, [System.Windows.Forms.MessageBoxIcon]::Information)
+            $result = [System.Windows.Forms.MessageBox]::Show($finalMessage, "°²×°Íê³É", [System.Windows.Forms.MessageBoxButtons]::OK, [System.Windows.Forms.MessageBoxIcon]::Information)
             if ($result -eq [System.Windows.Forms.DialogResult]::OK) {
                 $form.Close()
             }
         }
         catch {
             Write-Verbose "Error occurred: $_"
-            [System.Windows.Forms.MessageBox]::Show("å‘ç”Ÿé”™è¯¯: $_", "é”™è¯¯", [System.Windows.Forms.MessageBoxButtons]::OK, [System.Windows.Forms.MessageBoxIcon]::Error)
+            [System.Windows.Forms.MessageBox]::Show("·¢Éú´íÎó: $_", "´íÎó", [System.Windows.Forms.MessageBoxButtons]::OK, [System.Windows.Forms.MessageBoxIcon]::Error)
         }
     })
 
-# æŒ‰é”®æ£€æŸ¥
+# °´¼ü¼ì²é
 $form.Add_KeyDown({
         param($sender, $e)
         if ($script:isBinding) {
@@ -920,7 +920,7 @@ $form.Add_KeyDown({
                     }
                 
                     if ($isBanned) {
-                        [System.Windows.Forms.MessageBox]::Show("æ­¤åŠŸèƒ½ç¦æ­¢ç»‘å®šæ­¤æŒ‰é”®", "è­¦å‘Š", [System.Windows.Forms.MessageBoxButtons]::OK, [System.Windows.Forms.MessageBoxIcon]::Warning)
+                        [System.Windows.Forms.MessageBox]::Show("´Ë¹¦ÄÜ½ûÖ¹°ó¶¨´Ë°´¼ü", "¾¯¸æ", [System.Windows.Forms.MessageBoxButtons]::OK, [System.Windows.Forms.MessageBoxIcon]::Warning)
                         $script:currentBindingButton.Text = Get-DisplayNameFromCfgKey -cfgKey $pair.Value.LastValidKey
                     }
                     else {
@@ -939,17 +939,18 @@ $form.Add_KeyDown({
         }
     })
 
-# éšè—å‘½ä»¤çª—å£
+# Òş²ØÃüÁî´°¿Ú
 $consolePtr = [Win32]::GetConsoleWindow()
 [Win32]::ShowWindow($consolePtr, 0) 
 
-# æ˜¾ç¤ºçª—ä½“
+# ÏÔÊ¾´°Ìå
 Write-Verbose "Displaying form"
 $form.ShowDialog()
+exit
 
-# å…³ä¸æ‰ï¼Ÿæˆ‘ä¸ä¿¡
+# ¹Ø²»µô£¿ÎÒ²»ĞÅ
 <# $form.Add_FormClosed({
      [System.Windows.Forms.Application]::Exit()
      [System.Environment]::Exit(0)
 })
-ä¿¡äº† #>
+ĞÅÁË #>
