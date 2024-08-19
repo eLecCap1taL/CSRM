@@ -30,21 +30,6 @@ if /I not "%CurrDirName%"=="CSRM" (
 pushd ".\Addon"
 powershell.exe -ExecutionPolicy Bypass -File ".\GetCrossHair.ps1"
 popd
-@echo off
-chcp 65001
-
-if exist "%SystemRoot%\SysWOW64" path %path%;%windir%\SysNative;%SystemRoot%\SysWOW64;%~dp0
-
-bcdedit >nul
-
-if '%errorlevel%' NEQ '0' (goto UACPrompt) else (goto UACAdmin)
-
-:UACPrompt
-%1 start "" mshta vbscript:createobject("shell.application").shellexecute("""%~0""","::",,"runas",1)(window.close)&exit
-exit /B
-
-:UACAdmin
-cd /d "%~dp0"
 
 REM 检查是否在CSRM文件夹中
 for %%I in (.) do set CurrDirName=%%~nxI
