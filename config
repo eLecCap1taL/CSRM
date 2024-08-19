@@ -18,8 +18,8 @@
                                          "SHIFT",
                                          "RSHIFT"
                                      ],
-                         "key":  "L",
-                         "nd":  "bind L DisabLeIMStop"
+                         "key":  "key",
+                         "nd":  "bind key DisabLeIMStop"
                      },
                      {
                          "label":  "投掷键",
@@ -43,8 +43,8 @@
                      {
                          "label":  "陀螺键",
                          "ban_key":  "",
-                         "key":  "J",
-                         "nd":  "bind J +If_ForceGyroscope"
+                         "key":  "key",
+                         "nd":  "bind key +If_ForceGyroscope"
                      },
                      {
                          "label":  "预瞄键",
