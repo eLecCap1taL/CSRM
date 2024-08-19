@@ -49,8 +49,8 @@
                      {
                          "label":  "预瞄键",
                          "ban_key":  "",
-                         "key":  "V",
-                         "nd":  "bind V +PreAim"
+                         "key":  "\\",
+                         "nd":  "bind \\ +PreAim"
                      },
                      {
                          "label":  "CFG重置键",
