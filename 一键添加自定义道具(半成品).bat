@@ -1,0 +1,2 @@
+CustomGrenadeReg.exe
+pause

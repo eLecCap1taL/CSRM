@@ -19,7 +19,7 @@
                                          "RSHIFT"
                                      ],
                          "key":  "L",
-                         "nd":  "bind L DisableIMStop"
+                         "nd":  "bind L DisabLeIMStop"
                      },
                      {
                          "label":  "投掷键",
@@ -168,20 +168,6 @@
                                          ]
                      },
                      {
-                         "selectedOption":  "默认关闭准心跟随",
-                         "name":  "默认准心跟随设置",
-                         "options":  [
-                                         "默认开启准心跟随",
-                                         "默认 *仅移动时* 开启准心跟随",
-                                         "默认关闭准心跟随"
-                                     ],
-                         "cfg_options":  [
-                                             "RecoilSwitcherOn",
-                                             "RecoilSwitcherOnly",
-                                             "RecoilSwitcherOff"
-                                         ]
-                     },
-                     {
                          "selectedOption":  "默认开启滚轮连跳增强",
                          "name":  "默认滚轮连跳设置",
                          "options":  [
@@ -193,6 +179,30 @@
                                              "WJSwitcherOn",
                                              "WJSwitcherOnly",
                                              "WJSwitcherOff"
+                                         ]
+                     },
+                     {
+                         "selectedOption":  "默认开启跟随准心逐渐显示",
+                         "name":  "默认跟随准心逐渐显示设置",
+                         "options":  [
+                                         "默认开启跟随准心逐渐显示",
+                                         "默认关闭跟随准心逐渐显示"
+                                     ],
+                         "cfg_options":  [
+                                             "FadeRecoilSwitcherOn",
+                                             "FadeRecoilSwitcherOff"
+                                         ]
+                     },
+                     {
+                         "selectedOption":  "CFG主页面",
+                         "name":  "你CFG的默认主页面",
+                         "options":  [
+                                         "道具轮盘页面",
+                                         "CFG主页面"
+                                     ],
+                         "cfg_options":  [
+                                             "RadioPrefer_Grenade",
+                                             "RadioPrefer_CFGMain"
                                          ]
                      },
                      {
@@ -208,25 +218,17 @@
                                          ]
                      },
                      {
-                         "selectedOption":  "默认SnapTap急停",
-                         "name":  "默认急停方式",
+                         "selectedOption":  "默认关闭准心跟随",
+                         "name":  "默认准心跟随设置",
                          "options":  [
-                                         "默认全向急停",
-                                         "默认无冲急停",
-                                         "默认SnapTap急停",
-                                         "默认旧式急停",
-                                         "默认仅双键急停",
-                                         "默认仅WS急停",
-                                         "默认关闭自动急停"
+                                         "默认开启准心跟随",
+                                         "默认 *仅移动时* 开启准心跟随",
+                                         "默认关闭准心跟随"
                                      ],
                          "cfg_options":  [
-                                             "IMStopSwitcherFull",
-                                             "IMStopSwitcherWC",
-                                             "IMStopSwitcherSnapTap",
-                                             "IMStopSwitcherOld",
-                                             "IMStopSwitcherDB",
-                                             "IMStopSwitcherOnlyWS",
-                                             "IMStopSwitcherNone"
+                                             "RecoilSwitcherOn",
+                                             "RecoilSwitcherOnly",
+                                             "RecoilSwitcherOff"
                                          ]
                      },
                      {
@@ -241,18 +243,6 @@
                                              "SetBFMenuKP",
                                              "SetBFMenuFB",
                                              "SetBFMenuOff"
-                                         ]
-                     },
-                     {
-                         "selectedOption":  "CFG主页面",
-                         "name":  "你CFG的默认主页面",
-                         "options":  [
-                                         "道具轮盘页面",
-                                         "CFG主页面"
-                                     ],
-                         "cfg_options":  [
-                                             "RadioPrefer_Grenade",
-                                             "RadioPrefer_CFGMain"
                                          ]
                      },
                      {
@@ -296,15 +286,25 @@
                                          ]
                      },
                      {
-                         "selectedOption":  "默认开启跟随准心逐渐显示",
-                         "name":  "默认跟随准心逐渐显示设置",
+                         "selectedOption":  "默认SnapTap急停",
+                         "name":  "默认急停方式",
                          "options":  [
-                                         "默认开启跟随准心逐渐显示",
-                                         "默认关闭跟随准心逐渐显示"
+                                         "默认全向急停",
+                                         "默认无冲急停",
+                                         "默认SnapTap急停",
+                                         "默认旧式急停",
+                                         "默认仅双键急停",
+                                         "默认仅WS急停",
+                                         "默认关闭自动急停"
                                      ],
                          "cfg_options":  [
-                                             "FadeRecoilSwitcherOn",
-                                             "FadeRecoilSwitcherOff"
+                                             "IMStopSwitcherFull",
+                                             "IMStopSwitcherWC",
+                                             "IMStopSwitcherSnapTap",
+                                             "IMStopSwitcherOld",
+                                             "IMStopSwitcherDB",
+                                             "IMStopSwitcherOnlyWS",
+                                             "IMStopSwitcherNone"
                                          ]
                      },
                      {
