@@ -89,8 +89,11 @@
 	"CFG_Addon_AttackDeDefuse_On"                    "启用拆包时开火自动取消拆包"
 	"CFG_Addon_AttackDeDefuse_Off"                    "关闭拆包时开火自动取消拆包"
 
-	"CFG_Addon_Gyroscope_On"                    "开启大陀螺(官匹有封号风险)"
-	"CFG_Addon_Gyroscope_Off"                    "关闭大陀螺(官匹有封号风险)"
+	"CFG_Addon_GyroscopeTotal"                    "大陀螺菜单"
+	"CFG_Addon_Gyroscope_On_Fast"                    "开启快速大陀螺(鼠标移动旋转)"
+	"CFG_Addon_Gyroscope_On_Slow"                    "开启慢速大陀螺(鼠标移动旋转)"
+	"CFG_Addon_Gyroscope_Only"                    "开启仅按键大陀螺"
+	"CFG_Addon_Gyroscope_Off"                    "关闭大陀螺"
 
 	"CFG_Addon_Fast_Shoot_On"                    "开启手枪速射"
 	"CFG_Addon_Fast_Shoot_Off"                    "关闭手枪速射"

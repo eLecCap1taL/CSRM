@@ -245,12 +245,12 @@ $okButton.Add_Click({
         $content2 = "alias SetPCR2 `"cl_crosshair_sniper_width $8;cl_crosshair_t $9;cl_crosshairalpha $10;cl_crosshaircolor $11;cl_crosshaircolor_b $12;cl_crosshaircolor_g $13;cl_crosshaircolor_r $14;cl_crosshairdot $15;`""
         $content3 = "alias SetPCR3 `"cl_crosshairgap $16;cl_crosshairgap_useweaponvalue $17;cl_crosshairsize $18;cl_crosshairstyle $19;cl_crosshairthickness $20;cl_crosshairusealpha $21;cl_fixedcrosshairgap $22;`""
         $bg = ""
-        Set-Content -Path "./Addon/PlayerCrossHair.cfg" -Value $bg -Encoding UTF8
-        Add-Content -Path "./Addon/PlayerCrossHair.cfg" -Value $content1 -Encoding UTF8
-        Add-Content -Path "./Addon/PlayerCrossHair.cfg" -Value $content2 -Encoding UTF8
-        Add-Content -Path "./Addon/PlayerCrossHair.cfg" -Value $content3 -Encoding UTF8
+        Set-Content -Path "./PlayerCrossHair.cfg" -Value $bg -Encoding UTF8
+        Add-Content -Path "./PlayerCrossHair.cfg" -Value $content1 -Encoding UTF8
+        Add-Content -Path "./PlayerCrossHair.cfg" -Value $content2 -Encoding UTF8
+        Add-Content -Path "./PlayerCrossHair.cfg" -Value $content3 -Encoding UTF8
         $content4 = "alias RNCrossHairAlphaPL cl_crosshairalpha $10"
-        Add-Content -Path "./Addon/PlayerCrossHair.cfg" -Value $content4 -Encoding UTF8
+        Add-Content -Path "./PlayerCrossHair.cfg" -Value $content4 -Encoding UTF8
 
         [System.Windows.Forms.MessageBox]::Show("获取成功。", "成功", [System.Windows.Forms.MessageBoxButtons]::OK, [System.Windows.Forms.MessageBoxIcon]::Information)
         $form.Close()

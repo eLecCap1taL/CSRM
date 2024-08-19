@@ -27,5 +27,7 @@ if /I not "%CurrDirName%"=="CSRM" (
     pause
     exit /b
 )
-
-call powershell.exe -ExecutionPolicy Bypass -File ".\Addon\GetCrossHair.ps1"
+pushd ".\Addon"
+powershell.exe -ExecutionPolicy Bypass -File ".\GetCrossHair.ps1"
+popd
+pause

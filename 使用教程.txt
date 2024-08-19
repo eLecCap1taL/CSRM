@@ -5,7 +5,9 @@ CFG官匹完美5e或其他平台都可用
 使用CFG出现任何损失，作者本人不负责任
 
 1. 修改CFG设置  (全平台玩家必做)
-解压得到 CSRM 文件夹，打开Preference.cfg (如果没有打开方式，右键选择记事本打开即可)
+解压得到 CSRM 文件夹
+运行 一键获取准心数据.bat 进行准心获取，否则你的准心会被覆盖
+之后打开 Preference.cfg 修改其他设置(如果没有打开方式，右键选择记事本打开即可)
 一定要完整看一遍Preference.cfg！！
 一定要完整看一遍Preference.cfg！！
 一定要完整看一遍Preference.cfg！！
