@@ -2,7 +2,7 @@ import os
 import re
 import sys
 
-
+print("你正在使用自定义道具快捷添加工具V1.3 By：九夏")
 # 获取自定义程序生成的语句
 def read_last_line(file_path):
     try:
@@ -81,7 +81,7 @@ def add_text_var_to_res(file_path, new_var):
                 break
         with open(file_path, 'w', encoding='utf-8') as file:
             file.writelines(lines)
-        print("=========已完成对 platform_schinese.txt 的新增=========")
+        print(f"已完成对{file_path}中新增{new_var}字段")
     except Exception as e:
         print(f"发生错误: {e}")
 
@@ -96,7 +96,7 @@ def replace_text_in_file(file_path, text_var, text_id):
             break
     with open(file_path, 'w', encoding='utf-8') as file:
         file.writelines(lines)
-        print("=========已完成对 RadioInfo1Text 文件中变量名的替换=========")
+        print(f"已将{file_path}中的#CFG_Noun_None替换为{text_var}")
 
 
 # 删除文件的最后一行
@@ -167,7 +167,11 @@ def main():
         last_line = read_last_line(custom_file_path)
         regedit_string = last_line
         print("在开始使用自动添加道具之前请确认已使用一键添加自定义道具(半成品).exe完成道具添加！")
-        print(f"检测到已存在的注册指令，内容为：{last_line}")
+        if last_line is not None:
+            print(f"检测到已存在的注册指令，内容为：{last_line}")
+        else:
+            print("#警告 未检测到注册指令，请确定已使用添加自定义道具完成添加")
+            sys.exit(0)
         confirmation_add = input("如果确定自己已经完成道具注册且上方显示注册指令正确请输入1后回车：")
         if confirmation_add != "1":
             sys.exit(0)
@@ -182,7 +186,6 @@ def main():
         directories = [d for d in os.listdir(folder_path) if os.path.isdir(os.path.join(folder_path, d))]
         print(f"当前地图下存在以下分类: {directories}")
         class_name = input("你要向哪个分类中插入？(刚才指定的地图文件夹中的文件夹名)：")
-
         add_textfile_path = os.path.join(folder_path, class_name, 'RadioInfo1Text.cfg')
         add_cmdfile_path = os.path.join(folder_path, class_name, 'RadioInfo1CMD.cfg')
         resource_path = './resource/platform_schinese.txt'
