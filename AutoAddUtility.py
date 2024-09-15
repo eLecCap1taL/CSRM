@@ -56,7 +56,7 @@ def get_last_sm_number(file_path):
 
 # 在sm文件中插入内容
 def write_to_sm(file_path, sm_id):
-    insert_text = f'sm{sm_id};ClearThrow;'
+    insert_text = f'sm{sm_id};GrenadeRec;ClearThrow;'
     count = sm_id + 2
     C_radial_radio_tab_0_text_ID = f'cl_radial_radio_tab_0_text_{count} cmd";'
     with open(file_path, 'r', encoding='utf-8') as file:
