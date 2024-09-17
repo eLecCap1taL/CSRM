@@ -28,14 +28,15 @@ inline LXF rin(){
 }
 signed main(){
 	foru(i,1,20){
-		freopen(("JMoveTicker"+to_string(i)+".cfg").c_str(),"w",stdout);
-		string s="jtk"+to_string(i);
+		freopen(("JMoveJumpTicker"+to_string(i)+".cfg").c_str(),"w",stdout);
+		string s="jpk"+to_string(i);
 		foru(j,1,i-1){
 			cout<<"sleep 600000\n";
 		}
 		cout<<(s+"_begin")<<'\n';
 		string out[2]={s+"\n","sleep 10\n"};
-		for(int i=2;i<=120001;i++){
+		out[1]="\n";
+		for(int i=2;i<=220001;i++){
 			cout<<out[i&1];
 		}
 //		cout<<("echo done "+s);
