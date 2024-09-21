@@ -111,6 +111,14 @@
 	"CFG_Addon_FadeRecoil_On"                    "开启跟随准心逐渐显示"
 	"CFG_Addon_FadeRecoil_Off"                    "关闭跟随准心逐渐显示"
 
+	"CFG_Addon_C4UtilitiesTotal"                    "C4实用功能菜单"
+	"CFG_Addon_C4Utilities_EnableAuto"                    "开启C4自动检测"
+	"CFG_Addon_C4Utilities_DisableAuto"                    "关闭C4自动检测"
+	"CFG_Addon_C4Utilities_DetectC4"                    "探测C4状态"
+	"CFG_Addon_C4Utilities_UsePreference"                    "输出至你的默认输出方式"
+	"CFG_Addon_C4Utilities_UseChatWheel"                    "输出至队内无线电"
+	"CFG_Addon_C4Utilities_OutputC4Position"                    "输出C4坐标到控制台"
+
 	"CFG_Inferno_Faze"                    "CT出生位FAZE烟"
 	"CFG_Inferno_ReABombTotal"                    "A区回防道具"
 	"CFG_Inferno_ReABombFullMolo"                    "多点满烧火"
