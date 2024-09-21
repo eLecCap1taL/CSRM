@@ -732,15 +732,36 @@ $okButton.Add_Click({
         Write-Verbose ($content | Out-String)
 
         # 写入
-        Set-Content $configFile -Value $content -Encoding UTF8 -ErrorAction Stop
-        Write-Verbose "Config file updated successfully"
+        # Set-Content $configFile -Value $content -Encoding UTF8 -ErrorAction Stop
+        # Write-Verbose "Config file updated successfully"
+        # 尝试使用新写入方法解决格式问题，并且尝试保留原先的错误检查机制
+        try {
+            $utf8NoBom = New-Object System.Text.UTF8Encoding $false
+            [System.IO.File]::WriteAllText($configFile, $content, $utf8NoBom)
+            Write-Verbose "Config file updated successfully"
+        }
+        catch {
+            Write-Verbose "Error updating config file: $_"
+            throw
+        }
 
         Write-Verbose "Saving input values to config file"
         $inputValuesJson = $inputValues | ConvertTo-Json -Depth 3
         Write-Verbose "Input values JSON:"
         Write-Verbose $inputValuesJson
-        Set-Content "config" -Value $inputValuesJson -Encoding UTF8 -ErrorAction Stop
-        Write-Verbose "Config saved successfully"
+        # 尝试使用新写入方法解决格式问题，并且尝试保留原先的错误检查机制
+        # Set-Content "config" -Value $inputValuesJson -Encoding UTF8 -ErrorAction Stop
+        # Write-Verbose "Config saved successfully"
+        try {
+            $utf8NoBom = New-Object System.Text.UTF8Encoding $false
+            [System.IO.File]::WriteAllText("config", $inputValuesJson, $utf8NoBom)
+            Write-Verbose "Config saved successfully"
+        }
+        catch {
+            Write-Verbose "Error saving config file: $_"
+            throw
+        }
+
 
         $feedbackMessage = ""
 
@@ -800,7 +821,10 @@ $okButton.Add_Click({
                     }
 
                     # 写入添加
-                    [System.IO.File]::WriteAllText($autoexecPath, $newContent)
+                    # 尝试使用新写入方法解决格式问题，并且尝试保留原先的错误检查机制
+                    # [System.IO.File]::WriteAllText($autoexecPath, $newContent)
+                    $utf8NoooBom = New-Object System.Text.UTF8Encoding $false
+                    [System.IO.File]::WriteAllText($autoexecPath, $newContent, $utf8NoooBom)
                     # 莫名的bug，刷新一下
                     [System.IO.File]::SetLastWriteTime($autoexecPath, 
                         [DateTime]::Now) 
