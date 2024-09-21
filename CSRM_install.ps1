@@ -232,6 +232,7 @@ $sensitivity = $savedData.sensitivity.sensitivity
 $yaw = $savedData.sensitivity.yaw
 $pitch = $savedData.sensitivity.pitch
 
+
 # 创建主窗口
 $form = New-Object System.Windows.Forms.Form
 $form.Text = 'CFG安装'
@@ -515,7 +516,7 @@ else {
 
 # 确认按钮
 $okButton = New-Object System.Windows.Forms.Button
-$okButton.Text = '选完功能后点此按钮安装 (如果不知道按键或功能代表什么 可以去Preference.cfg中阅读 再来这里修改)'
+$okButton.Text = 'OK'
 $okButton.Dock = [System.Windows.Forms.DockStyle]::Fill
 $okButton.Margin = New-Object System.Windows.Forms.Padding(10)
 $tableLayoutPanel.Controls.Add($okButton, 0, 4)
@@ -558,10 +559,10 @@ $tutorialLink.Add_Click({
 
 
 # 添加提示
-$toolTip = New-Object System.Windows.Forms.ToolTip
+<# $toolTip = New-Object System.Windows.Forms.ToolTip
 $toolTip.SetToolTip($textBoxes["sensitivity"], "Enter your in-game sensitivity")
 $toolTip.SetToolTip($textBoxes["yaw"], "Enter your m_yaw value")
-$toolTip.SetToolTip($textBoxes["pitch"], "Enter your m_pitch value")
+$toolTip.SetToolTip($textBoxes["pitch"], "Enter your m_pitch value") #>
 
 # 事件处理
 $userDataGrid.Add_SelectionChanged({
@@ -732,15 +733,41 @@ $okButton.Add_Click({
         Write-Verbose ($content | Out-String)
 
         # 写入
-        Set-Content $configFile -Value $content -Encoding UTF8 -ErrorAction Stop
-        Write-Verbose "Config file updated successfully"
+        # Set-Content $configFile -Value $content -Encoding UTF8 -ErrorAction Stop
+        # Write-Verbose "Config file updated successfully"
+        # 尝试使用新写入方法，并且尝试不影响原先的错误系统（可能出现bug）
+        try {
+            $utf8NoBom = New-Object System.Text.UTF8Encoding $false
+            [System.IO.File]::WriteAllText($configFile, $content, $utf8NoBom)
+            Write-Verbose "Config file updated successfully"
+        }
+        catch {
+            Write-Verbose "Error updating config file: $_"
+            [System.Windows.Forms.MessageBox]::Show("更新配置文件时发生错误: $_", "错误", [System.Windows.Forms.MessageBoxButtons]::OK, [System.Windows.Forms.MessageBoxIcon]::Error)
+            return
+        }
+
 
         Write-Verbose "Saving input values to config file"
         $inputValuesJson = $inputValues | ConvertTo-Json -Depth 3
         Write-Verbose "Input values JSON:"
         Write-Verbose $inputValuesJson
-        Set-Content "config" -Value $inputValuesJson -Encoding UTF8 -ErrorAction Stop
-        Write-Verbose "Config saved successfully"
+
+        # Set-Content "config" -Value $inputValuesJson -Encoding UTF8 -ErrorAction Stop
+        # Write-Verbose "Config saved successfully"
+        # 尝试使用新写入方法，并且尝试不影响原先的错误系统（可能出现bug）
+        try {
+            $utf8NooBom = New-Object System.Text.UTF8Encoding $false
+            [System.IO.File]::WriteAllText("config", $inputValuesJson, $utf8NooBom)
+            Write-Verbose "Config saved successfully"
+        }
+        catch {
+            Write-Verbose "Error saving config file: $_"
+            [System.Windows.Forms.MessageBox]::Show("保存配置文件时发生错误: $_", "错误", [System.Windows.Forms.MessageBoxButtons]::OK, [System.Windows.Forms.MessageBoxIcon]::Error)
+            return
+        }
+
+
 
         $feedbackMessage = ""
 
@@ -800,7 +827,10 @@ $okButton.Add_Click({
                     }
 
                     # 写入添加
-                    [System.IO.File]::WriteAllText($autoexecPath, $newContent)
+                    # 尝试使用新写入方法，并且尝试不影响原先的错误系统（可能出现bug）
+                    # [System.IO.File]::WriteAllText($autoexecPath, $newContent)
+                    $utf8NoooBom = New-Object System.Text.UTF8Encoding $false
+                    [System.IO.File]::WriteAllText($autoexecPath, $newContent, $utf8NoooBom)
                     # 莫名的bug，刷新一下
                     [System.IO.File]::SetLastWriteTime($autoexecPath, 
                         [DateTime]::Now) 
