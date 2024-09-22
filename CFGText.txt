@@ -98,6 +98,9 @@
 	"CFG_Addon_Fast_Shoot_On"                    "开启手枪速射 \n \n \n \n"
 	"CFG_Addon_Fast_Shoot_Off"                    "关闭手枪速射 \n \n \n \n"
 
+	"CFG_Addon_Bhop_On"                    "开启长按空格连跳 \n \n \n \n"
+	"CFG_Addon_Bhop_Off"                    "关闭长按空格连跳 \n \n \n \n"
+
 	"CFG_Addon_Recoil_On"                    "开启准心跟随 \n \n \n \n"
 	"CFG_Addon_Recoil_Only"                    "仅跑打开启准心跟随 \n \n \n \n"
 	"CFG_Addon_Recoil_Off"                    "关闭准心跟随 \n \n \n \n"
