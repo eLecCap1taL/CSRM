@@ -192,11 +192,11 @@ $configPath = Join-Path (Join-Path $PSScriptRoot .\) "config"
 
 # 读取保存的输入值和按键绑定
 $savedData = $null
-if (Test-Path 'config') {
+if (Test-Path $configPath) {
     Write-Verbose "Attempting to read config file"
     try {
         # 使用 UTF-8 编码读取文件内容
-        $configContent = Get-Content 'config' -Raw -Encoding UTF8
+        $configContent = Get-Content $configPath -Raw -Encoding UTF8
         $savedData = $configContent | ConvertFrom-Json
         if ($savedData) {
             Write-Verbose "Config file read successfully"
@@ -650,7 +650,7 @@ $okButton.Add_Click({
                     $newBinding = @{
                         label = $data.Label
                         key   = $data.CfgKey
-                        nd    = $originalBinding.nd -replace [regex]::Escape($originalBinding.key), $data.CfgKey
+                        nd    = $originalBinding.nd -replace "(?<=^|\s)bind\s+$([regex]::Escape($originalBinding.key))(\s|$)", "bind $($data.CfgKey)`$1"
                     }
 
                     if ($originalBinding.PSObject.Properties.Name -contains "ban_key") {
@@ -671,11 +671,9 @@ $okButton.Add_Click({
                         $newCommand = $newCommands[$i].Trim()
                 
                         if ($oldCommand -and $newCommand -and -not $oldCommand.StartsWith("//")) {
-                            $pattern = "(?m)^(?!//)\s*" + [regex]::Escape($oldCommand) + "\s*$"
-                            Write-Verbose "Replacing pattern: $pattern"
-                            Write-Verbose "With new command: $newCommand"
-                            $content = $content -replace $pattern, $newCommand
-                            Write-Verbose "Replacement attempt completed"
+                            $pattern = "(?m)^(?!//)\s*(bind\s+)$([regex]::Escape($originalBinding.key))(\s|$)"
+                            $replacement = "`$1$($data.CfgKey)`$2"
+                            $content = $content -replace $pattern, $replacement
                         }
                     }
             
@@ -771,7 +769,8 @@ $okButton.Add_Click({
 
         # 自动添加启动项
         if ($autoexecCheckBox.Checked) {
-            $csgoConfigPath = Split-Path $PSScriptRoot -Parent
+            $CSRMPath = Split-Path $PSScriptRoot -Parent
+            $csgoConfigPath = Split-Path $CSRMPath -Parent
             $autoexecPath = Join-Path -Path $csgoConfigPath -ChildPath "autoexec.cfg"
             Write-Verbose "Autoexec path: $autoexecPath"
 
@@ -879,8 +878,8 @@ $okButton.Add_Click({
             }
         }
 
-        Write-Verbose "Saving config file"
-        $inputValues | ConvertTo-Json -Depth 3 | Set-Content "config" -Encoding UTF8
+        # Write-Verbose "Saving config file"
+        # $inputValues | ConvertTo-Json -Depth 3 | Set-Content "config" -Encoding UTF8
 
         Write-Verbose "Processing resource.zip"
         try {

@@ -5,8 +5,8 @@ Add-Type -AssemblyName System.Windows.Forms
 
 # 创建ui 获取输入内容
 $form = New-Object System.Windows.Forms.Form
-$form.Text = "请输入你的CS2最高帧率"
-$form.Size = New-Object System.Drawing.Size(300, 180)
+$form.Text = "请输入你的CS2最高帧率(如不锁帧输入0即可)"
+$form.Size = New-Object System.Drawing.Size(400, 200)
 $form.StartPosition = "CenterScreen"
 $form.FormBorderStyle = [System.Windows.Forms.FormBorderStyle]::FixedDialog
 $form.MaximizeBox = $false
@@ -14,12 +14,12 @@ $form.MinimizeBox = $false
 
 $label = New-Object System.Windows.Forms.Label
 $label.Location = New-Object System.Drawing.Point(10, 20)
-$label.Size = New-Object System.Drawing.Size(260, 20)
-$label.Text = "请输入你的CS2最高帧率："
+$label.Size = New-Object System.Drawing.Size(400, 20)
+$label.Text = "请输入你的CS2帧率设置(如不锁帧输入0即可)："
 
 $textBox = New-Object System.Windows.Forms.TextBox
 $textBox.Location = New-Object System.Drawing.Point(10, 50)
-$textBox.Size = New-Object System.Drawing.Size(260, 20)
+$textBox.Size = New-Object System.Drawing.Size(300, 20)
 
 $button = New-Object System.Windows.Forms.Button
 $button.Location = New-Object System.Drawing.Point(100, 90)
@@ -40,8 +40,12 @@ $result = $form.ShowDialog()
 # 防呆
 if ([int]::TryParse($textBox.Text, [ref]$null)) {
     $fps = [int]$textBox.Text
+    if ($fps -lt 64 -and $fps -gt 0) {
+        [System.Windows.Forms.MessageBox]::Show("输入无效，请输入0或输入64到9999之间的数值。", "错误", [System.Windows.Forms.MessageBoxButtons]::OK, [System.Windows.Forms.MessageBoxIcon]::Error)
+        exit 1
+    }
     if ($fps -lt 0 -or $fps -gt 9999) {
-        [System.Windows.Forms.MessageBox]::Show("输入无效，请输入0到9999之间的数值。", "错误", [System.Windows.Forms.MessageBoxButtons]::OK, [System.Windows.Forms.MessageBoxIcon]::Error)
+        [System.Windows.Forms.MessageBox]::Show("输入无效，请输入0或输入64到9999之间的数值。", "错误", [System.Windows.Forms.MessageBoxButtons]::OK, [System.Windows.Forms.MessageBoxIcon]::Error)
         exit 1
     }
 }

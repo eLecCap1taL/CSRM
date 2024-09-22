@@ -16,41 +16,28 @@
                          "label":  "急停开关切换键",
                          "ban_key":  [
                                          "SHIFT",
-                                         "RSHIFT"
+                                         "SPACE"
                                      ],
                          "key":  "key",
-                         "nd":  "bind key DisabLeIMStop"
+                         "nd":  "bind key JMove_DSpeedSwitcher"
                      },
                      {
                          "label":  "投掷键",
                          "ban_key":  "",
                          "key":  "]",
-                         "nd":  [
-                                    "alias ClearThrow bind ] NoneAimedUse",
-                                    "alias SetT bind ] +ST",
-                                    "alias SetDBT bind ] +DBT",
-                                    "alias SetDBFJP bind ] +DBFJPT",
-                                    "alias SetJP bind ] +JPT",
-                                    "alias SetFJP bind ] +FJPT"
-                                ]
+                         "nd":  "bind ] +CSRM_Grenade_Throw"
                      },
                      {
                          "label":  "爆弹键",
                          "ban_key":  "",
                          "key":  "\u0027",
-                         "nd":  "bind \u0027 +RevS"
+                         "nd":  "bind \u0027 +CSRM_Grenade_AiAim"
                      },
                      {
                          "label":  "陀螺键",
                          "ban_key":  "",
                          "key":  "key",
                          "nd":  "bind key +If_ForceGyroscope"
-                     },
-                     {
-                         "label":  "预瞄键",
-                         "ban_key":  "",
-                         "key":  "\\",
-                         "nd":  "bind \\ +PreAim"
                      },
                      {
                          "label":  "CFG重置键",
@@ -62,7 +49,7 @@
                          "label":  "瞄准键",
                          "ban_key":  "",
                          "key":  "[",
-                         "nd":  "bind [ +GrenadeTask"
+                         "nd":  "bind [ +CSRM_Grenade_Aim"
                      },
                      {
                          "label":  "静步键",
@@ -119,34 +106,58 @@
                          "nd":  "bind E +ETotal"
                      },
                      {
+                         "label":  "丢东西键",
+                         "ban_key":  "",
+                         "key":  "G",
+                         "nd":  "bind G +GTotal"
+                     },
+                     {
                          "label":  "前进键",
                          "ban_key":  "",
                          "key":  "W",
-                         "nd":  "bind W +_forWard"
+                         "nd":  "bind W +jforward"
                      },
                      {
                          "label":  "向左键",
                          "ban_key":  "",
                          "key":  "A",
-                         "nd":  "bind A +_left"
+                         "nd":  "bind A +jleft"
                      },
                      {
                          "label":  "后退键",
                          "ban_key":  "",
                          "key":  "S",
-                         "nd":  "bind S +_back"
+                         "nd":  "bind S +jback"
                      },
                      {
                          "label":  "向右键",
                          "ban_key":  "",
                          "key":  "D",
-                         "nd":  "binD D +_right"
+                         "nd":  "binD D +jright"
                      },
                      {
                          "label":  "跳跃键",
                          "ban_key":  "",
                          "key":  "SPACE",
                          "nd":  "bind SPACE +SPACETotal"
+                     },
+                     {
+                         "label":  "一键跳投键",
+                         "ban_key":  "",
+                         "key":  "key",
+                         "nd":  "bind key +jjumpthrow"
+                     },
+                     {
+                         "label":  "一键前跳投键",
+                         "ban_key":  "",
+                         "key":  "key",
+                         "nd":  "bind key +jwjumpthrow"
+                     },
+                     {
+                         "label":  "一键大跳键",
+                         "ban_key":  "",
+                         "key":  "key",
+                         "nd":  "bind key +jduckjump"
                      }
                  ],
     "sensitivity":  {
