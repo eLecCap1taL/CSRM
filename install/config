@@ -179,6 +179,30 @@
                                          ]
                      },
                      {
+                         "selectedOption":  "默认开启自动C4探测",
+                         "name":  "默认自动C4探测设置",
+                         "options":  [
+                                         "默认开启自动C4探测",
+                                         "默认关闭自动C4探测"
+                                     ],
+                         "cfg_options":  [
+                                             "CSRM_C4Status_EnableAutoSwitcher",
+                                             "CSRM_C4Status_DisableAutoSwitcher"
+                                         ]
+                     },
+                     {
+                         "selectedOption":  "默认C4探测无线电输出",
+                         "name":  "默认C4探测输出方式",
+                         "options":  [
+                                         "默认C4探测无线电输出",
+                                         "默认C4探测按偏好输出"
+                                     ],
+                         "cfg_options":  [
+                                             "CSRM_C4Status_UseChatWheelSwitcher",
+                                             "CSRM_C4Status_UsePreferenceSwitcher"
+                                         ]
+                     },
+                     {
                          "selectedOption":  "默认开启滚轮连跳增强",
                          "name":  "默认滚轮连跳设置",
                          "options":  [
@@ -193,7 +217,7 @@
                                          ]
                      },
                      {
-                         "selectedOption":  "默认开启跟随准心逐渐显示",
+                         "selectedOption":  "默认关闭跟随准心逐渐显示",
                          "name":  "默认跟随准心逐渐显示设置",
                          "options":  [
                                          "默认开启跟随准心逐渐显示",
@@ -214,18 +238,6 @@
                          "cfg_options":  [
                                              "RadioPrefer_Grenade",
                                              "RadioPrefer_CFGMain"
-                                         ]
-                     },
-                     {
-                         "selectedOption":  "默认关闭小键盘切换地图",
-                         "name":  "是否开启小键盘切换地图",
-                         "options":  [
-                                         "默认开启小键盘切换地图",
-                                         "默认关闭小键盘切换地图"
-                                     ],
-                         "cfg_options":  [
-                                             "SetKPMapOn",
-                                             "SetKPMapOff"
                                          ]
                      },
                      {
@@ -257,7 +269,7 @@
                                          ]
                      },
                      {
-                         "selectedOption":  "默认开启双准心",
+                         "selectedOption":  "默认关闭双准心",
                          "name":  "默认双准心设置",
                          "options":  [
                                          "默认开启双准心",
@@ -269,7 +281,7 @@
                                          ]
                      },
                      {
-                         "selectedOption":  "所有人",
+                         "selectedOption":  "队内聊天",
                          "name":  "默认消息输出模式",
                          "options":  [
                                          "不输出",
@@ -278,10 +290,10 @@
                                          "所有人"
                                      ],
                          "cfg_options":  [
-                                             "OutputSwitcherNone",
-                                             "OutputSwitcherTeam",
-                                             "OutputSwitcherEcho",
-                                             "OutputSwitcherAll"
+                                             "CSRM_OutputSwitcher_None",
+                                             "CSRM_OutputSwitcher_Team",
+                                             "CSRM_OutputSwitcher_Echo",
+                                             "CSRM_OutputSwitcher_All"
                                          ]
                      },
                      {
@@ -297,24 +309,14 @@
                                          ]
                      },
                      {
-                         "selectedOption":  "默认SnapTap急停",
+                         "selectedOption":  "默认全向可挂梯可开商店急停",
                          "name":  "默认急停方式",
                          "options":  [
-                                         "默认全向急停",
-                                         "默认无冲急停",
-                                         "默认SnapTap急停",
-                                         "默认旧式急停",
-                                         "默认仅双键急停",
-                                         "默认仅WS急停",
+                                         "默认全向可挂梯可开商店急停",
                                          "默认关闭自动急停"
                                      ],
                          "cfg_options":  [
                                              "IMStopSwitcherFull",
-                                             "IMStopSwitcherWC",
-                                             "IMStopSwitcherSnapTap",
-                                             "IMStopSwitcherOld",
-                                             "IMStopSwitcherDB",
-                                             "IMStopSwitcherOnlyWS",
                                              "IMStopSwitcherNone"
                                          ]
                      },
@@ -331,15 +333,39 @@
                                          ]
                      },
                      {
-                         "selectedOption":  "默认关闭静步时禁用急停CFG",
+                         "selectedOption":  "默认静步时不禁用急停",
                          "name":  "静步时是否禁用急停",
                          "options":  [
-                                         "默认开启静步时禁用急停CFG",
-                                         "默认关闭静步时禁用急停CFG"
+                                         "默认静步时不禁用急停",
+                                         "默认静步时禁用急停"
                                      ],
                          "cfg_options":  [
-                                             "EnableShiftDeIMStop",
-                                             "DisableShiftDeIMStop"
+                                             "JMove_DisableShiftBan",
+                                             "JMove_EnableShiftBan"
+                                         ]
+                     },
+                     {
+                         "selectedOption":  "默认长按跳跃时不禁用急停",
+                         "name":  "长按跳跃时是否禁用急停",
+                         "options":  [
+                                         "默认长按跳跃时不禁用急停",
+                                         "默认长按跳跃时禁用急停"
+                                     ],
+                         "cfg_options":  [
+                                             "JMove_DisableBhopBan",
+                                             "JMove_EnableBhopBan"
+                                         ]
+                     },
+                     {
+                         "selectedOption":  "默认开启长按跳跃键连跳",
+                         "name":  "长按跳跃时是否自动连跳",
+                         "options":  [
+                                         "默认开启长按跳跃键连跳",
+                                         "默认关闭长按跳跃键连跳"
+                                     ],
+                         "cfg_options":  [
+                                             "JMove_EnableBhop",
+                                             "JMove_DisableBhop"
                                          ]
                      }
                  ]
