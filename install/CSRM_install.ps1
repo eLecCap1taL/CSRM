@@ -187,12 +187,16 @@ if (-not $userData) {
     exit
 }
 
+# 定义 config 文件的路径
+$configPath = Join-Path (Join-Path $PSScriptRoot .\) "config"
+
 # 读取保存的输入值和按键绑定
 $savedData = $null
 if (Test-Path 'config') {
     Write-Verbose "Attempting to read config file"
     try {
-        $configContent = Get-Content 'config' -Raw
+        # 使用 UTF-8 编码读取文件内容
+        $configContent = Get-Content 'config' -Raw -Encoding UTF8
         $savedData = $configContent | ConvertFrom-Json
         if ($savedData) {
             Write-Verbose "Config file read successfully"
@@ -211,9 +215,7 @@ if (Test-Path 'config') {
         Write-Verbose "Error parsing config file: $_"
         Write-Verbose "Config file content:"
         Write-Verbose $configContent
-        
-
-        try {
+                try {
             $manualParsedData = $configContent -replace '}\s*{', '},{'
             $savedData = $manualParsedData | ConvertFrom-Json
             Write-Verbose "Manual parsing successful"
@@ -685,10 +687,10 @@ $okButton.Add_Click({
                 }
             }
         }
-        # 大陀螺
-        $newGyroscopeCommand = "alias GyroscopeRotate yaw $calculatedYaw 1 1"
-        $gyroscopePattern = '(?m)^alias\s+GyroscopeRotate\s+yaw\s+[\d.]+\s+1\s+1$'
 
+        # 更新大陀螺
+        $newGyroscopeCommand = "alias GyroscopeRotate yaw $calculatedYaw 1 1"
+        $gyroscopePattern = '(?m)^alias\s+GyroscopeRotate\s+yaw\s+[\d.]+\s+1\s+1\s*$'
         $content = $content -replace $gyroscopePattern, $newGyroscopeCommand
         Write-Verbose "Updated existing GyroscopeRotate command"
 
@@ -731,9 +733,6 @@ $okButton.Add_Click({
             }
         }
 
-        Write-Verbose "Content before writing to file:"
-        Write-Verbose $content
-
         # debug 输出写入内容
         Write-Verbose "Content before writing to file:"
         Write-Verbose ($content | Out-String)
@@ -756,16 +755,14 @@ $okButton.Add_Click({
         $inputValuesJson = $inputValues | ConvertTo-Json -Depth 3
         Write-Verbose "Input values JSON:"
         Write-Verbose $inputValuesJson
-        # 尝试使用新写入方法解决格式问题，并且尝试保留原先的错误检查机制
-        # Set-Content "config" -Value $inputValuesJson -Encoding UTF8 -ErrorAction Stop
-        # Write-Verbose "Config saved successfully"
+        # 保存配置
         try {
             $utf8NoBom = New-Object System.Text.UTF8Encoding $false
-            [System.IO.File]::WriteAllText("config", $inputValuesJson, $utf8NoBom)
-            Write-Verbose "Config saved successfully"
+            [System.IO.File]::WriteAllText($configPath, $inputValuesJson, $utf8NoBom)
+            Write-Verbose "Config saved successfully to: $configPath"
         }
         catch {
-            Write-Verbose "Error saving config file: $_"
+            Write-Verbose "Error saving config file to ${configPath}: $_"
             throw
         }
 
@@ -891,6 +888,21 @@ $okButton.Add_Click({
             $sourceFile = Join-Path -Path $currentDirectory -ChildPath "resource.zip"
             if (-Not (Test-Path -Path $sourceFile)) {
                 throw "当前目录下未找到 resource.zip 文件"
+            }
+
+            $process = Get-Process -Name "完美世界竞技平台" -ErrorAction Stop
+            $processPath = ($process | Select-Object -First 1).Path
+            $directory = Split-Path $processPath -Parent
+
+            $targetFile = Join-Path -Path $directory -ChildPath "plugin\resource\resource.zip"
+            $targetDirectory = Split-Path $targetFile -Parent
+            if (-Not (Test-Path -Path $targetDirectory)) {
+                New-Item -Path $targetDirectory -ItemType Directory -Force
+            }
+
+            Copy-Item -Path $sourceFile -Destination $targetFile -Force
+            if (-Not (Test-Path -Path $targetFile)) {
+                throw "文件复制失败: $targetFile"
             }
 
             $zipFilePath2 = ".\resource.zip"

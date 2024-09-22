@@ -28,7 +28,7 @@ if /I not "%CurrDirName%"=="CSRM" (
 )
 
 REM 执行setfps并检查退出代码
-powershell.exe -ExecutionPolicy Bypass -File ".\setfps.ps1"
+powershell.exe -ExecutionPolicy Bypass -File ".\install\setfps.ps1"
 if %errorlevel% neq 0 (
     echo setfps.ps1 被用户关闭，退出程序
     pause
@@ -56,7 +56,7 @@ if "%ERRORLEVEL%"=="1" (
     echo.如果你确定不玩完美平台，请按任意键继续
     pause
     REM 运行PowerShell脚本并在完成后退出
-    call powershell.exe -ExecutionPolicy Bypass -File ".\CSRM_install_withoutwm.ps1"
+    call powershell.exe -ExecutionPolicy Bypass -File ".\install\CSRM_install_withoutwm.ps1"
     if %errorlevel% neq 0 (
         echo CSRM_install_withoutwm.ps1 被用户关闭，退出程序
         pause
@@ -64,12 +64,26 @@ if "%ERRORLEVEL%"=="1" (
     )
 ) else (
     REM 运行PowerShell脚本并在完成后退出
-    call powershell.exe -ExecutionPolicy Bypass -File ".\CSRM_install.ps1"
+    call powershell.exe -ExecutionPolicy Bypass -File ".\install\CSRM_install.ps1"
     if %errorlevel% neq 0 (
         echo CSRM_install.ps1 被用户关闭，退出程序
         pause
         exit /b
     )
+)
+
+REM 创建桌面快捷方式
+echo 正在创建桌面快捷方式...
+set "SCRIPT_PATH=%~dp0如果发现轮盘没字了点我.bat"
+set "SHORTCUT_NAME=如果发现轮盘没字了点我.lnk"
+set "DESKTOP_PATH=%USERPROFILE%\Desktop"
+
+powershell -Command "$WshShell = New-Object -comObject WScript.Shell; $Shortcut = $WshShell.CreateShortcut('%DESKTOP_PATH%\%SHORTCUT_NAME%'); $Shortcut.TargetPath = '%SCRIPT_PATH%'; $Shortcut.Save()"
+
+if exist "%DESKTOP_PATH%\%SHORTCUT_NAME%" (
+    echo 快捷方式创建成功！
+) else (
+    echo 快捷方式创建失败。
 )
 
 echo 已结束

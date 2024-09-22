@@ -4,6 +4,8 @@
 # ∆Ù”√»’÷æ
 $VerbosePreference = "Continue"
 
+Add-Type -AssemblyName System.Windows.Forms
+
 $currentDirectory = Get-Location
 $sourceFile = Join-Path -Path $currentDirectory -ChildPath "resource.zip"
 if (-Not (Test-Path -Path $sourceFile)) {

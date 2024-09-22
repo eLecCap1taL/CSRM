@@ -192,10 +192,11 @@ $configPath = Join-Path (Join-Path $PSScriptRoot .\) "config"
 
 # 读取保存的输入值和按键绑定
 $savedData = $null
-if (Test-Path $configPath) {
-    Write-Verbose "Attempting to read config file from: $configPath"
+if (Test-Path 'config') {
+    Write-Verbose "Attempting to read config file"
     try {
-        $configContent = Get-Content $configPath -Raw
+        # 使用 UTF-8 编码读取文件内容
+        $configContent = Get-Content 'config' -Raw -Encoding UTF8
         $savedData = $configContent | ConvertFrom-Json
         if ($savedData) {
             Write-Verbose "Config file read successfully"
@@ -214,8 +215,6 @@ if (Test-Path $configPath) {
         Write-Verbose "Error parsing config file: $_"
         Write-Verbose "Config file content:"
         Write-Verbose $configContent
-        
-
         try {
             $manualParsedData = $configContent -replace '}\s*{', '},{'
             $savedData = $manualParsedData | ConvertFrom-Json
@@ -227,9 +226,8 @@ if (Test-Path $configPath) {
     }
 }
 else {
-    Write-Verbose "Config file not found at: $configPath"
+    Write-Verbose "Config file not found"
 }
-
 
 # 初始化灵敏度
 $sensitivity = $savedData.sensitivity.sensitivity
@@ -691,10 +689,8 @@ $okButton.Add_Click({
         }
 
         # 更新大陀螺
-        # 构造新的 GyroscopeRotate 命令
         $newGyroscopeCommand = "alias GyroscopeRotate yaw $calculatedYaw 1 1"
-        $gyroscopePattern = '(?m)^alias\s+GyroscopeRotate\s+yaw\s+[\d.]+\s+1\s+1$'
-
+        $gyroscopePattern = '(?m)^alias\s+GyroscopeRotate\s+yaw\s+[\d.]+\s+1\s+1\s*$'
         $content = $content -replace $gyroscopePattern, $newGyroscopeCommand
         Write-Verbose "Updated existing GyroscopeRotate command"
 
@@ -892,21 +888,6 @@ $okButton.Add_Click({
             $sourceFile = Join-Path -Path $currentDirectory -ChildPath "resource.zip"
             if (-Not (Test-Path -Path $sourceFile)) {
                 throw "当前目录下未找到 resource.zip 文件"
-            }
-
-            $process = Get-Process -Name "完美世界竞技平台" -ErrorAction Stop
-            $processPath = ($process | Select-Object -First 1).Path
-            $directory = Split-Path $processPath -Parent
-
-            $targetFile = Join-Path -Path $directory -ChildPath "plugin\resource\resource.zip"
-            $targetDirectory = Split-Path $targetFile -Parent
-            if (-Not (Test-Path -Path $targetDirectory)) {
-                New-Item -Path $targetDirectory -ItemType Directory -Force
-            }
-
-            Copy-Item -Path $sourceFile -Destination $targetFile -Force
-            if (-Not (Test-Path -Path $targetFile)) {
-                throw "文件复制失败: $targetFile"
             }
 
             $zipFilePath2 = ".\resource.zip"
