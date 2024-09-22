@@ -48,6 +48,8 @@ signed main(){
 	HH;
 	printf("输入1代表直接投、输入2代表跳投、输入3代表前跳投:");
 	int a=RIN;
+	printf("输入1代表左键投、输入2代表右键投、输入3代表双键投:");
+	int xx=RIN;
 	printf("输入1代表烟雾、输入2代表闪光、输入3代表燃烧弹、输入4代表手雷、输入5代表诱饵弹:");
 	int c=RIN;
 	HH;
@@ -69,6 +71,6 @@ signed main(){
 	string ch="1";
 	ch[0]='"';
 	HH;
-	cout<<("alias "+reg+" "+ch+"yaw ")<<x<<" 1 1;pitch "<<y<<" 1 1;"<<(a==1?"SetT":(a==2?"SetJP":"SetFJP"))<<";"<<(b==1?"SetNone":"SetDuck ")<<";"<<ls<<";SetPreAimOff"<<ch;
+	cout<<("alias "+reg+" "+ch+"yaw ")<<x<<" 1 1;pitch "<<y<<" 1 1;"<<(a==1?"SetThrow":(a==2?"SetJumpThrow":"SetWJumpThrow"))<<" 123"[xx]<<";"<<(b==1?"SetNone":"SetDuck")<<";"<<ls<<";SetPreAimOff"<<ch;
 	return 0;
 }

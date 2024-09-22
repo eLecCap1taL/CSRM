@@ -1,0 +1,335 @@
+{
+    "bindings":  [
+                     {
+                         "label":  "轮盘触发",
+                         "ban_key":  "",
+                         "key":  "SEMICOLON",
+                         "nd":  "bind SEMICOLON +Radio"
+                     },
+                     {
+                         "label":  "CFG返回主页面键",
+                         "ban_key":  "",
+                         "key":  ".",
+                         "nd":  "bind . ResetRadioPage"
+                     },
+                     {
+                         "label":  "急停开关切换键",
+                         "ban_key":  [
+                                         "SHIFT",
+                                         "RSHIFT"
+                                     ],
+                         "key":  "key",
+                         "nd":  "bind key DisabLeIMStop"
+                     },
+                     {
+                         "label":  "投掷键",
+                         "ban_key":  "",
+                         "key":  "]",
+                         "nd":  [
+                                    "alias ClearThrow bind ] NoneAimedUse",
+                                    "alias SetT bind ] +ST",
+                                    "alias SetDBT bind ] +DBT",
+                                    "alias SetDBFJP bind ] +DBFJPT",
+                                    "alias SetJP bind ] +JPT",
+                                    "alias SetFJP bind ] +FJPT"
+                                ]
+                     },
+                     {
+                         "label":  "爆弹键",
+                         "ban_key":  "",
+                         "key":  "\u0027",
+                         "nd":  "bind \u0027 +RevS"
+                     },
+                     {
+                         "label":  "陀螺键",
+                         "ban_key":  "",
+                         "key":  "key",
+                         "nd":  "bind key +If_ForceGyroscope"
+                     },
+                     {
+                         "label":  "预瞄键",
+                         "ban_key":  "",
+                         "key":  "\\",
+                         "nd":  "bind \\ +PreAim"
+                     },
+                     {
+                         "label":  "CFG重置键",
+                         "ban_key":  "",
+                         "key":  "/",
+                         "nd":  "bind / ResetCFG"
+                     },
+                     {
+                         "label":  "瞄准键",
+                         "ban_key":  "",
+                         "key":  "[",
+                         "nd":  "bind [ +GrenadeTask"
+                     },
+                     {
+                         "label":  "静步键",
+                         "ban_key":  "",
+                         "key":  "SHIFT",
+                         "nd":  "bind SHIFT +SHIFTTotal"
+                     },
+                     {
+                         "label":  "下蹲键",
+                         "ban_key":  "",
+                         "key":  "CTRL",
+                         "nd":  "bind CTRL +CTRLTotal"
+                     },
+                     {
+                         "label":  "主武器键",
+                         "ban_key":  "",
+                         "key":  "1",
+                         "nd":  "bind 1 +1Total"
+                     },
+                     {
+                         "label":  "手枪键",
+                         "ban_key":  "",
+                         "key":  "2",
+                         "nd":  "bind 2 +2Total"
+                     },
+                     {
+                         "label":  "切刀键",
+                         "ban_key":  "",
+                         "key":  "3",
+                         "nd":  "bind 3 +3Total"
+                     },
+                     {
+                         "label":  "切道具键",
+                         "ban_key":  "",
+                         "key":  "4",
+                         "nd":  "bind 4 +4Total"
+                     },
+                     {
+                         "label":  "修改你的切C4键",
+                         "ban_key":  "",
+                         "key":  "5",
+                         "nd":  "bind 5 +5Total"
+                     },
+                     {
+                         "label":  "切换至上一武器",
+                         "ban_key":  "",
+                         "key":  "Q",
+                         "nd":  "bind Q +QTotal"
+                     },
+                     {
+                         "label":  "拆包键",
+                         "ban_key":  "",
+                         "key":  "E",
+                         "nd":  "bind E +ETotal"
+                     },
+                     {
+                         "label":  "前进键",
+                         "ban_key":  "",
+                         "key":  "W",
+                         "nd":  "bind W +_forWard"
+                     },
+                     {
+                         "label":  "向左键",
+                         "ban_key":  "",
+                         "key":  "A",
+                         "nd":  "bind A +_left"
+                     },
+                     {
+                         "label":  "后退键",
+                         "ban_key":  "",
+                         "key":  "S",
+                         "nd":  "bind S +_back"
+                     },
+                     {
+                         "label":  "向右键",
+                         "ban_key":  "",
+                         "key":  "D",
+                         "nd":  "binD D +_right"
+                     },
+                     {
+                         "label":  "跳跃键",
+                         "ban_key":  "",
+                         "key":  "SPACE",
+                         "nd":  "bind SPACE +SPACETotal"
+                     }
+                 ],
+    "sensitivity":  {
+                        "pitch":  "0.022",
+                        "yaw":  "0.022",
+                        "sensitivity":  "2.003962"
+                    },
+    "settings":  [
+                     {
+                         "selectedOption":  "默认关闭准心快速回正",
+                         "name":  "默认准心快速回正设置",
+                         "options":  [
+                                         "默认开启准心快速回正",
+                                         "默认关闭准心快速回正"
+                                     ],
+                         "cfg_options":  [
+                                             "RecoilFastRevSwitcherOn",
+                                             "RecoilFastRevSwitcherOff"
+                                         ]
+                     },
+                     {
+                         "selectedOption":  "默认开启滚轮连跳增强",
+                         "name":  "默认滚轮连跳设置",
+                         "options":  [
+                                         "默认开启滚轮连跳增强",
+                                         "默认*仅按下空格时* 开启滚轮连跳增强",
+                                         "默认关闭滚轮连跳增强"
+                                     ],
+                         "cfg_options":  [
+                                             "WJSwitcherOn",
+                                             "WJSwitcherOnly",
+                                             "WJSwitcherOff"
+                                         ]
+                     },
+                     {
+                         "selectedOption":  "默认开启跟随准心逐渐显示",
+                         "name":  "默认跟随准心逐渐显示设置",
+                         "options":  [
+                                         "默认开启跟随准心逐渐显示",
+                                         "默认关闭跟随准心逐渐显示"
+                                     ],
+                         "cfg_options":  [
+                                             "FadeRecoilSwitcherOn",
+                                             "FadeRecoilSwitcherOff"
+                                         ]
+                     },
+                     {
+                         "selectedOption":  "CFG主页面",
+                         "name":  "你CFG的默认主页面",
+                         "options":  [
+                                         "道具轮盘页面",
+                                         "CFG主页面"
+                                     ],
+                         "cfg_options":  [
+                                             "RadioPrefer_Grenade",
+                                             "RadioPrefer_CFGMain"
+                                         ]
+                     },
+                     {
+                         "selectedOption":  "默认关闭小键盘切换地图",
+                         "name":  "是否开启小键盘切换地图",
+                         "options":  [
+                                         "默认开启小键盘切换地图",
+                                         "默认关闭小键盘切换地图"
+                                     ],
+                         "cfg_options":  [
+                                             "SetKPMapOn",
+                                             "SetKPMapOff"
+                                         ]
+                     },
+                     {
+                         "selectedOption":  "默认关闭准心跟随",
+                         "name":  "默认准心跟随设置",
+                         "options":  [
+                                         "默认开启准心跟随",
+                                         "默认 *仅移动时* 开启准心跟随",
+                                         "默认关闭准心跟随"
+                                     ],
+                         "cfg_options":  [
+                                             "RecoilSwitcherOn",
+                                             "RecoilSwitcherOnly",
+                                             "RecoilSwitcherOff"
+                                         ]
+                     },
+                     {
+                         "selectedOption":  "默认按小键盘9开启BUG闪列表",
+                         "name":  "是否启用快捷BUG闪列表",
+                         "options":  [
+                                         "默认按小键盘9开启BUG闪列表",
+                                         "默认按F1开启BUG闪列表",
+                                         "默认关闭快捷BUG闪列表"
+                                     ],
+                         "cfg_options":  [
+                                             "SetBFMenuKP",
+                                             "SetBFMenuFB",
+                                             "SetBFMenuOff"
+                                         ]
+                     },
+                     {
+                         "selectedOption":  "默认开启双准心",
+                         "name":  "默认双准心设置",
+                         "options":  [
+                                         "默认开启双准心",
+                                         "默认关闭双准心"
+                                     ],
+                         "cfg_options":  [
+                                             "DoubleCrossHairSwitcherOn",
+                                             "DoubleCrossHairSwitcherOff"
+                                         ]
+                     },
+                     {
+                         "selectedOption":  "所有人",
+                         "name":  "默认消息输出模式",
+                         "options":  [
+                                         "不输出",
+                                         "队内聊天",
+                                         "控制台",
+                                         "所有人"
+                                     ],
+                         "cfg_options":  [
+                                             "OutputSwitcherNone",
+                                             "OutputSwitcherTeam",
+                                             "OutputSwitcherEcho",
+                                             "OutputSwitcherAll"
+                                         ]
+                     },
+                     {
+                         "selectedOption":  "默认开启拆包时开火自动取消拆包",
+                         "name":  "是否拆包时开火自动取消拆包",
+                         "options":  [
+                                         "默认开启拆包时开火自动取消拆包",
+                                         "默认关闭拆包时开火自动取消拆包"
+                                     ],
+                         "cfg_options":  [
+                                             "AttackDeDefuseSwitcherOn",
+                                             "AttackDeDefuseSwitcherOff"
+                                         ]
+                     },
+                     {
+                         "selectedOption":  "默认SnapTap急停",
+                         "name":  "默认急停方式",
+                         "options":  [
+                                         "默认全向急停",
+                                         "默认无冲急停",
+                                         "默认SnapTap急停",
+                                         "默认旧式急停",
+                                         "默认仅双键急停",
+                                         "默认仅WS急停",
+                                         "默认关闭自动急停"
+                                     ],
+                         "cfg_options":  [
+                                             "IMStopSwitcherFull",
+                                             "IMStopSwitcherWC",
+                                             "IMStopSwitcherSnapTap",
+                                             "IMStopSwitcherOld",
+                                             "IMStopSwitcherDB",
+                                             "IMStopSwitcherOnlyWS",
+                                             "IMStopSwitcherNone"
+                                         ]
+                     },
+                     {
+                         "selectedOption":  "默认关闭跳跃键大跳",
+                         "name":  "是否默认启用跳跃键大跳",
+                         "options":  [
+                                         "默认开启跳跃键大跳",
+                                         "默认关闭跳跃键大跳"
+                                     ],
+                         "cfg_options":  [
+                                             "DuckJumpSwitcherOn",
+                                             "DuckJumpSwitcherOff"
+                                         ]
+                     },
+                     {
+                         "selectedOption":  "默认关闭静步时禁用急停CFG",
+                         "name":  "静步时是否禁用急停",
+                         "options":  [
+                                         "默认开启静步时禁用急停CFG",
+                                         "默认关闭静步时禁用急停CFG"
+                                     ],
+                         "cfg_options":  [
+                                             "EnableShiftDeIMStop",
+                                             "DisableShiftDeIMStop"
+                                         ]
+                     }
+                 ]
+}

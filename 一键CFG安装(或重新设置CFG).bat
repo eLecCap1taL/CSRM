@@ -14,7 +14,6 @@ exit /B
 :UACAdmin
 cd /d "%~dp0"
 
-
 echo.请确保此文件在*\Counter-Strike Global Offensive\game\csgo\cfg\CSRM目录当中
 REM 检查是否在CSRM文件夹中
 for %%I in (.) do set CurrDirName=%%~nxI
@@ -27,22 +26,23 @@ if /I not "%CurrDirName%"=="CSRM" (
     pause
     exit /b
 )
-pushd ".\Addon"
-powershell.exe -ExecutionPolicy Bypass -File ".\GetCrossHair.ps1"
-popd
 
-REM 检查是否在CSRM文件夹中
-for %%I in (.) do set CurrDirName=%%~nxI
-if /I not "%CurrDirName%"=="CSRM" (
-    color 0C
-    echo 请把此文件放进CSRM文件夹中!!!
-    echo.请把此文件放进CSRM文件夹中!!!
-    echo.请把此文件放进CSRM文件夹中!!!
-    echo.请确保此文件在*\Counter-Strike Global Offensive\game\csgo\cfg\CSRM目录当中
-    echo.
+REM 执行setfps并检查退出代码
+powershell.exe -ExecutionPolicy Bypass -File ".\setfps.ps1"
+if %errorlevel% neq 0 (
+    echo setfps.ps1 被用户关闭，退出程序
     pause
     exit /b
 )
+
+pushd ".\Addon"
+powershell.exe -ExecutionPolicy Bypass -File ".\GetCrossHair.ps1"
+if %errorlevel% neq 0 (
+    echo Addon\GetCrossHair.ps1 被用户关闭，退出程序
+    pause
+    exit /b
+)
+popd
 
 REM 检查"完美世界竞技平台"进程是否运行
 tasklist /FI "IMAGENAME eq 完美世界竞技平台.exe" 2>NUL | find /I /N "完美世界竞技平台.exe">NUL
@@ -57,12 +57,21 @@ if "%ERRORLEVEL%"=="1" (
     pause
     REM 运行PowerShell脚本并在完成后退出
     call powershell.exe -ExecutionPolicy Bypass -File ".\CSRM_install_withoutwm.ps1"
-    echo 已结束
-    pause
-    exit /b
+    if %errorlevel% neq 0 (
+        echo CSRM_install_withoutwm.ps1 被用户关闭，退出程序
+        pause
+        exit /b
+    )
+) else (
+    REM 运行PowerShell脚本并在完成后退出
+    call powershell.exe -ExecutionPolicy Bypass -File ".\CSRM_install.ps1"
+    if %errorlevel% neq 0 (
+        echo CSRM_install.ps1 被用户关闭，退出程序
+        pause
+        exit /b
+    )
 )
 
-REM 运行PowerShell脚本并在完成后退出
-call powershell.exe -ExecutionPolicy Bypass -File ".\CSRM_install.ps1"
 echo 已结束
 pause
+exit /b

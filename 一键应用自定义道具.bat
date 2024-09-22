@@ -1,2 +1,2 @@
-AutoAddUtility.exe
+.\Utilities\AutoAddUtility.exe
 pause

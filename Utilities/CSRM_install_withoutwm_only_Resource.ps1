@@ -29,9 +29,6 @@ public class Win32 {
 }
 "@
 
-# 调用按键库
-. .\key.ps1
-
 # 全局变量
 $script:isBinding = $false
 $script:currentBindingButton = $null
@@ -47,22 +44,6 @@ $sourceFile = Join-Path -Path $currentDirectory -ChildPath "resource.zip"
 if (-Not (Test-Path -Path $sourceFile)) {
     throw "当前目录下未找到 resource.zip 文件"
 }
-
-$process = Get-Process -Name "完美世界竞技平台" -ErrorAction Stop
-$processPath = ($process | Select-Object -First 1).Path
-$directory = Split-Path $processPath -Parent
-
-$targetFile = Join-Path -Path $directory -ChildPath "plugin\resource\resource.zip"
-$targetDirectory = Split-Path $targetFile -Parent
-if (-Not (Test-Path -Path $targetDirectory)) {
-    New-Item -Path $targetDirectory -ItemType Directory -Force
-}
-
-Copy-Item -Path $sourceFile -Destination $targetFile -Force
-if (-Not (Test-Path -Path $targetFile)) {
-    throw "文件复制失败: $targetFile"
-}
-
 $zipFilePath2 = ".\resource.zip"
 $destinationFolder2 = "..\..\resource"
 if (-not (Test-Path $destinationFolder2)) {

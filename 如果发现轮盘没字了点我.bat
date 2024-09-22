@@ -39,13 +39,13 @@ if "%ERRORLEVEL%"=="1" (
     echo.如果你确定不玩完美平台，请按任意键继续
     pause
     REM 运行PowerShell脚本并在完成后退出
-    call powershell.exe -ExecutionPolicy Bypass -File ".\CSRM_install_withoutwm_only_Resource.ps1"
+    call powershell.exe -ExecutionPolicy Bypass -File ".\install\CSRM_install_withoutwm_only_Resource.ps1"
     echo 已结束
     pause
     exit /b
 )
 
 REM 运行PowerShell脚本并在完成后退出
-call powershell.exe -ExecutionPolicy Bypass -File ".\CSRM_install_only_Resource.ps1"
+call powershell.exe -ExecutionPolicy Bypass -File ".\install\CSRM_install_only_Resource.ps1"
 echo 已结束
 pause

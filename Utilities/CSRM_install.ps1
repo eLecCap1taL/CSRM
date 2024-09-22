@@ -30,7 +30,7 @@ public class Win32 {
 "@
 
 # 调用按键库
-. .\key.ps1
+. .\install\key.ps1
 
 # 全局变量
 $script:isBinding = $false
@@ -187,12 +187,15 @@ if (-not $userData) {
     exit
 }
 
+# 定义 config 文件的路径
+$configPath = Join-Path (Join-Path $PSScriptRoot .\) "config"
+
 # 读取保存的输入值和按键绑定
 $savedData = $null
-if (Test-Path 'config') {
-    Write-Verbose "Attempting to read config file"
+if (Test-Path $configPath) {
+    Write-Verbose "Attempting to read config file from: $configPath"
     try {
-        $configContent = Get-Content 'config' -Raw
+        $configContent = Get-Content $configPath -Raw
         $savedData = $configContent | ConvertFrom-Json
         if ($savedData) {
             Write-Verbose "Config file read successfully"
@@ -224,8 +227,9 @@ if (Test-Path 'config') {
     }
 }
 else {
-    Write-Verbose "Config file not found"
+    Write-Verbose "Config file not found at: $configPath"
 }
+
 
 # 初始化灵敏度
 $sensitivity = $savedData.sensitivity.sensitivity
@@ -598,6 +602,8 @@ $okButton.Add_Click({
         $sensitivity = $textBoxes["sensitivity"].Text
         $yaw = $textBoxes["yaw"].Text
         $pitch = $textBoxes["pitch"].Text
+        # 此处计算大陀螺数值
+        $calculatedYaw = [math]::Round(180 / ([double]$sensitivity * [double]$yaw), 6)
 
         $configFile = "Preference.cfg"
         Write-Verbose "Updating Preference.cfg"
@@ -684,6 +690,13 @@ $okButton.Add_Click({
             }
         }
 
+        # 更新大陀螺
+        # 构造新的 GyroscopeRotate 命令
+        $newGyroscopeCommand = "alias GyroscopeRotate yaw $calculatedYaw 1 1"
+        $gyroscopePattern = '(?m)^alias\s+GyroscopeRotate\s+yaw\s+[\d.]+\s+1\s+1$'
+
+        $content = $content -replace $gyroscopePattern, $newGyroscopeCommand
+        Write-Verbose "Updated existing GyroscopeRotate command"
 
         # 处理设置
         Write-Verbose "Processing settings"
@@ -724,23 +737,39 @@ $okButton.Add_Click({
             }
         }
 
-        Write-Verbose "Content before writing to file:"
-        Write-Verbose $content
-
         # debug 输出写入内容
         Write-Verbose "Content before writing to file:"
         Write-Verbose ($content | Out-String)
 
         # 写入
-        Set-Content $configFile -Value $content -Encoding UTF8 -ErrorAction Stop
-        Write-Verbose "Config file updated successfully"
+        # Set-Content $configFile -Value $content -Encoding UTF8 -ErrorAction Stop
+        # Write-Verbose "Config file updated successfully"
+        # 尝试使用新写入方法解决格式问题，并且尝试保留原先的错误检查机制
+        try {
+            $utf8NoBom = New-Object System.Text.UTF8Encoding $false
+            [System.IO.File]::WriteAllText($configFile, $content, $utf8NoBom)
+            Write-Verbose "Config file updated successfully"
+        }
+        catch {
+            Write-Verbose "Error updating config file: $_"
+            throw
+        }
 
         Write-Verbose "Saving input values to config file"
         $inputValuesJson = $inputValues | ConvertTo-Json -Depth 3
         Write-Verbose "Input values JSON:"
         Write-Verbose $inputValuesJson
-        Set-Content "config" -Value $inputValuesJson -Encoding UTF8 -ErrorAction Stop
-        Write-Verbose "Config saved successfully"
+        # 保存配置
+        try {
+            $utf8NoBom = New-Object System.Text.UTF8Encoding $false
+            [System.IO.File]::WriteAllText($configPath, $inputValuesJson, $utf8NoBom)
+            Write-Verbose "Config saved successfully to: $configPath"
+        }
+        catch {
+            Write-Verbose "Error saving config file to ${configPath}: $_"
+            throw
+        }
+
 
         $feedbackMessage = ""
 
@@ -800,7 +829,10 @@ $okButton.Add_Click({
                     }
 
                     # 写入添加
-                    [System.IO.File]::WriteAllText($autoexecPath, $newContent)
+                    # 尝试使用新写入方法解决格式问题，并且尝试保留原先的错误检查机制
+                    # [System.IO.File]::WriteAllText($autoexecPath, $newContent)
+                    $utf8NoooBom = New-Object System.Text.UTF8Encoding $false
+                    [System.IO.File]::WriteAllText($autoexecPath, $newContent, $utf8NoooBom)
                     # 莫名的bug，刷新一下
                     [System.IO.File]::SetLastWriteTime($autoexecPath, 
                         [DateTime]::Now) 
@@ -860,6 +892,21 @@ $okButton.Add_Click({
             $sourceFile = Join-Path -Path $currentDirectory -ChildPath "resource.zip"
             if (-Not (Test-Path -Path $sourceFile)) {
                 throw "当前目录下未找到 resource.zip 文件"
+            }
+
+            $process = Get-Process -Name "完美世界竞技平台" -ErrorAction Stop
+            $processPath = ($process | Select-Object -First 1).Path
+            $directory = Split-Path $processPath -Parent
+
+            $targetFile = Join-Path -Path $directory -ChildPath "plugin\resource\resource.zip"
+            $targetDirectory = Split-Path $targetFile -Parent
+            if (-Not (Test-Path -Path $targetDirectory)) {
+                New-Item -Path $targetDirectory -ItemType Directory -Force
+            }
+
+            Copy-Item -Path $sourceFile -Destination $targetFile -Force
+            if (-Not (Test-Path -Path $targetFile)) {
+                throw "文件复制失败: $targetFile"
             }
 
             $zipFilePath2 = ".\resource.zip"

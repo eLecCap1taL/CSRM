@@ -1,2 +1,2 @@
-CustomGrenadeReg.exe
+.\Utilities\CustomGrenadeRegSource.exe
 pause
