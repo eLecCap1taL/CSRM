@@ -35,8 +35,8 @@ signed main(){
 		}
 		cout<<(s+"_begin")<<'\n';
 		string out[2]={s+"\n","sleep 10\n"};
-		out[1]="";
-		for(int i=2;i<=220001;i++){
+//		out[1]="";
+		for(int i=2;i<=120001;i++){
 			cout<<out[i&1];
 		}
 //		cout<<("echo done "+s);
