@@ -1,0 +1,9 @@
+{
+    "connect-file" : "connect.cfg",
+    "connect-text" : [
+        "alias Connect_IfConnected Connect_IfConnected_Callback"
+    ],
+    "settings-file" : "Preference.cfg",
+    "settings-usr" : "UsrSettings.json",
+    "settings-default" : "Default.json"
+}
