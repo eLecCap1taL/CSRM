@@ -1,0 +1,226 @@
+{
+    "binds" : {
+        "OpenRadio" : {
+            "key" : "semicolon",
+            "content" : "+Radio",
+            "ban" : [],
+            "ban-text" : ""
+        },
+        "Grenade_Aim" : {
+            "key" : "[",
+            "content" : "+CSRM_Grenade_Aim",
+            "ban" : [],
+            "ban-text" : ""
+        },
+        "Grenade_Throw" : {
+            "key" : "]",
+            "content" : "+CSRM_Grenade_Throw",
+            "ban" : [],
+            "ban-text" : ""
+        },
+        "Grenade_AiAim" : {
+            "key" : "'",
+            "content" : "+CSRM_Grenade_AiAim",
+            "ban" : [],
+            "ban-text" : ""
+        },
+        "ResetCFG" : {
+            "key" : "/",
+            "content" : "ResetCFG",
+            "ban" : [],
+            "ban-text" : ""
+        },
+        "ResetRadioPage" : {
+            "key" : ".",
+            "content" : "ResetRadioPage",
+            "ban" : [],
+            "ban-text" : ""
+        },
+        "GyroscopeKey" : {
+            "key" : "key",
+            "content" : "+If_ForceGyroscope",
+            "ban" : [],
+            "ban-text" : ""
+        },
+        "DuckJump" : {
+            "key" : "key",
+            "content" : "+jduckjump",
+            "ban" : [],
+            "ban-text" : ""
+        },
+        "JumpThrow" : {
+            "key" : "key",
+            "content" : "+jjumpthrow",
+            "ban" : [],
+            "ban-text" : ""
+        },
+        "WJumpThrow" : {
+            "key" : "key",
+            "content" : "+jwjumpthrow",
+            "ban" : [],
+            "ban-text" : ""
+        },
+        "Smoke" : {
+            "key" : "key",
+            "content" : "SmokeTotal",
+            "ban" : [],
+            "ban-text" : ""
+        },
+        "Flash" : {
+            "key" : "key",
+            "content" : "FlashTotal",
+            "ban" : [],
+            "ban-text" : ""
+        },
+        "Molo" : {
+            "key" : "key",
+            "content" : "MoloTotal",
+            "ban" : [],
+            "ban-text" : ""
+        },
+        "HightGrenade" : {
+            "key" : "key",
+            "content" : "GrenadeTotal",
+            "ban" : [],
+            "ban-text" : ""
+        },
+        "ShowScores" : {
+            "key" : "tab",
+            "content" : "+jshowscores",
+            "ban" : [],
+            "ban-text" : ""
+        },
+        "DisableAutoStop" : {
+            "key" : "key",
+            "content" : "JMove_DSpeedSwitcher",
+            "ban" : ["shift","space"],
+            "ban-text" : "Use Custom Options"
+        },
+        "WheelUp" : {
+            "key" : "MWHEELUP",
+            "content" : "MWHEELUPTotal",
+            "ban" : [],
+            "ban-text" : ""
+        },
+        "WheelDown" : {
+            "key" : "MWHEELDOWN",
+            "content" : "MWHEELDOWNTotal",
+            "ban" : [],
+            "ban-text" : ""
+        },
+        "MOUSEX" : {
+            "key" : "mouse_x",
+            "content" : "\"MOUSETask;yaw\"",
+            "ban" : [],
+            "ban-text" : ""
+        },
+        "MOUSEY" : {
+            "key" : "mouse_y",
+            "content" : "\"MOUSETask;pitch\"",
+            "ban" : [],
+            "ban-text" : ""
+        },
+        "Shift" : {
+            "key" : "Shift",
+            "content" : "+ShiftTotal",
+            "ban" : [],
+            "ban-text" : ""
+        },
+        "Duck" : {
+            "key" : "Ctrl",
+            "content" : "+CtrlTotal",
+            "ban" : [],
+            "ban-text" : ""
+        },
+        "Attack1" : {
+            "key" : "MOUSE1",
+            "content" : "+MOUSE1Total",
+            "ban" : [],
+            "ban-text" : ""
+        },
+        "Attack2" : {
+            "key" : "MOUSE2",
+            "content" : "+MOUSE2Total",
+            "ban" : [],
+            "ban-text" : ""
+        },
+        "FirstWeapon" : {
+            "key" : "1",
+            "content" : "+1Total",
+            "ban" : [],
+            "ban-text" : ""
+        },
+        "SecondWeapon" : {
+            "key" : "2",
+            "content" : "+2Total",
+            "ban" : [],
+            "ban-text" : ""
+        },
+        "Knife" : {
+            "key" : "3",
+            "content" : "+3Total",
+            "ban" : [],
+            "ban-text" : ""
+        },
+        "Grenades" : {
+            "key" : "4",
+            "content" : "+4Total",
+            "ban" : [],
+            "ban-text" : ""
+        },
+        "C4" : {
+            "key" : "5",
+            "content" : "+5Total",
+            "ban" : [],
+            "ban-text" : ""
+        },
+        "LastInv" : {
+            "key" : "q",
+            "content" : "+QTotal",
+            "ban" : [],
+            "ban-text" : ""
+        },
+        "Use" : {
+            "key" : "e",
+            "content" : "+ETotal",
+            "ban" : [],
+            "ban-text" : ""
+        },
+        "Drop" : {
+            "key" : "g",
+            "content" : "+GTotal",
+            "ban" : [],
+            "ban-text" : ""
+        },
+        "Forward" : {
+            "key" : "w",
+            "content" : "+jforward",
+            "ban" : [],
+            "ban-text" : ""
+        },
+        "Left" : {
+            "key" : "a",
+            "content" : "+jleft",
+            "ban" : [],
+            "ban-text" : ""
+        },
+        "Back" : {
+            "key" : "s",
+            "content" : "+jback",
+            "ban" : [],
+            "ban-text" : ""
+        },
+        "Right" : {
+            "key" : "d",
+            "content" : "+jright",
+            "ban" : [],
+            "ban-text" : ""
+        },
+        "Jump" : {
+            "key" : "space",
+            "content" : "+SpaceTotal",
+            "ban" : [],
+            "ban-text" : ""
+        }
+    }
+}
