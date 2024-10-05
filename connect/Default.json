@@ -306,6 +306,7 @@
     "settings" : {
         "CFGMainPage" : {
             "title" : "设置 CFG 主页面",
+            "hide"  : false,
             "options" : [
                 "RadioPrefer_Grenade",
                 "RadioPrefer_CFGMain"
@@ -318,6 +319,7 @@
         },
         "AutoC4Detect" : {
             "title" : "设置 C4 自动探测",
+            "hide"  : false,
             "options" : [
                 "CSRM_C4Status_EnableAutoSwitcher",
                 "CSRM_C4Status_DisableAutoSwitcher"
@@ -330,6 +332,7 @@
         },
         "C4Output" : {
             "title" : "设置 C4 文字输出",
+            "hide"  : false,
             "options" : [
                 "CSRM_C4Status_UseChatWheelSwitcher",
                 "CSRM_C4Status_UsePreferenceSwitcher"
@@ -339,6 +342,178 @@
                 "默认使用默认输出方式"
             ],
             "using" : 1
+        },
+        "CFGOutput" : {
+            "title" : "设置 CFG 文字输出",
+            "hide"  : false,
+            "options" : [
+                "CSRM_OutputSwitcher_None",
+                "CSRM_OutputSwitcher_Team",
+                "CSRM_OutputSwitcher_Echo",
+                "CSRM_OutputSwitcher_All"
+            ],
+            "text" : [
+                "默认文字不输出",
+                "默认文字输出到队内",
+                "默认文字输出到控制台",
+                "默认文字输出到所有人"
+            ],
+            "using" : 1
+        },
+        "SpaceDuckJump" : {
+            "title" : "是否开启跳跃键自动大跳",
+            "hide"  : false,
+            "options" : [
+                "DuckJumpSwitcherOn",
+                "DuckJumpSwitcherOff"
+            ],
+            "text" : [
+                "开启",
+                "关闭"
+            ],
+            "using" : 1
+        },
+        "AutoStop" : {
+            "title" : "设置急停 CFG",
+            "hide"  : false,
+            "options" : [
+                "IMStopSwitcherFull",
+                "IMStopSwitcherNone"
+            ],
+            "text" : [
+                "使用全向急停",
+                "关闭自动急停"
+            ],
+            "using" : 0
+        },
+        "AutoStopShiftBan" : {
+            "title" : "是否静步时关闭急停CFG",
+            "hide"  : false,
+            "options" : [
+                "JMove_EnableShiftBan",
+                "JMove_DisableShiftBan"
+            ],
+            "text" : [
+                "关闭",
+                "不关闭"
+            ],
+            "using" : 1
+        },
+        "AutoStopBhopBan" : {
+            "title" : "是否连跳时关闭急停CFG",
+            "hide"  : false,
+            "options" : [
+                "JMove_EnableBhopBan",
+                "JMove_DisableBhopBan"
+            ],
+            "text" : [
+                "关闭",
+                "不关闭"
+            ],
+            "using" : 0
+        },
+        "AutoBhop" : {
+            "title" : "是否开启空格连跳",
+            "hide"  : false,
+            "options" : [
+                "JMove_EnableBhopBan",
+                "JMove_DisableBhopBan"
+            ],
+            "text" : [
+                "开启",
+                "关闭"
+            ],
+            "using" : 0
+        },
+        "AttackDeDefuse" : {
+            "title" : "是否开火自动取消拆包",
+            "hide"  : false,
+            "options" : [
+                "AttackDeDefuseSwitcherOn",
+                "AttackDeDefuseSwitcherOff"
+            ],
+            "text" : [
+                "开启",
+                "关闭"
+            ],
+            "using" : 0
+        },
+        "WheelJump" : {
+            "title" : "设置滚轮跳增强",
+            "hide"  : false,
+            "options" : [
+                "WJSwitcherOn",
+                "WJSwitcherOnly",
+                "WJSwitcherOff"
+            ],
+            "text" : [
+                "开启",
+                "按住跳跃时开启",
+                "关闭"
+            ],
+            "using" : 0
+        },
+        "CrossHairFastRev" : {
+            "title" : "是否准心快速回正",
+            "hide"  : false,
+            "options" : [
+                "RecoilFastRevSwitcherOn",
+                "RecoilFastRevSwitcherOff"
+            ],
+            "text" : [
+                "开启",
+                "关闭"
+            ],
+            "using" : 1
+        },
+        "CrossHairRecoil" : {
+            "title" : "设置准心跟随",
+            "hide"  : false,
+            "options" : [
+                "RecoilSwitcherOn",
+                "RecoilSwitcherOnly",
+                "RecoilSwitcherOff"
+            ],
+            "text" : [
+                "开启",
+                "仅移动时开启",
+                "关闭"
+            ],
+            "using" : 2
+        },
+        "CrossHairDouble" : {
+            "title" : "是否启用双准心",
+            "hide"  : false,
+            "options" : [
+                "DoubleCrossHairSwitcherOn",
+                "DoubleCrossHairSwitcherOff"
+            ],
+            "text" : [
+                "开启",
+                "关闭"
+            ],
+            "using" : 1
+        },
+        "CrossHairFade" : {
+            "title" : "是否启用跟随准心渐显",
+            "hide"  : false,
+            "options" : [
+                "FadeRecoilSwitcherOn",
+                "FadeRecoilSwitcherOff"
+            ],
+            "text" : [
+                "开启",
+                "关闭"
+            ],
+            "using" : 1
         }
-    }
+    },
+    "Fixed" : [
+        "alias NoneAimedUse \"alias DoSayEchoWork echoln 请先按 [;alias DoSayAllWork say 请先按 [;alias DoSayTeamWork say_team 请先按 [;DoOutput\"",
+        "alias CFGGuide1 alias DoSayEchoWork \"echoln 先按 [键 瞄准, 再按 ]键 投掷, 按 分号键 选择道具, 按 句号键 返回CFG主页面, 按 问号键 重置CFG, 按 引号键 进行视角回正+智能推荐(方便爆弹);\"",
+        "alias CFGGuide2 alias DoSayAllWork \"say 先按 [键 瞄准, 再按 ]键 投掷, 按 分号键 选择道具, 按 句号键 返回CFG主页面, 按 问号键 重置CFG, 按 引号键 进行视角回正+智能推荐(方便爆弹);\"",
+        "alias CFGGuide3 alias DoSayTeamWork \"say_team 先再按 [键 瞄准, 再按 ]键 投掷, 按 分号键 选择道具, 按 句号键 返回CFG主页面, 按 问号键 重置CFG, 按 引号键 进行视角回正+智能推荐(方便爆弹);\"",
+        "alias CFGGuideText \"CFGGuide1;CFGGuide2;CFGGuide3;DoOutput\"",
+        "alias DeAlias_OutputForSetwait \"alias DoSayEchoWork echoln 投掷物未指定, 请按 : 选择投掷物;alias DoSayAllWork say 投掷物未指定, 请按 : 选择投掷物;alias DoSayTeamWork say_team 投掷物未指定, 请按 : 选择投掷物;DoOutput\""
+    ]
 }
