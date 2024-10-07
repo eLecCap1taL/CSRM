@@ -386,6 +386,32 @@
             ],
             "using" : 0
         },
+        "ScaleWhenShift" : {
+            "title" : "是否静步时缩放小地图",
+            "hide"  : false,
+            "options" : [
+                "CSRM_RadarScale_EnableShift",
+                "CSRM_RadarScale_DisableShift"
+            ],
+            "text" : [
+                "开启",
+                "关闭"
+            ],
+            "using" : 0
+        },
+        "ScaleWhenCtrl" : {
+            "title" : "是否下蹲时缩放小地图",
+            "hide"  : false,
+            "options" : [
+                "CSRM_RadarScale_EnableCtrl",
+                "CSRM_RadarScale_DisableCtrl"
+            ],
+            "text" : [
+                "开启",
+                "关闭"
+            ],
+            "using" : 0
+        },
         "AutoStopShiftBan" : {
             "title" : "是否静步时关闭急停CFG",
             "hide"  : false,
