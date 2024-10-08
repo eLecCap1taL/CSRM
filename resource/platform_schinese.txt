@@ -65,6 +65,7 @@
 	"CFG_Settings_ChangeOutput_Team"                    "令文字输出至队内聊天 \n \n \n \n"
 	"CFG_Settings_ChangeOutput_All"                    "令文字输出至全局聊天 \n \n \n \n"
 	"CFG_Settings_CFGGuide"                    "查看CFG教程 \n \n \n \n"
+	"CFG_Settings_RegetConvar"                    "重新获取个人设置 \n例如准心\n \n \n"
 
 	"CFG_Addon_DuckJump_On"                    "开启跳跃键大跳 \n \n \n \n"
 	"CFG_Addon_DuckJump_Off"                    "关闭跳跃键大跳 \n \n \n \n"
