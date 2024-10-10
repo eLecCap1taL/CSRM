@@ -117,6 +117,9 @@
 	"CFG_Addon_FadeRecoil_On"                    "开启跟随准心逐渐显示 \n \n \n \n"
 	"CFG_Addon_FadeRecoil_Off"                    "关闭跟随准心逐渐显示 \n \n \n \n"
 
+	"CFG_Addon_PracticeTotal"                    "跑图实用功能菜单 \n \n \n \n"
+	"CFG_Addon_Practice_Fadenade"                    "清除所有投掷物 \n \n \n \n"
+
 	"CFG_Addon_C4UtilitiesTotal"                    "C4实用功能菜单 \n \n \n \n"
 	"CFG_Addon_C4Utilities_EnableAuto"                    "开启C4自动检测 \n \n \n \n"
 	"CFG_Addon_C4Utilities_DisableAuto"                    "关闭C4自动检测 \n \n \n \n"
