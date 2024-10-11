@@ -1,39 +1,75 @@
-## Language
+<h1 align="center"><img src="./Misc/Icons/CSRM_dark.png" width="64" align="center"> CSRM</h1>
 
-- [English](#english)
-- [中文](#中文)
+<p align="center">
+    <a href="https://cap1tal.top/CSRM">
+        <img alt="Static Badge" src="https://img.shields.io/badge/website-CSRM-blue?style=for-the-badge">
+    </a>
+    <a href="https://github.com/eLecCap1taL/CSRM/pulse">
+        <img alt="GitHub commit activity" src="https://img.shields.io/github/commit-activity/m/eLecCap1taL/CSRM?style=for-the-badge">
+    </a>
+</p>
+<p align="center">
+    <a href="https://github.com/eLecCap1taL/CSRM">
+        <img alt="Static Badge" src="https://img.shields.io/badge/CSRM-CSRM?style=for-the-badge&logo=github&labelColor=green&color=green">
+    </a>
+    <a href="https://github.com/eLecCap1taL/AutoSettings">
+        <img alt="Static Badge" src="https://img.shields.io/badge/Manager-Manager?style=for-the-badge&logo=github&labelColor=yellow&color=yellow">
+    </a>
+    <a href="https://github.com/eLecCap1taL/eleccap1tal.github.io">
+        <img alt="Static Badge" src="https://img.shields.io/badge/Page-Page?style=for-the-badge&logo=github&labelColor=purple&color=purple">
+    </a>
+</p>
 
----
+## What's CSRM?
+CSRM is a large-scale CS2 CFG project aimed at integrating and supporting all CS2 CFG functionalities while offering powerful customization options. It also features a custom radial radio, allowing players to visually access CSRM's functions in-game. CSRM is primarily designed for competitive mode rules, meaning it operates under `sv_cheats 0`. However, it also includes some features that can be used in personal practice modes.
 
-## English
+In the future, with the CSRM CFG Manager, you'll be able to download and update your CSRM CFG online, with support for cross-version settings preservation. Additionally, features like custom automated props and quick modifications to resources will be supported.
 
-### What is CSRM?
+The ultimate goal of CSRM is to become the ONLY CFG you'll ever need for CS2. 👍
 
-CSRM is a large open-source CFG framework template created using the CS2 CFG (Config) radio wheel command.
+In most cases, using CSRM will not result in a VAC ban. It is simply a CFG project. 👍
 
-### What does CSRM include?
+## Join our Discord
 
-CSRM includes a simple implementation of the radio wheel functionality, supporting features such as nesting and paging, as well as some built-in powerful features like prop wheels, long jumps, auto-stops, fast silent walks, and many more. It also comes with a robust and unified event registration logic and a preferred CFG!
-CSRM also implements a series of powerful trigger-based APIs, such as support for weapon switching events (1, 2, 3, q, g, e, MWHEELUP/DOWN), the +jmovement movement method using controller joystick movement, mouse movement event registration delays, and more. You only need to use Aliases to override some specific aliases to utilize the API's functionality!
+[![Join our Discord](https://discord.com/api/guilds/1274021425438789753/embed.png?style=banner2)](https://discord.gg/AW23HR4Fza)
 
-### What is the purpose of CSRM?
+## screenshots
 
-By following the specifications and customizing CSRM, you can manage a single or multiple CFGs in an intuitive way using the radio wheel, making them easier to use. It's like having a custom GUI within CS! Additionally, you can use CSRM's API system to simplify or optimize your CFG logic.
+<table>
+	<tr>
+		<td><img src="https://cap1tal.top/CSRM/images/pic01.png"></td>
+	</tr>
+	<tr>
+		<td><img src="https://cap1tal.top/CSRM/images/pic02.png"></td>
+	</tr>
+</table>
 
----
+## Features
+Name                     | Introduce
+------------------------ | -------
+AutoStop                 | Working GOOD with noclip. Optional nullbind, Specific directions, hold or switch and more
+FastShift                | AK(111->123) M4(117->123) Negev(75->123) and more
+FakeCheat (Gyroscope)    | Rotate fast like a cheater, however move and attack normally at the same time
+Jumpthrow, Duckjump bind | Preserve completed alias for binding (+jjumpthrow for example) (also forward jumpthrow and more)
+CrosshairUtilities       | Recoil (always / moveonly / off), fastrecoilrecover, faderecoil, double crosshair and more
+ConvarCatcher            | Read your crosshair automatically, so that you crosshair wont be changed
+QuickSwitch              | Switch to your weapons fast and automatically after throwing nades
+WheelJump                | WheelJump (always / holdspace only / off) (desubticked)
+AutoCancelDefuse         | Automatically cancel defusing when you attack
+BetterRadarScale         | Scale the radar smoothly when you hold shift (optinal) or ctrl (optional)
+PracticeUtilities        | Some useful tools for practicing, such as clear all the nades
+C4Utilities              | INCREDIBLE C4 auto-detections, ping when C4 has been picked / droped, get the EXACT position of C4 and use the <a href="https://cap1tal.top/CSRM">webtool</a> to mark it
+AutoLineUp               | Automatically aimming and throwing nades. Customized. Fully simple API Suppurt (such as `SetJumpThrow1;SetNone;SetItemSmoke;SetPreAimOff`)
+AutoMapDetection         | Work for other features
+Random                   | Random API ranged [0,100]. You can write anything for fun into it! :D
+AutoAttack               | Make your second weapon become full-auto. (like tec9)
+Auto-Bhop                | Fake fps_max 32, with that you can just keep pressing space and Automatically bhopping better.
+CustomOutput             | Switch CFG's output between off / console / team / all / radio.
+more                     |  
 
-## 中文
+## Some fun facts
+> When you bhopping, the autostop can automatically turn off (Optional)
 
-### 什么是 CSRM ？
+> You can use fakecheat, fastshift, auto-bhop, auto-attack and autostop at the same time. They can work together, and that will make you like a real cheater! XD
 
-CSRM 是一个使用 CS2 CFG(Config) 的无线电轮盘指令制作的大型 CFG 开源框架模板。
-
-### CSRM 包含什么？
-
-CSRM 包含了一套简洁的轮盘功能实现，支持嵌套、翻页等功能，以及一些内置的强大功能，例如道具轮盘、空格大跳、自动急停、快速静步等大量功能，并且拥有一套强大统一的事件注册逻辑，以及首选项CFG！
-CSRM 还内置实现了一系列强大的触发式 API，例如对切枪事件 (1, 2, 3, q, g, e, MWHEELUP/DOWN) 的支持、使用手柄摇杆移动实现的 +jmovement 移动方式、鼠标移动事件延时的注册等等。您只需要使用 Alias 覆盖一些指定的别名，就能使用 API 的功能！
-
-### CSRM 有什么用处？
-
-依照规范使用并自定义 CSRM，您可以将单个或多个CFG用轮盘这种直观的方式统一管理，便于使用。这相当于在 CS 内拥有自定义 GUI！同时，您也可以利用 CSRM 的 API 系统来简化或优化您的 CFG 逻辑。
-
+> You can use `SetPreAimOn` in AutoLineUp, then when you throwed a nade, you will be automatically set to another angle. This is useful when using bug flashes, but they are dead now :(
