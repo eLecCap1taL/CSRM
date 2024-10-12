@@ -27,14 +27,14 @@ inline LXF rin(){
 	return x*w;
 }
 signed main(){
-	foru(i,1,20){
-		freopen(("CSRMTicker"+to_string(i)+".cfg").c_str(),"w",stdout);
-		string s="ctk"+to_string(i);
+	foru(i,1,3){
+		freopen(("CSRMTickerSlow"+to_string(i)+".cfg").c_str(),"w",stdout);
+		string s="ctg"+to_string(i);
 		foru(j,1,i-1){
-			cout<<"sleep 600000\n";
+			cout<<"sleep 6000000\n";
 		}
 		cout<<(s+"_begin")<<'\n';
-		string out[2]={s+"\n","sleep 10\n"};
+		string out[2]={s+"\n","sleep 100\n"};
 		for(int i=2;i<=120001;i++){
 			cout<<out[i&1];
 		}
