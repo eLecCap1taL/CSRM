@@ -119,7 +119,11 @@
 
 	"CFG_Addon_PracticeTotal"                    "跑图实用功能菜单 \n \n \n \n"
 	"CFG_Addon_Practice_Fadenade"                    "清除所有投掷物 \n \n \n \n"
+	"CFG_Addon_Practice_savePos"                    "保存当前点位 \n \n \n \n"
+	"CFG_Addon_Practice_loadPos"                    "回到保存点位 \n \n \n \n"
 	"CFG_Addon_PracticeHint_Fadenaded"                    "已清除所有投掷物"
+	"CFG_Addon_PracticeHint_savedPos"                    "已保存当前点位"
+	"CFG_Addon_PracticeHint_loadedPos"                    "已回到保存点位"
 	"CFG_Addon_PracticeKnife_bayonet"                    "刺刀	[↑] [↓]"
 	"CFG_Addon_PracticeKnife_classic"                    "原皮刀	[↑] [↓]"
 	"CFG_Addon_PracticeKnife_flip"                    "折叠刀	[↑] [↓]"
