@@ -122,9 +122,12 @@
 	"CFG_Addon_Practice_savePos"                    "保存当前点位 \n \n \n \n"
 	"CFG_Addon_Practice_loadPos"                    "回到保存点位 \n \n \n \n"
 	"CFG_Addon_Practice_changeKnife"                    "切换刀具 \n \n \n \n"
+	"CFG_Addon_Practice_changeCam"                    "切换视角 \n \n \n \n"
+
 	"CFG_Addon_PracticeHint_Fadenaded"                    "已清除所有投掷物"
 	"CFG_Addon_PracticeHint_savedPos"                    "已保存当前点位"
 	"CFG_Addon_PracticeHint_loadedPos"                    "已回到保存点位"
+
 	"CFG_Addon_PracticeKnife_bayonet"                    "1. ⭐️刺刀⭐️\n长按左键✔️ 上滚轮☚ 下滚轮☛ 右键关闭"
 	"CFG_Addon_PracticeKnife_classic"                    "2. ⭐️海豹短刀⭐️\n长按左键✔️ 上滚轮☚ 下滚轮☛ 右键关闭"
 	"CFG_Addon_PracticeKnife_flip"                    "3. ⭐️折叠刀⭐️\n长按左键✔️ 上滚轮☚ 下滚轮☛ 右键关闭"
@@ -145,6 +148,12 @@
 	"CFG_Addon_PracticeKnife_butterknife"                    "18. ⭐️原皮刀⭐️\n长按左键✔️ 上滚轮☚ 下滚轮☛ 右键关闭"
 	"CFG_Addon_PracticeKnife_skeleton"                    "19. ⭐️骷髅匕首⭐️\n长按左键✔️ 上滚轮☚ 下滚轮☛ 右键关闭"
 	"CFG_Addon_PracticeKnife_kukri"                    "20. ⭐️廓尔喀刀⭐️\n长按左键✔️ 上滚轮☚ 下滚轮☛ 右键关闭"
+
+	"CFG_Addon_PracticeCam_firstperson"                    "1. ⭐️第一人称视角⭐️\n长按左键✔️ 上滚轮☚ 下滚轮☛ 右键关闭"
+	"CFG_Addon_PracticeCam_thirdperson1"                    "1. ⭐️第三人称视角1⭐️\n长按左键✔️ 上滚轮☚ 下滚轮☛ 右键关闭"
+	"CFG_Addon_PracticeCam_thirdperson2"                    "1. ⭐️第三人称视角2⭐️\n长按左键✔️ 上滚轮☚ 下滚轮☛ 右键关闭"
+	"CFG_Addon_PracticeCam_thirdperson3"                    "1. ⭐️第三人称视角3⭐️\n长按左键✔️ 上滚轮☚ 下滚轮☛ 右键关闭"
+	"CFG_Addon_PracticeCam_thirdperson4"                    "1. ⭐️第三人称视角4⭐️\n长按左键✔️ 上滚轮☚ 下滚轮☛ 右键关闭"
 
 	"CFG_Addon_C4UtilitiesTotal"                    "C4实用功能菜单 \n \n \n \n"
 	"CFG_Addon_C4Utilities_EnableAuto"                    "开启C4自动检测 \n \n \n \n"
