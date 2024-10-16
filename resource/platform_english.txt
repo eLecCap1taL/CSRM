@@ -132,12 +132,12 @@
 	"CFG_Addon_PracticeHint_loadedPos"                    "已回到保存点位"
 
 	"CFG_Addon_PracticeMap_dust2"                    "1. ⭐️炙热沙城Ⅱ⭐️\n长按左键✔️ 上滚轮☚ 下滚轮☛ 右键关闭"
-	"CFG_Addon_PracticeMap_mirage"                    "1. ⭐️荒漠迷城⭐️\n长按左键✔️ 上滚轮☚ 下滚轮☛ 右键关闭"
-	"CFG_Addon_PracticeMap_inferno"                    "1. ⭐️炼狱小镇⭐️\n长按左键✔️ 上滚轮☚ 下滚轮☛ 右键关闭"
-	"CFG_Addon_PracticeMap_ancient"                    "1. ⭐️远古遗迹⭐️\n长按左键✔️ 上滚轮☚ 下滚轮☛ 右键关闭"
-	"CFG_Addon_PracticeMap_nuke"                    "1. ⭐️核子危机⭐️\n长按左键✔️ 上滚轮☚ 下滚轮☛ 右键关闭"
-	"CFG_Addon_PracticeMap_vertigo"                    "1. ⭐️殒命大厦⭐️\n长按左键✔️ 上滚轮☚ 下滚轮☛ 右键关闭"
-	"CFG_Addon_PracticeMap_anubis"                    "1. ⭐️阿努比斯⭐️\n长按左键✔️ 上滚轮☚ 下滚轮☛ 右键关闭"
+	"CFG_Addon_PracticeMap_mirage"                    "2. ⭐️荒漠迷城⭐️\n长按左键✔️ 上滚轮☚ 下滚轮☛ 右键关闭"
+	"CFG_Addon_PracticeMap_inferno"                    "3. ⭐️炼狱小镇⭐️\n长按左键✔️ 上滚轮☚ 下滚轮☛ 右键关闭"
+	"CFG_Addon_PracticeMap_ancient"                    "4. ⭐️远古遗迹⭐️\n长按左键✔️ 上滚轮☚ 下滚轮☛ 右键关闭"
+	"CFG_Addon_PracticeMap_nuke"                    "5. ⭐️核子危机⭐️\n长按左键✔️ 上滚轮☚ 下滚轮☛ 右键关闭"
+	"CFG_Addon_PracticeMap_vertigo"                    "6. ⭐️殒命大厦⭐️\n长按左键✔️ 上滚轮☚ 下滚轮☛ 右键关闭"
+	"CFG_Addon_PracticeMap_anubis"                    "7. ⭐️阿努比斯⭐️\n长按左键✔️ 上滚轮☚ 下滚轮☛ 右键关闭"
 
 	"CFG_Addon_PracticeKnife_bayonet"                    "1. ⭐️刺刀⭐️\n长按左键✔️ 上滚轮☚ 下滚轮☛ 右键关闭"
 	"CFG_Addon_PracticeKnife_classic"                    "2. ⭐️海豹短刀⭐️\n长按左键✔️ 上滚轮☚ 下滚轮☛ 右键关闭"
