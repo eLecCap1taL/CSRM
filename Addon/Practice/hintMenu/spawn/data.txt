@@ -1,0 +1,41 @@
+dust2
+5 15
+1
+csrmHintMenu_hold
+csrmHintMenu_hold
+csrmHintMenu_hold
+csrmHintMenu_hold
+csrmHintMenu_hold
+csrmHintMenu_hold
+csrmHintMenu_hold
+csrmHintMenu_hold
+csrmHintMenu_hold
+csrmHintMenu_hold
+csrmHintMenu_hold
+csrmHintMenu_hold
+csrmHintMenu_hold
+csrmHintMenu_hold
+csrmHintMenu_hold
+csrmHintMenu_hold
+csrmHintMenu_hold
+csrmHintMenu_hold
+csrmHintMenu_hold
+csrmHintMenu_hold
+inferno
+6 10
+0
+mirage
+5 10
+0
+ancient
+5 5
+0
+nuke
+5 5
+0
+vertigo
+5 5
+0
+anubis
+5 5
+0
