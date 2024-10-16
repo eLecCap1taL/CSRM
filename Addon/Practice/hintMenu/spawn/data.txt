@@ -1,32 +1,52 @@
 dust2
 5 15
 1
-csrmHintMenu_hold
-csrmHintMenu_hold
-csrmHintMenu_hold
-csrmHintMenu_hold
-csrmHintMenu_hold
-csrmHintMenu_hold
-csrmHintMenu_hold
-csrmHintMenu_hold
-csrmHintMenu_hold
-csrmHintMenu_hold
-csrmHintMenu_hold
-csrmHintMenu_hold
-csrmHintMenu_hold
-csrmHintMenu_hold
-csrmHintMenu_hold
-csrmHintMenu_hold
-csrmHintMenu_hold
-csrmHintMenu_hold
-csrmHintMenu_hold
-csrmHintMenu_hold
+setpos 351.392120 2352.942383 -110.000000; setang <0, 202.5, 0>
+setpos 334.368744 2433.733643 -110.000000; setang <0, 229.99998, 0>
+setpos 258.159393 2480.553711 -110.000000; setang <0, 292.5, 0>
+setpos 182.249908 2439.011719 -110.000000; setang <0, 356, 0>
+setpos 160.122742 2369.676270 -110.000000; setang <0, 23.999994, 0>
+setpos -1181.000000 -754.000000 150.709000; setang <0, 42, 0>
+setpos -1141.000000 -808.000000 150.709000; setang <0, 111.99999, 0>
+setpos -1076.000000 -843.000000 150.709000; setang <0, 133.49998, 0>
+setpos -1015.000000 -808.000000 150.709000; setang <0, 183.00002, 0>
+setpos -980.000000 -754.000000 150.709000; setang <0, 212.50002, 0>
+setpos -857.506531 -738.361328 150.709000; setang <0, 37, 0>
+setpos -822.365173 -795.642090 150.709000; setang <0, 106.99999, 0>
+setpos -760.662964 -836.174011 150.709000; setang <0, 128.49997, 0>
+setpos -696.844604 -806.623718 150.709000; setang <0, 178, 0>
+setpos -657.271362 -755.879639 150.709000; setang <0, 207.50002, 0>
+setpos -533.000000 -754.000000 134.709000; setang <0, 42, 0>
+setpos -493.000000 -808.000000 134.709000; setang <0, 111.99999, 0>
+setpos -428.000000 -843.000000 134.709000; setang <0, 133.49998, 0>
+setpos -367.000000 -808.000000 100.709000; setang <0, 183.00002, 0>
+setpos -332.000000 -754.000000 90.709000; setang <0, 212.50002, 0>
 inferno
 6 10
 0
 mirage
-5 10
-0
+10 10
+1
+setpos -1552.000000 -1968.000000 -240.000000; setang <0, 288, 0>
+setpos -1552.000000 -1808.000000 -240.000000; setang <0, 116, 0>
+setpos -1656.000000 -1800.000000 -240.000000; setang <0, 94, 0>
+setpos -1720.000000 -1896.000000 -240.000000; setang <0, 50, 0>
+setpos -1656.000000 -1976.000000 -240.000000; setang <0, 299, 0>
+setpos -1632.000000 -2072.000000 -240.000000; setang <0, 270, 0>
+setpos -1776.000000 -1800.000000 -240.000000; setang <0, 36, 0>
+setpos -1776.000000 -1976.000000 -240.000000; setang <0, 331, 0>
+setpos -1902.000000 -1816.000000 -270.000000; setang <0, 0, 0>
+setpos -1957.000000 -1898.000000 -280.000000: setang <0, 0, 0>
+setpos 1136.000000 -256.000000 -144.000000; setang <0, 270, 0>
+setpos 1216.000000 -307.000000 -144.000000; setang <0, 270, 0>
+setpos 1296.000000 -352.000000 -144.000000; setang <0, 227, 0>
+setpos 1136.000000 -160.000000 -144.000000; setang <0, 270, 0>
+setpos 1216.000000 -211.000000 -144.000000; setang <0, 270, 0>
+setpos 1136.000000 -64.000000 -144.000000; setang <0, 90, 0>
+setpos 1216.000000 -115.000000 -144.000000; setang <0, 90, 0>
+setpos 1136.000000 32.000000 -144.000000; setang <0, 90, 0>
+setpos 1216.000000 -16.000000 -144.000000; setang <0, 90, 0>
+setpos 1296.000000 32.000000 -144.000000; setang <0, 141, 0>
 ancient
 5 5
 0

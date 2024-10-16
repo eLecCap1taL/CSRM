@@ -45,6 +45,7 @@ signed main()
 			foru(i,1,ct+t){
 				getline(cin,ls[i]);
 			}
+		}else{
 		}
 		string ds=s;
 		ds[0]+='A'-'a';
@@ -63,7 +64,7 @@ signed main()
 			cyc.push_back(("T"+to_string(i)));
 		}
 		cyc[0]=cyc.back();
-		cyc.push_back(cyc[0]);
+		cyc.push_back(cyc[1]);
 		foru(i,1,ct+t){
 			printf("alias csrmPS%sView_%s \"csrmHint_show_spawn_%s;alias csrmHintMenu_pickByMenu csrmPS%sPick_%s;alias csrmHintMenu_preByMenu csrmPS%sView_%s;alias csrmHintMenu_nxtByMenu csrmPS%sView_%s;csrmHintMenu_isPicking\"\n",
 					ds.c_str(),cyc[i].c_str(),cyc[i].c_str(),ds.c_str(),cyc[i].c_str(),ds.c_str(),cyc[i-1].c_str(),ds.c_str(),cyc[i+1].c_str());
