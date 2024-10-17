@@ -42,7 +42,21 @@ signed main()
 		bool rdpos=RIN;
 		vector<string> ls(ct+t+1,"");
 		if(rdpos){
-			foru(i,1,ct+t){
+			string hint;
+			cin>>hint;
+			char c;
+			c=getchar();
+			assert(c=='\n');
+			assert(hint=="ctbegin");
+			foru(i,1,ct){
+				getline(cin,ls[i]);
+				cout<<ls[i]<<endl;
+			}
+			cin>>hint;
+			c=getchar();
+			assert(c=='\n');
+			assert(hint=="tbegin");
+			foru(i,ct+1,ct+t){
 				getline(cin,ls[i]);
 			}
 		}else{

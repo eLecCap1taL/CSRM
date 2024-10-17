@@ -138,6 +138,9 @@
 	"CFG_Addon_PracticeMap_nuke"                    "5. ⭐️核子危机⭐️\n长按左键✔️ 上滚轮☚ 下滚轮☛ 右键关闭"
 	"CFG_Addon_PracticeMap_vertigo"                    "6. ⭐️殒命大厦⭐️\n长按左键✔️ 上滚轮☚ 下滚轮☛ 右键关闭"
 	"CFG_Addon_PracticeMap_anubis"                    "7. ⭐️阿努比斯⭐️\n长按左键✔️ 上滚轮☚ 下滚轮☛ 右键关闭"
+	"CFG_Addon_PracticeMap_overpass"                    "8. ⭐️死亡游乐园⭐️\n长按左键✔️ 上滚轮☚ 下滚轮☛ 右键关闭"
+	"CFG_Addon_PracticeMap_mills"                    "9. ⭐️风情磨坊⭐️\n长按左键✔️ 上滚轮☚ 下滚轮☛ 右键关闭"
+	"CFG_Addon_PracticeMap_thera"                    "10. ⭐️假日锡拉⭐️\n长按左键✔️ 上滚轮☚ 下滚轮☛ 右键关闭"
 
 	"CFG_Addon_PracticeKnife_bayonet"                    "1. ⭐️刺刀⭐️\n长按左键✔️ 上滚轮☚ 下滚轮☛ 右键关闭"
 	"CFG_Addon_PracticeKnife_classic"                    "2. ⭐️海豹短刀⭐️\n长按左键✔️ 上滚轮☚ 下滚轮☛ 右键关闭"
