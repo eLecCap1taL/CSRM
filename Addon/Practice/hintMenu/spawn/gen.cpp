@@ -32,9 +32,9 @@ signed main()
 {
 	freopen("data.txt","r",stdin);
 	string s;
-	freopen("load.cfg","w",stdout);
+	freopen("loadMap.cfg","w",stdout);
 	while(cin>>s){
-		freopen("load.cfg","a",stdout);
+		freopen("loadMap.cfg","a",stdout);
 		cout<<"exec CSRM/Addon/Practice/hintMenu/spawn/";
 		cout<<s<<endl;
 		freopen((s+".cfg").c_str(),"w",stdout);
@@ -50,7 +50,7 @@ signed main()
 			assert(hint=="ctbegin");
 			foru(i,1,ct){
 				getline(cin,ls[i]);
-				cout<<ls[i]<<endl;
+//				cout<<ls[i]<<endl;
 			}
 			cin>>hint;
 			c=getchar();
@@ -65,7 +65,7 @@ signed main()
 		ds[0]+='A'-'a';
 		//gen
 		printf("alias csrmPracticeS%sBack \"+csrmPracticeMap;+csrmHintMenu\"\n",ds.c_str());
-		printf("alias +csrmPracticeS%s \"alias csrmHintMenu_viewPrefByMenu csrmPS%sView_CT1;alias csrmHintMenu_viewLastWhichMenu csrmHintMenu_viewLastByS%s;alias csrmHintMenu_backByMenu csrmPracticeS%sBack\"\n",ds.c_str(),ds.c_str(),ds.c_str(),ds.c_str());
+		printf("alias +csrmPracticeS%s \"alias csrmHintMenu_viewPrefByMenu csrmPS%sView_CT1;alias csrmHintMenu_viewLastWhichMenu csrmHintMenu_viewLastByS%s;alias csrmHintMenu_backByMenu csrmPracticeS%sBack;alias csrmHintMenu_ifNotLstMenu \"\n",ds.c_str(),ds.c_str(),ds.c_str(),ds.c_str());
 		printf("alias -csrmPracticeS%s \"\"\n",ds.c_str());
 		HH;
 		HH;
