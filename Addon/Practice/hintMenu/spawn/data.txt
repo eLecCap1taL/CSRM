@@ -27,12 +27,12 @@ inferno
 6 5
 1
 ctbegin
+setpos_exact 2292.06 2027.69 140.843;setang 0 70 0
+setpos_exact 2353 1977 140.843;setang 0 97.5 0
+setpos_exact 2397 2079 155;setang 0 135 0
+setpos_exact 2472.3499 2005.97 140.843;setang 0 160 0
 setpos_exact 2493 2090 140.843;setang 0 223.5 0
 setpos_exact 2456.83 2153.16 140.843;setang 0 251.5 0
-setpos_exact 2472.3499 2005.97 140.843;setang 0 160 0
-setpos_exact 2353 1977 140.843;setang 0 97.5 0
-setpos_exact 2292.06 2027.69 140.843;setang 0 70 0
-setpos_exact 2397 2079 155;setang 0 135 0
 tbegin
 setpos_exact -1586.52 440.79 -46;setang 0 337 0
 setpos_exact -1520.06 430.891 -46;setang 0 267 0
