@@ -21,9 +21,9 @@
 </p>
 
 ## What's CSRM?
-CSRM is a large-scale CS2 CFG project aimed at integrating and supporting all CS2 CFG functionalities while offering powerful customization options. It also features a custom radial radio, allowing players to visually access CSRM's functions in-game. CSRM is primarily designed for competitive mode rules, meaning it operates under `sv_cheats 0`. However, it also includes some features that can be used in personal practice modes.
+CSRM is a large-scale CS2 CFG project aimed at integrating and supporting all CS2 CFG functionalities while offering powerful customization options. It also features a custom radial radio, allowing players to visually access CSRM's functions in-game. CSRM is primarily designed for competitivee rules, meaning it operates under `sv_cheats 0`. However, it also includes some features that can be used in personal practicees.
 
-In the future, with the CSRM CFG Manager, you'll be able to download and update your CSRM CFG online, with support for cross-version settings preservation. Additionally, features like custom automated props and quick modifications to resources will be supported.
+In the future, with the CSRM CFG Manager, you'll be able to download and update your CSRM CFG online, with support for cross-version settings preservation. Additionally, features like custom automated props and quickifications to resources will be supported.
 
 The ultimate goal of CSRM is to become the ONLY CFG you'll ever need for CS2. 👍
 
