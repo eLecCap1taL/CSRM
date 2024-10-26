@@ -20,10 +20,34 @@ def updateCoords(res):
         server.send_message_to_all(json_coords)
         # print('Sending Coordinates to Clients:', last_coords)
         
-
+banweapon = [
+    "glock",
+    "elite",
+    "knife",
+    "p250",
+    "tec9",
+    "hkp2000",
+    "fiveseven",
+    "bizon",
+    "mp9",
+    "mac10",
+    "mp5",
+    "smokegrenade",
+    "decoy",
+    "molotov",
+    "he",
+    "flashbang"
+]
+def soundinfo_weapon(res):
+    wp=res.group(1)
+    print(wp)
+    if wp in banweapon:
+        return
+    print(f"pass {wp}") 
 
 patternpair = [
-    (re.compile(r'(?i).*C4.*Bounds Center: \(([-+]?\d*\.\d+|\d+),\s*([-+]?\d*\.\d+|\d+),\s*([-+]?\d*\.\d+|\d+)\)'),updateCoords)
+    (re.compile(r'(?i).*C4.*Bounds Center: \(([-+]?\d*\.\d+|\d+),\s*([-+]?\d*\.\d+|\d+),\s*([-+]?\d*\.\d+|\d+)\)'),updateCoords),
+    (re.compile(r'([^\\]+)_draw\.vsnd'),soundinfo_weapon)
 ]
 
 def process_log_file():
@@ -40,7 +64,7 @@ def process_log_file():
             last_size = f.tell()
 
             for line in lines:
-                # print(line)
+                print(line)
                 for pr,func in patternpair:
                     matchRes = pr.search(line)
                     if matchRes is not None:
@@ -50,7 +74,7 @@ def process_log_file():
 def mainloop():
     while True:
         process_log_file()
-        time.sleep(0.05)
+        time.sleep(0.02)
 
 def run_server():
     global server
@@ -77,5 +101,4 @@ if __name__ == "__main__":
     server_thread = threading.Thread(target=run_server)
     server_thread.start()
     time.sleep(2)
-    
     mainloop()
