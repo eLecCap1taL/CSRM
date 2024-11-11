@@ -1,8 +1,0 @@
-{
-    "name" : "CSRM",
-    "website" : "cap1tal.top/CSRM",
-    "version" : "v2.6",
-    "connect" : "/connect/connect.json",
-    "resource" : "/resource.zip",
-    "main" : "/Main.cfg"
-}

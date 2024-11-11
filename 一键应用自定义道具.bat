@@ -1,2 +1,0 @@
-.\install\AutoAddUtility.exe
-pause
