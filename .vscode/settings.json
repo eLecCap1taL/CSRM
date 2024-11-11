@@ -1,0 +1,7 @@
+{
+    "files.associations": {
+        "*.hcfg": "CSGO cfg",
+        "iosfwd": "cpp",
+        "format": "cpp"
+    }
+}
