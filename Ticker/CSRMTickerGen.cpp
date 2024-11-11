@@ -27,16 +27,27 @@ inline LXF rin(){
 	return x*w;
 }
 signed main(){
-	foru(i,1,3){
-		freopen(("CSRMTickerSlow170"+to_string(i)+".cfg").c_str(),"w",stdout);
+//	freopen("CSRMTickerFast.cfg","w",stdout);
+	foru(i,1,20){
+//		freopen("CSRMTickerFast.cfg","a",stdout);
+//		foru(j,1,1){
+//			cout<<("exec_async CSRM/Ticker/CSRMTickerFast"+to_string(i))<<endl;
+//		}
+//		cout<<endl;
+		freopen(("CSRMTickerFast"+to_string(i)+".cfg").c_str(),"w",stdout);
 		string s="ct7"+to_string(i);
+		s="%";
 		foru(j,1,i-1){
-			cout<<"sleep 10200000\n";
+			cout<<"sleep 775000\n";
 		}
-		cout<<(s+"_begin")<<'\n';
-		string out[2]={s+"\n","sleep 170\n"};
-		for(int i=2;i<=120001;i++){
-			cout<<out[i&1];
+//		cout<<(s+"_begin")<<'\n';
+		string out[2]={s+"\n","sleep 9\n"};
+		for(int j=1;j<=155001;j++){
+			if(i==1 && j==2){
+				cout<<"alias ldfst ;";
+			}
+			cout<<out[j&1];
+//			cout<<"%\n";
 		}
 //		cout<<("echo done "+s);
 	}

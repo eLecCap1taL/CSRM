@@ -1,4 +1,3 @@
-from websocket_server import WebsocketServer
 import os
 import re
 import time
@@ -6,8 +5,8 @@ import threading
 import json
 
 logfile_path = '../../console.log'
+soundinfo_callback_file = './Addon/consoleReader/soundinfo_callback.cfg'
 last_size = 0
-server = None
 last_coords = (0,0,0)
 
 def updateCoords(res):
@@ -26,6 +25,7 @@ banweapon = [
     "knife",
     "p250",
     "tec9",
+    "de",
     "hkp2000",
     "fiveseven",
     "bizon",
@@ -36,17 +36,22 @@ banweapon = [
     "decoy",
     "molotov",
     "he",
-    "flashbang"
+    "flashbang",
+    "inc_grenade"
 ]
 def soundinfo_weapon(res):
     wp=res.group(1)
-    print(wp)
-    if wp in banweapon:
-        return
-    print(f"pass {wp}") 
+    # print(wp)
+    # print(f"pass {wp}") 
+    with open(soundinfo_callback_file,'w', encoding='utf-8', errors='ignore') as f:
+        if wp in banweapon:
+            f.write(f"csrmConsoleReader_soundinfo_none")
+            print(f"csrmConsoleReader_soundinfo_none")
+        else:
+            f.write(f"csrmConsoleReader_soundinfo_{wp}")
+            print(f"csrmConsoleReader_soundinfo_{wp}")
 
 patternpair = [
-    (re.compile(r'(?i).*C4.*Bounds Center: \(([-+]?\d*\.\d+|\d+),\s*([-+]?\d*\.\d+|\d+),\s*([-+]?\d*\.\d+|\d+)\)'),updateCoords),
     (re.compile(r'([^\\]+)_draw\.vsnd'),soundinfo_weapon)
 ]
 
@@ -64,7 +69,7 @@ def process_log_file():
             last_size = f.tell()
 
             for line in lines:
-                print(line)
+                print(line)   
                 for pr,func in patternpair:
                     matchRes = pr.search(line)
                     if matchRes is not None:
@@ -74,31 +79,10 @@ def process_log_file():
 def mainloop():
     while True:
         process_log_file()
-        time.sleep(0.02)
-
-def run_server():
-    global server
-    server = WebsocketServer(host='0.0.0.0', port=8000)
-
-    def new_client(client, server):
-        print("------------------")
-        print(client)
-        print("New client connected")
-        print("------------------")
-
-    def left_client(client, server):
-        print("------------------")
-        print(client)
-        print("A Client Disconnected")
-        print("------------------")
-
-    server.set_fn_new_client(new_client)
-    server.set_fn_client_left(left_client)
-
-    server.run_forever()
+        time.sleep(0.005)
 
 if __name__ == "__main__":
-    server_thread = threading.Thread(target=run_server)
-    server_thread.start()
-    time.sleep(2)
+    with open(soundinfo_callback_file,'w', encoding='utf-8', errors='ignore') as f:
+        f.write(f"csrmConsoleReader_soundinfo_none")
+        print(f"csrmConsoleReader_soundinfo_none")
     mainloop()
