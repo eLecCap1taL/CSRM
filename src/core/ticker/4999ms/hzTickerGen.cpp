@@ -1,11 +1,11 @@
 #include <bits/stdc++.h>
 using namespace std;
 int main(){
-    int dur=9;
-    int n=149000;
-    int m=36;
-    string idx="a";
-    string midx="9ms";
+    int dur=4999;
+    int n=120000;
+    int m=5;
+    string idx="c";
+    string midx="4999ms";
     
     if(!filesystem::exists("files")){
         filesystem::create_directories("files");
@@ -38,8 +38,8 @@ int main(){
         fout.close();
     }
     ofstream fout(format("dead.cfg",idx),ios::out);
-    fout<<format("//will last {:.4f}s ({:.4f}h)\n",(n/2)*dur*m/1000.0,double((n/2)*dur*m)/1000.0/3600.0);
-    fout<<format("alias %{0} \"echo Ticker {0} died!\"",idx);
+    fout<<format("//will last {:.4f}s ({:.4f}h)\n",(n/2)/1000.0*dur*m,double((n/2)*dur/1000.0/3600.0*m));
+    fout<<format("alias %{0} \"say_team Ticker {0} died!\"",idx);
     fout.close();
     
     // fout=ofstream(format("register.cfg",idx),ios::out);
@@ -66,6 +66,8 @@ int main(){
         };
         fout<<format("alias hzTicker_{0}_{1}_bg \"hzTicker_{0}_clr;alias %{0}{1} %{0}\"\n",idx,getid());
     }
+    fout<<endl;
+    fout<<format("exec Horizon/src/core/ticker/{}/reg",midx)<<endl;
     fout<<endl;
     for(int i=1;i<=m;i++){
         auto getid=[&]()->char{
