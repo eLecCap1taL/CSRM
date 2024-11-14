@@ -85,30 +85,38 @@
                 },
                 "default":"on"
             },
-            "socdWS":{
-                "text":"#socdWS",
+            "mvkbWS":{
+                "text":"#mvkbWS",
                 "options":{
-                    "on":{
-                        "text":"#on",
-                        "value":"capMot_socdWS_on"
-                    },
                     "off":{
                         "text":"#off",
-                        "value":"capMot_socdWS_off"
+                        "value":"capMot_mvkbWS_off"
+                    },
+                    "socd":{
+                        "text":"#socd",
+                        "value":"capMot_mvkbWS_socd"
+                    },
+                    "null":{
+                        "text":"#null",
+                        "value":"capMot_mvkbWS_null"
                     }
                 },
                 "default":"off"
             },
-            "socdAD":{
-                "text":"#socdAD",
+            "mvkbAD":{
+                "text":"#mvkbAD",
                 "options":{
-                    "on":{
-                        "text":"#on",
-                        "value":"capMot_socdAD_on"
-                    },
                     "off":{
                         "text":"#off",
-                        "value":"capMot_socdAD_off"
+                        "value":"capMot_mvkbAD_off"
+                    },
+                    "socd":{
+                        "text":"#socd",
+                        "value":"capMot_mvkbAD_socd"
+                    },
+                    "null":{
+                        "text":"#null",
+                        "value":"capMot_mvkbAD_null"
                     }
                 },
                 "default":"off"
