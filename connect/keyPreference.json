@@ -1,0 +1,22 @@
+{
+    "bind_reset":{
+        "text":"#bind_reset",
+        "default":"/"
+    },
+    "bind_forward":{
+        "text":"#bind_forward",
+        "default":"w"
+    },
+    "bind_back":{
+        "text":"#bind_back",
+        "default":"b"
+    },
+    "bind_right":{
+        "text":"#bind_right",
+        "default":"r"
+    },
+    "bind_left":{
+        "text":"#bind_left",
+        "default":"l"
+    }
+}

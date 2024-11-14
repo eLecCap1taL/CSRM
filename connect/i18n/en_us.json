@@ -1,0 +1,22 @@
+{
+    "#CFGSettings": "CFGSettings",
+    "#hzMsg": "msg printing",
+    "#hzMsg_team": "to team chat",
+    "#hzMsg_all": "to all chat",
+    "#hzMsg_console": "to console",
+    "#hzMsg_off": "off",
+    "#MotionSettings": "MotionSettings",
+    "#autostopW": "W autostop",
+    "#autostopS": "S autostop",
+    "#autostopD": "D autostop",
+    "#autostopA": "A autostop",
+    "#socdWS": "WS socd",
+    "#socdAD": "AD socd",
+    "#on": "ON",
+    "#off": "OFF",
+    "#bind_reset": "Reset",
+    "#bind_forward": "Forward",
+    "#bind_back": "Back",
+    "#bind_right": "Right",
+    "#bind_left": "Left"
+}
