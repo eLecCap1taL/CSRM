@@ -1,8 +1,8 @@
 {
-    "name" : "CSRM",
+    "name" : "Horizon",
     "website" : "cap1tal.top/CSRM",
-    "version" : "v2.6",
+    "version" : "v3.0",
     "connect" : "/connect/connect.json",
     "resource" : "/resource.zip",
-    "main" : "/Main.cfg"
+    "main" : "/load.cfg"
 }
