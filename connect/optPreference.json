@@ -120,6 +120,20 @@
                     }
                 },
                 "default":"off"
+            },
+            "autostopMsg":{
+                "text":"#autostopMsg",
+                "options":{
+                    "on":{
+                        "text":"#on",
+                        "value":"capMot_autostop_msg_on"
+                    },
+                    "off":{
+                        "text":"#off",
+                        "value":"capMot_autostop_msg_off"
+                    }
+                },
+                "default":"off"
             }
         }
     }
