@@ -20,5 +20,8 @@
     "#bind_forward": "Forward",
     "#bind_back": "Back",
     "#bind_right": "Right",
-    "#bind_left": "Left"
+    "#bind_left": "Left",
+    "#bind_score": "showscore",
+    "#bind_disableautostop_hold": "disable autostop(hold)",
+    "#bind_disableautostop_swit": "disable autostop(switch)"
 }
