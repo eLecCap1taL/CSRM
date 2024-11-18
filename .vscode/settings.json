@@ -1,0 +1,7 @@
+{
+    "files.associations": {
+        "*.hcfg": "CSGO cfg",
+        "*.cpp": "cpp",
+        "ostream": "cpp"
+    }
+}

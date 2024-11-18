@@ -134,6 +134,20 @@
                     }
                 },
                 "default":"off"
+            },
+            "fastshift":{
+                "text":"#fastshift",
+                "options":{
+                    "on":{
+                        "text":"#on",
+                        "value":"fastshift_enable"
+                    },
+                    "off":{
+                        "text":"#off",
+                        "value":"fastshift_disable"
+                    }
+                },
+                "default":"off"
             }
         }
     }

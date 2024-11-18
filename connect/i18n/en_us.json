@@ -24,5 +24,6 @@
     "#bind_score": "showscore",
     "#bind_disableautostop_hold": "disable autostop(hold)",
     "#bind_disableautostop_swit": "disable autostop(switch)",
-    "#autostopMsg": "autostop Message"
+    "#autostopMsg": "autostop Message",
+    "#fastshift": "Fastshift"
 }
