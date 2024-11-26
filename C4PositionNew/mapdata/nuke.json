@@ -1,0 +1,11 @@
+{
+    "name": "nuke/核子危机",
+    "min_x": -3470.92,
+    "max_x": 3735.95,
+    "min_y": -4341.90,
+    "max_y": 2969.96,
+    "image": "nuke.png",
+    "substructure": true,
+    "substructure_z": -500,
+    "substructure_image": "nuke_lower.png"
+}

@@ -1,0 +1,11 @@
+{
+    "name": "vertigo/殒命大厦",
+    "min_x": -3167.30,
+    "max_x": 917.05,
+    "min_y": -2326.32,
+    "max_y": 1757.81,
+    "image": "vertigo.png",
+    "substructure": true,
+    "substructure_z": 11711,
+    "substructure_image": "vertigo_lower.png"
+}

@@ -1,0 +1,11 @@
+{
+    "name": "map",
+    "version": "0.0.1",
+    "main": "test.html",
+    "window": {
+        "title": "map",
+        "width": 800,
+        "height": 800,
+        "position": "center"
+    }
+}

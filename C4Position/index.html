@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Map Viewer</title>
+    <link rel="stylesheet" href="/C4Position/styles.css">
+</head>
+
+<body>
+    <div id="container">
+        <div id="header">
+            <select id="mapSelect">
+                <option value="">选择地图</option>
+            </select>
+            <input type="text" id="inputText" placeholder="输入坐标">
+            <button onclick="processInput()">OK</button>
+        </div>
+        <div id="mapContainer">
+            <img id="mapImage" src="/C4Position/map/default.png" alt="Map">
+            <div id="dotContainer"></div>
+        </div>
+    </div>
+    <script src="/C4Position/script.js"></script>
+</body>
+
+</html>

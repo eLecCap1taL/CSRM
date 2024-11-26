@@ -1,0 +1,9 @@
+{
+    "name": "dust2/炙热沙城",
+    "min_x": -2460.87,
+    "max_x": 2005.50,
+    "min_y": -1260.48,
+    "max_y": 3201.47,
+    "image": "dust2.png",
+    "substructure": false
+}

@@ -1,0 +1,9 @@
+{
+    "name": "anubis/阿努比斯",
+    "min_x": -2795.00,
+    "max_x": 2534.37,
+    "min_y": -2004.59,
+    "max_y": 3309.80,
+    "image": "anubis.png",
+    "substructure": false
+}

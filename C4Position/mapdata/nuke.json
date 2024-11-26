@@ -1,0 +1,8 @@
+{
+    "name": "nuke",
+    "min_x": -3290,
+    "max_x": 3857.52,
+    "min_y": -5990,
+    "max_y": 1157.52,
+    "image": "nuke.png"
+}

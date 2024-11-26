@@ -1,0 +1,9 @@
+{
+    "name": "ancient/远古遗迹",
+    "min_x": -2934.05,
+    "max_x": 2157.08,
+    "min_y": -2987.92,
+    "max_y": 2199.89,
+    "image": "ancient.png",
+    "substructure": false
+}

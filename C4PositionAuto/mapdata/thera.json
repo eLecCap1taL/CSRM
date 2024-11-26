@@ -1,0 +1,11 @@
+{
+    "name": "thera/假日锡拉",
+    "min_x": -287.87,
+    "max_x": 4952.06,
+    "min_y": -2721.58,
+    "max_y": 2234.82,
+    "image": "thera.png",
+    "substructure": true,
+    "substructure_z": -38,
+    "substructure_image": "thera_lower.png"
+}

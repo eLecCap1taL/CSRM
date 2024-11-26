@@ -1,0 +1,135 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f0f0f0;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.container {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+h1 {
+    text-align: center;
+    color: #333;
+    font-size: 1.5em;
+    margin-bottom: 20px;
+}
+
+.controls {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+select,
+input,
+button {
+    padding: 10px;
+    font-size: 16px;
+    margin-bottom: 10px;
+    box-sizing: border-box;
+}
+
+#mapSelect {
+    width: 100%;
+}
+
+#inputText {
+    width: 70%;
+}
+
+button {
+    width: 28%;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #45a049;
+}
+
+#mapContainer {
+    position: relative;
+    width: 100%;
+    height: auto;
+    max-height: 80vh;
+    overflow: auto;
+}
+
+#mapImage,
+#substructureImage {
+    position: absolute;
+    pointer-events: none;
+    /* 允许点击穿透到下面的主地图 */
+    z-index: 1;
+    /* 确保在主地图之上 */
+
+    position: relative;
+    width: 100%;
+    height: auto;
+    max-height: 80vh;
+    object-fit: contain;
+}
+
+#dotContainer {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+}
+
+.dot {
+    position: absolute;
+    z-index: 1;
+    background-color: red;
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.error-message {
+    position: fixed;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #ff6b6b;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+    z-index: 1000;
+}
+
+/* 媒体查询 */
+@media screen and (min-width: 768px) {
+    h1 {
+        font-size: 2em;
+    }
+
+    .controls {
+        flex-wrap: nowrap;
+    }
+
+    #mapSelect {
+        width: 30%;
+    }
+
+    #inputText {
+        width: 40%;
+    }
+
+    button {
+        width: 25%;
+    }
+}

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSRM Map Viewer</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <div class="container">
+        <div class="controls">
+            <select id="mapSelect">
+                <option value="">选择地图</option>
+            </select>
+            <input type="text" id="inputText" placeholder="输入坐标">
+            <button onclick="processInput()">OK</button>
+        </div>
+        <div id="mapContainer">
+            <img id="mapImage" src="" alt="上层地图">
+            <img id="substructureImage" src="" alt="下层地图">
+            <div id="dotContainer"></div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+
+</html>

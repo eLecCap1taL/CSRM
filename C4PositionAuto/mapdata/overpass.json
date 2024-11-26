@@ -1,0 +1,9 @@
+{
+    "name": "overpass/死亡游乐园",
+    "min_x": -4845.36,
+    "max_x": 536.35,
+    "min_y": -3513.47,
+    "max_y": 1748.75,
+    "image": "overpass.png",
+    "substructure": false
+}

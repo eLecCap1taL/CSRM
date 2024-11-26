@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Map Coordinate System</title>
+    <style>
+        body {
+            display: flex;
+            font-family: Arial, sans-serif;
+        }
+
+        #controls {
+            width: 300px;
+            padding: 10px;
+        }
+
+        #canvas-container {
+            position: relative;
+        }
+
+        canvas {
+            border: 1px solid black;
+        }
+
+        #input-form {
+            margin-top: 20px;
+        }
+
+        input {
+            width: 80px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="controls">
+        <h2>Coordinates</h2>
+        <ul id="coordinate-list"></ul>
+        <div id="input-form">
+            <h3>Input Coordinates</h3>
+            <input type="number" id="input-x" placeholder="X">
+            <input type="number" id="input-y" placeholder="Y">
+            <button id="submit-coord">Submit</button>
+        </div>
+        <h3>Map Size:</h3>
+        <p id="map-size"></p>
+    </div>
+    <div id="canvas-container">
+        <canvas id="mapCanvas"></canvas>
+    </div>
+
+    <script>
+        const canvas = document.getElementById('mapCanvas');
+        const ctx = canvas.getContext('2d');
+        const coordinateList = document.getElementById('coordinate-list');
+        const mapSizeElement = document.getElementById('map-size');
+        const inputX = document.getElementById('input-x');
+        const inputY = document.getElementById('input-y');
+        const submitButton = document.getElementById('submit-coord');
+
+        const image = new Image();
+        image.src = '/C4PositionNew/map/dust2.png';
+        let clicks = 0;
+        const points = [];
+        let currentPoint = null;
+
+        image.onload = function () {
+            canvas.width = image.width;
+            canvas.height = image.height;
+            redrawCanvas();
+        };
+
+        canvas.addEventListener('click', function (event) {
+            if (clicks >= 4) return;
+
+            const rect = canvas.getBoundingClientRect();
+            const x = event.clientX - rect.left;
+            const y = event.clientY - rect.top;
+
+            currentPoint = { x, y };
+            redrawCanvas();
+        });
+
+        submitButton.addEventListener('click', function () {
+            if (currentPoint && inputX.value && inputY.value) {
+                const mapX = parseFloat(inputX.value);
+                const mapY = parseFloat(inputY.value);
+                points.push({ ...currentPoint, mapX, mapY });
+
+                const li = document.createElement('li');
+                li.textContent = `Point ${clicks + 1}: ${mapX}, ${mapY}`;
+                coordinateList.appendChild(li);
+
+                clicks++;
+                currentPoint = null;
+                inputX.value = '';
+                inputY.value = '';
+
+                redrawCanvas();
+
+                if (clicks === 4) {
+                    calculateMapSize();
+                }
+            }
+        });
+
+        function redrawCanvas() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            ctx.drawImage(image, 0, 0);
+
+            points.forEach((point, index) => {
+                drawPoint(point.x, point.y, `hsl(${index * 90}, 100%, 50%)`);
+            });
+
+            if (currentPoint) {
+                drawPoint(currentPoint.x, currentPoint.y, 'white');
+            }
+        }
+
+        function drawPoint(x, y, color) {
+            ctx.beginPath();
+            ctx.arc(x, y, 5, 0, 2 * Math.PI);
+            ctx.fillStyle = color;
+            ctx.fill();
+            ctx.strokeStyle = 'black';
+            ctx.stroke();
+        }
+
+        function calculateMapSize() {
+            // Calculate scale factors using least squares method
+            let sumXX = 0, sumYY = 0, sumXMap = 0, sumYMap = 0;
+            const avgX = points.reduce((sum, p) => sum + p.x, 0) / points.length;
+            const avgY = points.reduce((sum, p) => sum + p.y, 0) / points.length;
+            const avgMapX = points.reduce((sum, p) => sum + p.mapX, 0) / points.length;
+            const avgMapY = points.reduce((sum, p) => sum + p.mapY, 0) / points.length;
+
+            points.forEach(p => {
+                sumXX += (p.x - avgX) ** 2;
+                sumYY += (p.y - avgY) ** 2;
+                sumXMap += (p.x - avgX) * (p.mapX - avgMapX);
+                sumYMap += (p.y - avgY) * (p.mapY - avgMapY);
+            });
+
+            const scaleX = sumXMap / sumXX;
+            const scaleY = sumYMap / sumYY;
+
+            // Calculate map boundaries
+            const leftX = avgMapX - (avgX * scaleX);
+            const topY = avgMapY - (avgY * scaleY);
+            const rightX = leftX + (canvas.width * scaleX);
+            const bottomY = topY + (canvas.height * scaleY);
+
+            const mapWidth = Math.abs(rightX - leftX);
+            const mapHeight = Math.abs(bottomY - topY);
+
+            mapSizeElement.innerHTML = `Width: ${mapWidth.toFixed(2)}, Height: ${mapHeight.toFixed(2)}`;
+            mapSizeElement.innerHTML += `<br>X: ${leftX.toFixed(2)} to ${rightX.toFixed(2)}`;
+            mapSizeElement.innerHTML += `<br>Y: ${topY.toFixed(2)} to ${bottomY.toFixed(2)}`;
+        }
+    </script>
+</body>
+
+</html>

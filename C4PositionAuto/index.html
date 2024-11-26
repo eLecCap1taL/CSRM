@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSRM Map Viewer</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <div class="container">
+        <div class="controls">
+            <select id="mapSelect">
+                <option value="">选择地图</option>
+            </select>
+            <label for="ipInput">IP:</label>
+            <input type="text" id="ipInput" placeholder="localhost">
+            <label for="portInput">Port:</label>
+            <input type="text" id="portInput" placeholder="8000">
+            <button  onclick="connectWebSocket(1)">Connect</button>
+        </div>
+        <div id="mapContainer">
+            <img id="mapImage" src="" alt="上层地图">
+            <img id="substructureImage" src="" alt="下层地图">
+            <div id="dotContainer"></div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+
+</html>

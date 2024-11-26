@@ -1,0 +1,9 @@
+{
+    "name": "inferno/炼狱小镇",
+    "min_x": -2090.37,
+    "max_x": 2932.13,
+    "min_y": -1122.69,
+    "max_y": 3861.51,
+    "image": "inferno.png",
+    "substructure": false
+}

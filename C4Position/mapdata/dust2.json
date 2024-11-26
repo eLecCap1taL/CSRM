@@ -1,0 +1,8 @@
+{
+    "name": "dust2",
+    "min_x": -2600,
+    "max_x": 2035.6,
+    "min_y": -1255,
+    "max_y": 3250.6,
+    "image": "dust2.png"
+}

@@ -1,0 +1,9 @@
+{
+    "name": "mills/风情磨坊",
+    "min_x": -4803.80,
+    "max_x": 490.39,
+    "min_y": -5571.64,
+    "max_y": -310.00,
+    "image": "mills.png",
+    "substructure": false
+}

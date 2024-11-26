@@ -1,0 +1,8 @@
+{
+    "name": "mirage",
+    "min_x": -3240,
+    "max_x": 1900.48,
+    "min_y": -3410,
+    "max_y": 1730.48,
+    "image": "mirage.png"
+}

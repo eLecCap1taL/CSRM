@@ -1,0 +1,9 @@
+{
+    "name": "mirage/荒漠迷城",
+    "min_x": -3204.83,
+    "max_x": 1846.12,
+    "min_y": -3390.23,
+    "max_y": 1695.84,
+    "image": "mirage.png",
+    "substructure": false
+}
