@@ -29,62 +29,6 @@
     "MotionSettings":{
         "text":"#MotionSettings",
         "settings":{
-            "autostopW":{
-                "text":"#autostopW",
-                "options":{
-                    "on":{
-                        "text":"#on",
-                        "value":"capMot_autostopW_on"
-                    },
-                    "off":{
-                        "text":"#off",
-                        "value":"capMot_autostopW_off"
-                    }
-                },
-                "default":"on"
-            },
-            "autostopS":{
-                "text":"#autostopS",
-                "options":{
-                    "on":{
-                        "text":"#on",
-                        "value":"capMot_autostopS_on"
-                    },
-                    "off":{
-                        "text":"#off",
-                        "value":"capMot_autostopS_off"
-                    }
-                },
-                "default":"on"
-            },
-            "autostopD":{
-                "text":"#autostopD",
-                "options":{
-                    "on":{
-                        "text":"#on",
-                        "value":"capMot_autostopD_on"
-                    },
-                    "off":{
-                        "text":"#off",
-                        "value":"capMot_autostopD_off"
-                    }
-                },
-                "default":"on"
-            },
-            "autostopA":{
-                "text":"#autostopA",
-                "options":{
-                    "on":{
-                        "text":"#on",
-                        "value":"capMot_autostopA_on"
-                    },
-                    "off":{
-                        "text":"#off",
-                        "value":"capMot_autostopA_off"
-                    }
-                },
-                "default":"on"
-            },
             "mvkbWS":{
                 "text":"#mvkbWS",
                 "options":{
@@ -117,34 +61,6 @@
                     "null":{
                         "text":"#null",
                         "value":"capMot_mvkbAD_null"
-                    }
-                },
-                "default":"off"
-            },
-            "autostopMsg":{
-                "text":"#autostopMsg",
-                "options":{
-                    "on":{
-                        "text":"#on",
-                        "value":"capMot_autostop_msg_on"
-                    },
-                    "off":{
-                        "text":"#off",
-                        "value":"capMot_autostop_msg_off"
-                    }
-                },
-                "default":"off"
-            },
-            "fastshift":{
-                "text":"#fastshift",
-                "options":{
-                    "on":{
-                        "text":"#on",
-                        "value":"fastshift_enable"
-                    },
-                    "off":{
-                        "text":"#off",
-                        "value":"fastshift_disable"
                     }
                 },
                 "default":"off"

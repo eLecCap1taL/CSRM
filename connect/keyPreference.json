@@ -28,15 +28,5 @@
         "text":"#bind_score",
         "value":"+hzBind_score",
         "default":"tab"
-    },
-    "bind_disableautostop_hold":{
-        "text":"#bind_disableautostop_hold",
-        "value":"+capMot_autostop_disable",
-        "default":"key"
-    },
-    "bind_disableautostop_swit":{
-        "text":"#bind_disableautostop_swit",
-        "value":"capMot_autostop_switch",
-        "default":"key"
     }
 }
