@@ -2,8 +2,9 @@
 <html lang="zh">
 <head>
     <meta charset="UTF-8">
+    <link rel="icon" href="/images/dark.ico" type="image/x-icon">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>FPS档位计算器</title>
+    <title>帧率-急停档位 计算器</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -22,10 +23,18 @@
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
             width: 100%;
             max-width: 400px;
+            box-sizing: border-box;
         }
         h1 {
             text-align: center;
             color: #333;
+        }
+        .note {
+            font-size: 14px;
+            color: #555;
+            margin-top: 10px;
+            margin-bottom: 20px;
+            text-align: center;
         }
         .input-section {
             margin-bottom: 20px;
@@ -42,6 +51,7 @@
             font-size: 16px;
             border: 1px solid #ddd;
             border-radius: 5px;
+            box-sizing: border-box;
             margin-bottom: 10px;
         }
         .button {
@@ -72,11 +82,20 @@
 <body>
 
     <div class="container">
-        <h1>FPS档位计算器</h1>
+        <h1>帧率-急停档位 计算器</h1>
         
+        <div class="note">
+            <p>仅作为档位<b> 初始推荐 </b></p>
+            <p>你还需要根据<b> 自己的 </b>实际体验调整！</p>
+            <p>如果感觉急停<b> 不够快、滑步 </b>，请尝试使用<b> 更高档位</b></p>
+            <p>如果感觉急停时存在<b> 回拉 </b>，请尝试使用<b> 更低档位</b></p>
+            <p>每个人的最合适档位都可能不一样</p>
+            <p>你需要找到<b> 最适合自己的档位 </b></p>
+        </div>
+
         <div class="input-section">
-            <label for="fps-input">请输入FPS值：</label>
-            <input type="number" id="fps-input" placeholder="例如: 60">
+            <label for="fps-input">请输入帧率：</label>
+            <input type="number" id="fps-input" placeholder="例如: 300">
         </div>
         
         <button class="button" onclick="calculateRank()">计算档位</button>
@@ -86,31 +105,42 @@
 
     <script>
         function calculateRank() {
-            const fps = document.getElementById('fps-input').value;
+            const fps = parseFloat(document.getElementById('fps-input').value);
             const resultDiv = document.getElementById('result');
 
             if (!fps || fps <= 0) {
                 resultDiv.style.display = 'none';
-                alert('请输入有效的FPS值');
+                alert('请输入有效的帧数');
                 return;
             }
 
-            // 计算档位区间（这里可以添加具体的计算逻辑）
-            let rank = '';  // 根据FPS值计算档位区间
+            // 延迟数据点（按从大到小排序）
+            const delayPoints = [
+                31.25, 28.5, 26, 23.5, 21, 19.75, 18.5, 17.25, 16, 14.75, 13.5, 12.25, 10.5
+            ];
 
-            // 示例档位计算逻辑（此处可以根据需要修改）
-            if (fps >= 120) {
-                rank = '高档位：120+ FPS';
-            } else if (fps >= 60) {
-                rank = '中档位：60-119 FPS';
-            } else {
-                rank = '低档位：<60 FPS';
+            // 根据FPS计算延迟（这里是一个简单的示例公式，你可以替换成实际的计算公式）
+            const calculatedDelay = Math.ceil((9.0*fps)/1000.0)*(1000.0/fps)+(1000.0/fps);
+
+            // 找到最接近的延迟数据点
+            let closestDelay = delayPoints[0];
+            let closestRank = 1;  // 默认最接近的是第1档位
+            let minDifference = Math.abs(calculatedDelay - closestDelay);
+
+            for (let i = 1; i < delayPoints.length; i++) {
+                const difference = Math.abs(calculatedDelay - delayPoints[i]);
+                if (difference < minDifference) {
+                    closestDelay = delayPoints[i];
+                    closestRank = i + 1;  // 延迟数据点的排名就是第i+1档位
+                    minDifference = difference;
+                }
             }
 
-            // 显示结果
-            resultDiv.textContent = `您的档位区间为：${rank}`;
+            // 显示计算结果
+            resultDiv.textContent = `您的推荐档位为：${closestRank} 档`;
             resultDiv.style.display = 'block';
         }
+
     </script>
 
 </body>
