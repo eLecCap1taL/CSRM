@@ -3,6 +3,7 @@
         "*.hcfg": "CSGO cfg",
         "*.cpp": "cpp",
         "ostream": "cpp",
-        "iostream": "cpp"
+        "iostream": "cpp",
+        "iosfwd": "cpp"
     }
 }

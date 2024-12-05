@@ -10,7 +10,7 @@ void readFPS(){
 }
 vector<pair<int,int>> ls;
 void gen(int v,int idx,string f1,string s1,string s2){
-    int N=40;
+    int N=41;
 
     ofstream fout(format("list/{}/{}_{}.cfg",f1,idx,v));
 
