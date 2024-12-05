@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FPS档位计算器</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .container {
+            background-color: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 400px;
+        }
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+        .input-section {
+            margin-bottom: 20px;
+        }
+        .input-section label {
+            font-size: 16px;
+            color: #555;
+            margin-bottom: 8px;
+            display: block;
+        }
+        .input-section input {
+            width: 100%;
+            padding: 10px;
+            font-size: 16px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            margin-bottom: 10px;
+        }
+        .button {
+            display: block;
+            width: 100%;
+            padding: 10px;
+            font-size: 16px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .button:hover {
+            background-color: #45a049;
+        }
+        .result {
+            margin-top: 20px;
+            padding: 15px;
+            background-color: #f0f0f0;
+            border-radius: 5px;
+            font-size: 16px;
+            color: #333;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>FPS档位计算器</h1>
+        
+        <div class="input-section">
+            <label for="fps-input">请输入FPS值：</label>
+            <input type="number" id="fps-input" placeholder="例如: 60">
+        </div>
+        
+        <button class="button" onclick="calculateRank()">计算档位</button>
+
+        <div id="result" class="result"></div>
+    </div>
+
+    <script>
+        function calculateRank() {
+            const fps = document.getElementById('fps-input').value;
+            const resultDiv = document.getElementById('result');
+
+            if (!fps || fps <= 0) {
+                resultDiv.style.display = 'none';
+                alert('请输入有效的FPS值');
+                return;
+            }
+
+            // 计算档位区间（这里可以添加具体的计算逻辑）
+            let rank = '';  // 根据FPS值计算档位区间
+
+            // 示例档位计算逻辑（此处可以根据需要修改）
+            if (fps >= 120) {
+                rank = '高档位：120+ FPS';
+            } else if (fps >= 60) {
+                rank = '中档位：60-119 FPS';
+            } else {
+                rank = '低档位：<60 FPS';
+            }
+
+            // 显示结果
+            resultDiv.textContent = `您的档位区间为：${rank}`;
+            resultDiv.style.display = 'block';
+        }
+    </script>
+
+</body>
+</html>
