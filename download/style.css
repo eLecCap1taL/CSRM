@@ -1,0 +1,124 @@
+/* style.css */
+body {
+    margin: 0;
+    font-family: "Segoe UI", Arial, sans-serif;
+    background-color: #f7f9fc;
+    color: #333;
+}
+
+.container {
+    display: flex;
+    height: 100vh;
+}
+
+/* 左侧栏样式 */
+.sidebar {
+    width: 25%;
+    max-width: 250px;
+    background-color: #eaf3ff;
+    display: flex;
+    flex-direction: column;
+    border-right: 1px solid #d0e2f2;
+}
+
+.logo-section {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 15px;
+    background-color: #bcd4f7;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.logo {
+    height: 40px;
+    width: auto;
+    margin-right: 10px;
+}
+
+.project-name {
+    font-weight: bold;
+    font-size: 1.2rem;
+    color: #1c4e80;
+}
+
+.version-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    overflow-y: auto;
+    flex: 1;
+}
+
+.version-list li {
+    text-align: center;  /* 水平居中 */
+    padding: 10px 15px;
+    cursor: pointer;
+    color: #1c4e80;
+    border-bottom: 1px solid #d0e2f2;
+    transition: background-color 0.2s, color 0.2s;
+}
+
+.version-list li:hover {
+    background-color: #d5e8ff;
+    color: #103d61;
+}
+
+/* 右侧详细信息样式 */
+.details {
+    flex: 1;
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    background-color: #ffffff;
+    color: #333;
+    overflow-y: auto;
+}
+
+.notinit{
+    visibility: hidden;
+}
+
+.details h2 {
+    margin: 0 0 20px;
+    font-size: 1.8rem;
+    color: #103d61;
+}
+
+.log-container {
+    flex: 1;
+    overflow-y: auto;
+    max-height: 400px; /* 限制最大高度，内容不足时不显示滚动条 */
+    padding: 10px;
+    margin-bottom: 30px;
+    background-color: #f9f9f9;
+    border: 1px solid #d0e2f2;
+    border-radius: 5px;
+    width: 100%;
+}
+
+.log-container pre {
+    white-space: pre-wrap;
+    word-wrap: break-word;
+    margin: 0;
+}
+
+.download-btn {
+    padding: 10px 20px;
+    background-color: #1c4e80;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: 1rem;
+    transition: background-color 0.3s;
+}
+
+.download-btn:hover {
+    background-color: #103d61;
+}
+/* 禁用下划线 */
+a {
+    text-decoration: none;
+}
