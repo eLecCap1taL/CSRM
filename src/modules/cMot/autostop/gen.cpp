@@ -97,8 +97,8 @@ int main(){
         gen(FPS,idx,"RL","r","l");
         gen(FPS,idx,"FB","f","b");
 
-        fout<<format("alias cMot_autostopmode_{}_cmd \"exec Horizon/src/modules/cMot/FB/policy/{}_{};exec Horizon/src/modules/cMot/RL/policy/{}_{};alias cMotTicker_99ms_loadPolicy\"\n",idx,idx,FPS,idx,FPS);
-        fout<<format("alias cMot_autostopmode_{} alias cMotTicker_99ms_loadPolicy cMot_autostopmode_{}_cmd\n",idx,idx);
+        fout<<format("alias cMot_autostopmode_{}_cmd \"exec Horizon/src/modules/cMot/FB/policy/{}_{};exec Horizon/src/modules/cMot/RL/policy/{}_{};alias cMotTicker_120ms_loadPolicy\"\n",idx,idx,FPS,idx,FPS);
+        fout<<format("alias cMot_autostopmode_{} alias cMotTicker_120ms_loadPolicy cMot_autostopmode_{}_cmd\n",idx,idx);
     }
     return 0;
 }

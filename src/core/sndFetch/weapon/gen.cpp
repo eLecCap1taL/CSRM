@@ -18,7 +18,7 @@ int main() {
         ofstream fout(name+".cfg",ios::out);
         fout<<"echo [Weapon] "<<name<<endl;
         fout<<endl;
-        fout<<"fastshiftReg_unknown";
+        // fout<<"fastshiftReg_unknown";
         fout<<endl;
         fout<<endl;
         fout<<"alias hzSndFetch_curwp exec Horizon/src/core/sndFetch/weapon/"+name<<endl;
