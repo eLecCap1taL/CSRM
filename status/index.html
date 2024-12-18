@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>在线人数统计</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f5f5f5;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            height: 100vh;
+            overflow-y: scroll;
+        }
+
+        .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 100%;
+            padding-top: 50px;
+        }
+
+        .title {
+            font-size: 32px;
+            font-weight: bold;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .card {
+            background-color: #ffffff;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            padding: 30px;
+            margin: 20px;
+            width: 350px;
+            border-radius: 10px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .card-header {
+            font-size: 28px;
+            font-weight: bold;
+            text-align: center;
+        }
+
+        .card-body {
+            margin-top: 20px;
+        }
+
+        .card-body div {
+            margin-bottom: 10px;
+            font-size: 18px;
+        }
+
+        .card-footer {
+            font-size: 14px;
+            color: #777;
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .progress-bar-container {
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 10px;
+            height: 100%;
+            background-color: #e0e0e0;
+            border-radius: 5px;
+        }
+
+        .progress-bar {
+            width: 100%;
+            height: 0;
+            background-color: #4caf50;
+            border-radius: 5px;
+            transition: height 1s ease-out;
+        }
+
+        #map-stats-card {
+            height: auto;
+            max-height: none; 
+            width: 350px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="title">
+            在线人数统计
+        </div>
+
+        <div class="card">
+            <div class="card-header">
+                总在线人数
+            </div>
+            <div class="card-body">
+                <div>在线人数: <span id="total-online">0</span></div>
+            </div>
+            <div class="card-footer">
+                最后同步时间：<span id="last-sync-time">正在加载...</span>
+            </div>
+        </div>
+
+        <div id="map-stats-card" class="card">
+            <div class="card-header">
+                地图在线人数
+            </div>
+            <div class="card-body" id="map-stats">
+            </div>
+        </div>
+        <div class="progress-bar-container">
+            <div id="progress-bar" class="progress-bar"></div>
+        </div>
+    </div>
+
+    <script>
+        let ws = new WebSocket('ws://cs2.cap1tal.top:11452');
+        let lastSyncTime = Date.now();
+        let reconnectAttempts = 0;
+
+        const mapTranslations = {
+            "lobby": "大厅",
+            "de_dust2": "炙热沙城2",
+            "de_mirage": "荒漠迷城",
+            "de_inferno": "炼狱小镇",
+            "de_train": "列车停放站",
+            "de_overpass": "死亡游乐园",
+            "de_nuke": "核子危机",
+            "de_ancient": "远古遗迹",
+            "de_vertigo": "殒命大厦"
+        };
+        function updateUI(data) {
+            document.getElementById("total-online").textContent = data.number;
+
+            let mapStatsHtml = '';
+            for (let mapName in data.maps) {
+                const translatedMapName = mapTranslations[mapName] || mapName;
+                mapStatsHtml += `<div>${translatedMapName}: ${data.maps[mapName]}</div>`;
+            }
+            document.getElementById("map-stats").innerHTML = mapStatsHtml;
+
+            lastSyncTime = Date.now();
+            document.getElementById("last-sync-time").textContent = new Date(lastSyncTime).toLocaleTimeString();
+
+            document.getElementById("progress-bar").style.height = '0%';
+        }
+
+        function onMessage(event) {
+            const data = JSON.parse(event.data);
+            updateUI(data);
+
+            reconnectAttempts = 0;
+        }
+
+        function updateProgressBar() {
+            const elapsedTime = Date.now() - lastSyncTime;
+            progress = Math.min((elapsedTime / 15000) * 100, 100);
+
+            document.getElementById("progress-bar").style.height = progress + '%';
+
+            progress = Math.min((elapsedTime / 12000) * 100, 100);
+            const timeDifference = Date.now() - lastSyncTime;
+            let color = `rgb(${2.55*progress}, ${255 - 2.55*progress}, 0)`;
+            console.log(color)
+            document.getElementById("progress-bar").style.backgroundColor = color;
+        }
+
+        function connectWebSocket() {
+            ws = new WebSocket('ws://cs2.cap1tal.top:11452');
+
+            ws.onopen = function() {
+                console.log("WebSocket 已连接");
+            };
+
+            ws.onmessage = onMessage;
+
+            ws.onclose = function() {
+                console.log("WebSocket 连接关闭，尝试重新连接...");
+                reconnectAttempts++;
+                setTimeout(connectWebSocket, 10000);
+            };
+
+            ws.onerror = function(error) {
+                console.log("WebSocket 错误: ", error);
+            };
+        }
+
+        connectWebSocket();
+
+        setInterval(updateProgressBar, 200);
+
+        setInterval(() => {
+            if (ws.readyState === WebSocket.CLOSED || ws.readyState === WebSocket.CLOSING) {
+                console.log(`WebSocket 当前状态: 连接关闭，正在重连... 尝试次数: ${reconnectAttempts}`);
+            }
+        }, 10000);
+    </script>
+</body>
+</html>
