@@ -121,7 +121,7 @@
     </div>
 
     <script>
-        let ws = new WebSocket('ws://cs2.cap1tal.top:11452');
+        let ws = new WebSocket('wss://cs2.cap1tal.top:11452');
         let lastSyncTime = Date.now();
         let reconnectAttempts = 0;
 
@@ -168,12 +168,12 @@
             progress = Math.min((elapsedTime / 12000) * 100, 100);
             const timeDifference = Date.now() - lastSyncTime;
             let color = `rgb(${2.55*progress}, ${255 - 2.55*progress}, 0)`;
-            console.log(color)
+            // console.log(color)
             document.getElementById("progress-bar").style.backgroundColor = color;
         }
 
         function connectWebSocket() {
-            ws = new WebSocket('ws://cs2.cap1tal.top:11452');
+            ws = new WebSocket('wss://cs2.cap1tal.top:11452');
 
             ws.onopen = function() {
                 console.log("WebSocket 已连接");
