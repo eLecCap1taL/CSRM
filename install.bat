@@ -22,6 +22,9 @@ if /I "%CURRENT_FOLDER_NAME%" neq "%EXPECTED_FOLDER_NAME%" (
 
 cd ./cfg/Horizon/
 
+cd ./script
+copy /Y gamestate_integration_horizon.cfg "../../gamestate_integration_horizon.cfg"
+cd ../
 copy /Y Cap1taLB站独家免费.cfg "../Cap1taLB站独家免费.cfg"
 cd ../
 cd ../
