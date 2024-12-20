@@ -20,17 +20,15 @@ if /I "%CURRENT_FOLDER_NAME%" neq "%EXPECTED_FOLDER_NAME%" (
     exit /b 1
 )
 
-cd ./cfg/Horizon/
+if not exist "%~dp0..\..\..\cfg" (
+    mkdir "%~dp0..\..\..\cfg\"
+    echo GAMEROOT Does not exist... Created
+)
+copy "%~dp0src\modules\syncer\api\detect.cfg" "%~dp0..\..\..\cfg"
+xcopy "%~dp0script\cfg" "%~dp0..\" /Y /E
+xcopy "%~dp0resource" "%~dp0..\..\resource\" /Y /E
 
-cd ./script
-copy /Y gamestate_integration_horizon.cfg "../../gamestate_integration_horizon.cfg"
-cd ../
-copy /Y Cap1taLB站独家免费.cfg "../Cap1taLB站独家免费.cfg"
-cd ../
-cd ../
-xcopy .\cfg\Horizon\resource .\resource\ /Y /E
-
-cd ./cfg
+cd "%~dp0..\"
 
 setlocal enabledelayedexpansion
 
@@ -70,5 +68,6 @@ if /i not "!LAST_LINE_CONTENT!"=="exec Horizon/load" (
 echo Done
 echo 运行结束
 echo 按任意键关闭
+echo 此文件只是复制几个文件 方便操作 无任何风险 你可以关闭此窗口了
 
 pause
