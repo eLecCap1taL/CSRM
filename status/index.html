@@ -105,6 +105,9 @@
         <div class="title1">
             更新可能会滞后, 最长不超过半分钟
         </div>
+        <div class="title1">
+            若一直获取失败，可以尝试关闭本机的 VPN
+        </div>
 
         <div class="card">
             <div class="card-header">
@@ -131,10 +134,9 @@
     </div>
 
     <script>
-        let ws = new WebSocket('wss://cs2.cap1tal.top:11452');
         let lastSyncTime = Date.now();
         let reconnectAttempts = 0;
-
+    
         const mapTranslations = {
             "lobby": "大厅",
             "de_dust2": "炙热沙城2",
@@ -146,71 +148,55 @@
             "de_ancient": "远古遗迹",
             "de_vertigo": "殒命大厦"
         };
+    
         function updateUI(data) {
             document.getElementById("total-online").textContent = data.number;
-
+    
             let mapStatsHtml = '';
             for (let mapName in data.maps) {
                 const translatedMapName = mapTranslations[mapName] || mapName;
                 mapStatsHtml += `<div>${translatedMapName}: ${data.maps[mapName]}</div>`;
             }
             document.getElementById("map-stats").innerHTML = mapStatsHtml;
-
+    
             lastSyncTime = Date.now();
             document.getElementById("last-sync-time").textContent = new Date(lastSyncTime).toLocaleTimeString();
-
+    
             document.getElementById("progress-bar").style.height = '0%';
         }
-
-        function onMessage(event) {
-            const data = JSON.parse(event.data);
-            updateUI(data);
-
-            reconnectAttempts = 0;
+    
+        // 处理 HTTP GET 请求的响应
+        function fetchData() {
+            fetch("http://cs2.cap1tal.top:11451/status")
+                .then(response => response.json())
+                .then(data => {
+                    updateUI(data);
+                    reconnectAttempts = 0;
+                })
+                .catch(error => {
+                    console.error("获取数据时发生错误: ", error);
+                });
         }
-
+    
         function updateProgressBar() {
             const elapsedTime = Date.now() - lastSyncTime;
-            progress = Math.min((elapsedTime / 15000) * 100, 100);
-
+            let progress = Math.min((elapsedTime / 15000) * 100, 100);
+    
             document.getElementById("progress-bar").style.height = progress + '%';
-
+    
             progress = Math.min((elapsedTime / 12000) * 100, 100);
             const timeDifference = Date.now() - lastSyncTime;
             let color = `rgb(${2.55*progress}, ${255 - 2.55*progress}, 0)`;
-            // console.log(color)
             document.getElementById("progress-bar").style.backgroundColor = color;
         }
-
-        function connectWebSocket() {
-            ws = new WebSocket('wss://cs2.cap1tal.top:11452');
-
-            ws.onopen = function() {
-                console.log("WebSocket 已连接");
-            };
-
-            ws.onmessage = onMessage;
-
-            ws.onclose = function() {
-                console.log("WebSocket 连接关闭，尝试重新连接...");
-                reconnectAttempts++;
-                setTimeout(connectWebSocket, 10000);
-            };
-
-            ws.onerror = function(error) {
-                console.log("WebSocket 错误: ", error);
-            };
-        }
-
-        connectWebSocket();
-
+    
+        // 定期发送 HTTP GET 请求以获取服务器状态
+        fetchData()
+        setInterval(fetchData, 10000); // 每 10 秒获取一次数据
+    
+        // 更新进度条
         setInterval(updateProgressBar, 200);
-
-        setInterval(() => {
-            if (ws.readyState === WebSocket.CLOSED || ws.readyState === WebSocket.CLOSING) {
-                console.log(`WebSocket 当前状态: 连接关闭，正在重连... 尝试次数: ${reconnectAttempts}`);
-            }
-        }, 10000);
     </script>
+    
 </body>
 </html>
